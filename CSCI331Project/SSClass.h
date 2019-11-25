@@ -108,12 +108,12 @@ public:
 	   Creates external file
 	   Preconditions:   data file
 	   Postconditions:  returns true if file location exists, otherwise returns false */
-	bool createBlockRecordFile();
+	//bool createBlockRecordFile();
 	/*---------------------------------------------------------------------------
 	   inserts line by line into data
 	   Preconditions:   None
 	   Postconditions:  */
-	void insert(SSStruct s);
+	void insert(string s);
 	//---------------------------------------------------------------------------
 	// Searches for record 
 	// Preconditions:   None
@@ -149,10 +149,12 @@ bool SSClass::createIndexFile() {
 	Preconditions:   None
 	Postconditions:  None
 */
+/*
 bool SSClass::createBlockRecordFile() {
 	blockRecordFile.open("blockRecord.txt");
 	return blockRecord.is_open();
 }
+*/
 /*---------------------------------------------------------------------------
 	Default constructor
 	Preconditions:   None
@@ -188,7 +190,7 @@ void SSClass::insert(string s) {
 		return;
 	}
 	goToLine(indexFile, nextEmpty);
-	replace(s, nextEmpty);
+	//replace(s, nextEmpty);
 	insertZip(getZip(s), nextEmpty);
 	insertPlace(getPlace(s), nextEmpty);
 	insertState(getState(s), nextEmpty);
@@ -213,7 +215,7 @@ vector<unsigned> SSClass::search(string s, unsigned fieldNum) {
 void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create new one....    match found -> insert at index 1
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
 	if (stoi(secKeyZip.getEntry(i).getData()) == stoi(s)) {
@@ -238,7 +240,7 @@ void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create
 void SSClass::insertPlace(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyPlace.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
 	if (secKeyPlace.getEntry(i).getData() == s) {
@@ -262,7 +264,7 @@ void SSClass::insertPlace(string s, int rrn) {
 void SSClass::insertState(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyState.getItemCount() + 1)) && (secKeyState.getEntry(i).getData() < s); i++);
 	if (secKeyState.getEntry(i).getData() == s) {
@@ -286,7 +288,7 @@ void SSClass::insertState(string s, int rrn) {
 void SSClass::insertCounty(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyCounty.getItemCount() + 1)) && (secKeyCounty.getEntry(i).getData() < s); i++);
 	if (secKeyCounty.getEntry(i).getData() == s) {
@@ -310,7 +312,7 @@ void SSClass::insertCounty(string s, int rrn) {
 void SSClass::insertLat(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
 	if (stod(secKeyLat.getEntry(i).getData()) == stod(s)) {
@@ -334,7 +336,7 @@ void SSClass::insertLat(string s, int rrn) {
 void SSClass::insertLon(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
-	LinkedList<int> copyDup
+	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
 	if (stod(secKeyLon.getEntry(i).getData()) == stod(s)) {
@@ -360,7 +362,7 @@ void SSClass::goToLine(fstream& file, unsigned num) {
 	for (int i = 0; i < num - 1; ++i) {
 		file.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
-	return file;
+	//return file;
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -370,9 +372,9 @@ void SSClass::goToLine(fstream& file, unsigned num) {
 void SSClass::goToData(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
 	file.seekg(ios::beg);
 	string in;
-	in = file.getline();
+	getline(file, in);
 	while (in != "ENDOFHDR")
-		in = file.getline();
+		getline(file, in);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -382,7 +384,7 @@ void SSClass::goToData(fstream& file) { //puts cursor at the beginning of the da
 string SSClass::getZip(string s) { //use stoi(getZip(s)); to return int value
 	string returnValue;
 	for (int i = 0; i < ZIPSIZE; i++)
-		returnVal[i] = s[ZIPOFFSET + i];
+		returnValue[i] = s[ZIPOFFSET + i];
 	return returnValue;
 }
 /*---------------------------------------------------------------------------
@@ -391,10 +393,10 @@ string SSClass::getZip(string s) { //use stoi(getZip(s)); to return int value
 	Postconditions:
 */
 string SSClass::getPlace(string s) {
-	string returnVal;
+	string returnValue;
 	for (int i = 0; i < PLACESIZE; i++)
-		returnVal[i] = s[PLACEOFFSET + i];
-	return returnVal;
+		returnValue[i] = s[PLACEOFFSET + i];
+	return returnValue;
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -402,10 +404,10 @@ string SSClass::getPlace(string s) {
 	Postconditions:
 */
 string SSClass::getState(string s) {
-	string returnVal;
+	string returnValue;
 	for (int i = 0; i < STATESIZE; i++)
-		returnVal[i] = s[STATEOFFSET + i];
-	return returnVal;
+		returnValue[i] = s[STATEOFFSET + i];
+	return returnValue;
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -413,10 +415,10 @@ string SSClass::getState(string s) {
 	Postconditions:
 */
 string SSClass::getCounty(string s) {
-	string returnVal;
+	string returnValue;
 	for (int i = 0; i < COUNTYSIZE; i++)
-		returnVal[i] = s[COUNTYOFFSET + i];
-	return returnVal;
+		returnValue[i] = s[COUNTYOFFSET + i];
+	return returnValue;
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -426,7 +428,7 @@ string SSClass::getCounty(string s) {
 string SSClass::getLat(string s) { //use stod(getLat(s)); to return double value
 	string returnValue;
 	for (int i = 0; i < LATSIZE; i++)
-		returnVal[i] = s[LATOFFSET + i];
+		returnValue[i] = s[LATOFFSET + i];
 	return returnValue;
 }
 
@@ -438,7 +440,7 @@ string SSClass::getLat(string s) { //use stod(getLat(s)); to return double value
 string SSClass::getLon(string s) { //use stod(getLon(s)); to return double value
 	string returnValue;
 	for (int i = 0; i < LONSIZE; i++)
-		returnVal[i] = s[LONOFFSET + i];
+		returnValue[i] = s[LONOFFSET + i];
 	return returnValue;
 }
 
@@ -463,7 +465,8 @@ string SSClass::createUnusedLine(int next) { //pass in the integer value of the 
 /*
 bool SSClass::replace(string s, int line) { // To be able to replace a line in a text file, you have to write everything to a new file, with the updated line, then delete the previous file 
 	goToLine(indexFile, line);				// and rename the temperary file
-	strReplace = indexFile.getline();
+	string strReplace;
+	getline(indexFile, strReplace);
 	string strNew = s;
 	ofstream fileout("temp_file.txt"); //Temporary file
 	if (!fileout)
