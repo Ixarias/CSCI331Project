@@ -1,3 +1,7 @@
+
+#ifndef SSCLASS_
+#define SSCLASS_
+
 //---------------------------------------------------------------------------
 // SSClass.h
 // LinkedList integration for blocks, records, and fields 
@@ -23,6 +27,7 @@
 #include <fstream>
 #include <sstream>
 #include "LinkedList.h"
+#include "Node.h"
 #include "SecKeySS.h"
 
 using namespace std;
@@ -57,7 +62,7 @@ private:
 	LinkedList<SecKeySS> secKeyLat;
 	LinkedList<SecKeySS> secKeyLon;
 	fstream indexFile;
-	fstream blockRecordFile;
+	//fstream blockRecordFile;
 	void insertZip(string s, int rrn);
 	void insertPlace(string s, int rrn);
 	void insertState(string s, int rrn);
@@ -76,7 +81,7 @@ private:
 	//bool replace(string s);
 	//bool delete(int position);
 	string createUnusedLine(int next); //creates the string needed when removing a record
-	void populate(string s); //populates data from text file
+	void populate(); //populates data from text file
 
 public:
 	/*---------------------------------------------------------------------------
@@ -103,7 +108,7 @@ public:
 	   Creates external file
 	   Preconditions:   data file
 	   Postconditions:  returns true if file location exists, otherwise returns false */
-	bool createIndexFile();
+	//bool createIndexFile();
 	/*---------------------------------------------------------------------------
 	   Creates external file
 	   Preconditions:   data file
@@ -118,12 +123,16 @@ public:
 	// Searches for record 
 	// Preconditions:   None
 	// Postconditions: 
-	vector<unsigned> search(string s, unsigned fieldNum);
+	vector<int> search(string s, unsigned fieldNum);
+
+	int directionalSearch(string state, char direction);
 	/*---------------------------------------------------------------------------
 	   Fills secondary key vector
 	   Preconditions:   None
 	   Postconditions: */
+	string returnLine(int rrn);
 };
+
 /*---------------------------------------------------------------------------
 	Opens file
 	Preconditions:   File needs to be created
@@ -140,10 +149,12 @@ bool SSClass::openFile(string input) { //input is a file name
 	Preconditions:   None
 	Postconditions:  Object indexFile can be used
 */
+/*
 bool SSClass::createIndexFile() {
 	indexFile.open("index.txt");
 	return indexFile.is_open();
 }
+*/
 /*---------------------------------------------------------------------------
 	Creates block record file
 	Preconditions:   None
@@ -169,6 +180,16 @@ SSClass::SSClass() {
 	secKeyLat = LinkedList<SecKeySS>();
 	secKeyLon = LinkedList<SecKeySS>();
 	openFile("us_postal_codes.txt");
+}
+SSClass::~SSClass(){
+	secKeyZip.clear();
+	secKeyPlace.clear();
+	secKeyState.clear();
+	secKeyCounty.clear();
+	secKeyLat.clear();
+	secKeyLon.clear();
+	indexFile.close();
+	//blockRecord.close();
 }
 /*---------------------------------------------------------------------------
 	Insertion of records into both the index file as well as the linkedlist
@@ -203,7 +224,148 @@ void SSClass::insert(string s) {
 	Preconditions:   None
 	Postconditions:
 */
-vector<unsigned> SSClass::search(string s, unsigned fieldNum) {
+string SSClass::returnLine(int rrn) {
+	string returnVal;
+	goToLine(indexFile, rrn);
+	getline(indexFile, returnVal);
+	return returnVal;
+}
+
+
+vector<int> SSClass::search(string s, unsigned fieldNum) {
+	SecKeySS secCopy;
+	int i;
+	vector<int> results;
+	switch (fieldNum) {
+	case 1:
+	{
+		for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < s); i++);
+		if (stoi(secKeyZip.getEntry(i).getData()) == stoi(s)) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyZip.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	case 2:
+	{
+		for(i = 1; (i < (secKeyPlace.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
+		if ((secKeyPlace.getEntry(i).getData()) == (s)) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyPlace.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	case 3:
+	{
+		for (i = 1; (i < (secKeyState.getItemCount() + 1)) && (secKeyState.getEntry(i).getData() < s); i++);
+		if ((secKeyState.getEntry(i).getData()) == (s)) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyState.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	case 4:
+	{
+		for (i = 1; (i < (secKeyCounty.getItemCount() + 1)) && (secKeyCounty.getEntry(i).getData() < s); i++);
+		if ((secKeyCounty.getEntry(i).getData()) == (s)) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyCounty.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	case 5:
+	{
+		for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
+		if (stoi(secKeyLat.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyLat.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	case 6:
+	{
+		for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
+		if (stoi(secKeyLon.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+			LinkedList<int> toCopy = LinkedList<int>(secKeyLon.getEntry(i).getDuplicates());
+			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
+				results.push_back(toCopy.getEntry(j));
+			}
+		}
+	}
+	break;
+	}
+	return results;
+}
+int SSClass::directionalSearch(string stateS, char direction) {
+	direction = toupper(direction);
+	int i = 1;
+	int returnIndex = -1;
+	double highOrLow;
+	vector<int> state = search(stateS, 3);
+	switch (direction) {
+	case 'N':
+	{
+		returnIndex = state[0];
+		highOrLow = stod(getLat(returnLine(state[0])));
+		for (i; i < state.size(); i++) {
+			if (highOrLow < stod(getLat(returnLine(state[i])))) {
+				highOrLow = stod(getLat(returnLine(state[i])));
+				returnIndex = i;
+			}
+
+		}
+	}
+	break;
+	case 'E':
+	{
+		returnIndex = state[0];
+		highOrLow = stod(getLon(returnLine(state[0])));
+		for (i; i < state.size(); i++) {
+			if (highOrLow < stod(getLon(returnLine(state[i])))) {
+				highOrLow = stod(getLon(returnLine(state[i])));
+				returnIndex = i;
+			}
+		}
+		
+	}
+	break;
+	case 'S':
+	{
+		returnIndex = state[0];
+		highOrLow = stod(getLat(returnLine(state[0])));
+		for (i; i < state.size(); i++) {
+			if (highOrLow > stod(getLat(returnLine(state[i])))) {
+				highOrLow = stod(getLat(returnLine(state[i])));
+				returnIndex = i;
+			}
+		}
+		break;
+	}
+	case 'W':
+	{
+		returnIndex = state[0];
+		highOrLow = stod(getLon(returnLine(state[0])));
+		for (i; i < state.size(); i++) {
+			if (highOrLow > stod(getLon(returnLine(state[i])))) {
+				highOrLow = stod(getLon(returnLine(state[i])));
+				returnIndex = i;
+			}
+		}
+
+	}
+	break;
+	}
+	return returnIndex;
 
 }
 /*---------------------------------------------------------------------------
@@ -217,7 +379,7 @@ void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create
 	SecKeySS secCopy;
 	LinkedList<int> copyDup;
 		int i;
-	for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
+	for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < s); i++);
 	if (stoi(secKeyZip.getEntry(i).getData()) == stoi(s)) {
 		secCopy = secKeyZip.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
@@ -228,8 +390,8 @@ void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getZip());
-	secKeyZip.insert(i, s.getZip());
+	secCopy.setData(getZip(s));
+	secKeyZip.insert(i, secCopy);
 
 }
 /*---------------------------------------------------------------------------
@@ -253,8 +415,8 @@ void SSClass::insertPlace(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getPlace());
-	secKeyPlace.insert(i, s.getPlace());
+	secCopy.setData(getPlace(s));
+	secKeyPlace.insert(i, secCopy);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -277,8 +439,8 @@ void SSClass::insertState(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getState());
-	secKeyState.insert(i, s.getState());
+	secCopy.setData(getState(s));
+	secKeyState.insert(i, secCopy);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -301,8 +463,8 @@ void SSClass::insertCounty(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getCounty());
-	secKeyCounty.insert(i, s.getCounty());
+	secCopy.setData(getCounty(s));
+	secKeyCounty.insert(i, secCopy);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -315,7 +477,7 @@ void SSClass::insertLat(string s, int rrn) {
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
-	if (stod(secKeyLat.getEntry(i).getData()) == stod(s)) {
+	if (stoi(secKeyLat.getEntry(i).getData()) == static_cast<int>(stod(s))) {
 		secCopy = secKeyLat.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
 		copyDup.insert(1, rrn);
@@ -325,8 +487,8 @@ void SSClass::insertLat(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getLat());
-	secKeyLat.insert(i, s.getLat());
+	secCopy.setData(to_string(static_cast<int>(stod(getLat(s)))));
+	secKeyLat.insert(i, secCopy);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -339,7 +501,7 @@ void SSClass::insertLon(string s, int rrn) {
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
-	if (stod(secKeyLon.getEntry(i).getData()) == stod(s)) {
+	if (stoi(secKeyLon.getEntry(i).getData()) == static_cast<int>(stod(s))) {
 		secCopy = secKeyLon.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
 		copyDup.insert(1, rrn);
@@ -349,8 +511,8 @@ void SSClass::insertLon(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(s.getLon());
-	secKeyLon.insert(i, s.getLon());
+	secCopy.setData(to_string(static_cast<int>(stod(getLon(s)))));
+	secKeyLon.insert(i, secCopy);
 }
 /*---------------------------------------------------------------------------
 	Default constructor
@@ -450,7 +612,7 @@ string SSClass::getLon(string s) { //use stod(getLon(s)); to return double value
 	Postconditions:
 */
 string SSClass::createUnusedLine(int next) { //pass in the integer value of the next empty line
-	string unusedLine = next.int_to_string(next);
+	string unusedLine = to_string(next);
 	int i;
 	for (i = unusedLine.size(); i < CHARINLINE; i++) {
 		unusedLine += " ";
@@ -495,8 +657,7 @@ bool SSClass::replace(string s, int line) { // To be able to replace a line in a
 }
 */
 
-void SSClass::populate(string s) {
-	openFile(s);
+void SSClass::populate() {
 	goToData(indexFile);
 	string line;
 	while (!indexFile.eof()) {
@@ -504,3 +665,5 @@ void SSClass::populate(string s) {
 		insert(line);
 	}
 }
+
+#endif

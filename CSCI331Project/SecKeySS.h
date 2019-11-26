@@ -1,8 +1,8 @@
-#ifndef SecKeySS
-#define SecKeySS
+#ifndef SECKEYSS
+#define SECKEYSS
 
 #include "LinkedList.h"
-#include <string>
+//#include <string>
 
 using namespace std;
 
@@ -12,42 +12,38 @@ private:
 	LinkedList<int> duplicates;
 public:
 	SecKeySS();
-	SecKeySS(const SecKeySS& s);
+	SecKeySS( SecKeySS& s);
 	~SecKeySS();
-	string getData() const { return data; };
-	LinkedList<int> getDuplicates()const;
+	string getData() { return data; };
+	LinkedList<int> getDuplicates();
 	void setData(const string s) { data = s; };
-	void setDuplicates(const LinkedList<int> dup);
-	bool operator <(const string& s)const { return data < s; };
-	bool operator <(const SecKeySS& s)const { return data < s.getData; };
-	bool operator >(const string& s)const { return data > s; };
-	bool operator >(const SecKeySS& s)const { return data > s.getData; };
-	bool operator ==(const string& s)const { return data == s; };
-	bool operator ==(const SecKeySS& s)const { return data == s.getData; };
-	void operator = (const SecKeySS& s)const;
+	void setDuplicates( LinkedList<int> dup);
+	bool operator <(const string &s)const { return data < s; };
+	bool operator <(const SecKeySS& s)const { return data < s.data; };
+	bool operator >(const string &s)const { return data > s; };
+	bool operator >(const SecKeySS &s)const { return data > s.data; };
+	bool operator ==(const string &s)const { return data == s; };
+	bool operator ==(const SecKeySS &s)const { return data == s.data; };
+	void operator = (const SecKeySS &s);
 };
-SecKeySS::SecKeySS (const SecKeySS &s) { data = s.getData(); duplicates = LinkedList(s.getDuplicates()); }
-SecKeySS::SecKeySS () { duplicates = LinkedList<int>(); }
-SecKeySS::~SecKeySS () { ~duplicates(); }
+SecKeySS::SecKeySS (SecKeySS& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
+SecKeySS::SecKeySS () { }
+SecKeySS::~SecKeySS() { duplicates.clear(); }
 
-bool operator <(const string& s1, const SecKeySS& s2)const {
+bool operator <(const string s1, SecKeySS &s2) {
 	return s1 < s2.getData();
 }
-bool operator >(const string& s1, const SecKeySS& s2)const {
+bool operator >(const string s1, SecKeySS s2) {
 	return s1 > s2.getData();
 }
-bool operator ==(const string& s1, const SecKeySS& s2)const {
+bool operator ==(const string s1, SecKeySS s2) {
 	return s1 == s2.getData();
 }
-void SecKeySS::operator = (const SecKeySS& s)const {
-	s.data = data;
-	int temp;
-	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
-		temp = duplicates.getEntry(i);
-		s.insert(i, temp);
-	}
+void SecKeySS::operator = (const SecKeySS &s){
+	data = s.data;
+	duplicates = s.duplicates;
 }
-LinkedList SecKeySS::getDuplicates() const {
+LinkedList<int> SecKeySS::getDuplicates()  {
 	LinkedList<int> list;
 	int temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
@@ -56,7 +52,7 @@ LinkedList SecKeySS::getDuplicates() const {
 	}
 	return list;
 }
-void SecKeySS::setDuplicates(const LinkedList<int> list) {
+void SecKeySS::setDuplicates(LinkedList<int> list) {
 	int temp;
 	duplicates.clear();
 	for (int i = 1; i < list.getItemCount() + 1; i++) {
