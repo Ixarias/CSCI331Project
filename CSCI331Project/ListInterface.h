@@ -14,7 +14,7 @@ public:
    /** Gets the current number of entries in this list.
     @return The integer number of entries currently in the list. */
    virtual int getLength() const = 0;
-   
+   virtual int getItemCount() const = 0;
    /** Inserts an entry into this list at a given position.
     @pre  None.
     @post  If 1 <= position <= getLength() + 1 and the insertion is
@@ -33,7 +33,7 @@ public:
        items are renumbered accordingly, and the returned value is true.
     @param position  The list position of the entry to remove.
     @return  True if removal is successful, or false if not. */
-   virtual void remove(int position, int used, int unused) = 0;
+   //virtual void remove(int position) = 0;
    virtual bool deletion(int position) = 0;
    /** Removes all entries from this list.
     @post  List contains no entries and the count of items is 0. */
@@ -44,7 +44,7 @@ public:
     @post  The desired entry has been returned.
     @param position  The list position of the desired entry.
     @return  The entry at the given position. */
-   virtual ItemType getEntry(int position) = 0;
+   virtual ItemType getEntry(int position) const = 0;
    
    /** Replaces the entry at the given position in this list.
     @pre  1 <= position <= getLength().

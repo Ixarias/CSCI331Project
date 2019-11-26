@@ -11,11 +11,11 @@ private:
 	string data;
 	LinkedList<int> duplicates;
 public:
-	SecKeySS();
-	SecKeySS( SecKeySS& s);
+	SecKeySS() { duplicates = LinkedList<int>(); };
+	SecKeySS(const SecKeySS& s);
 	~SecKeySS();
-	string getData() { return data; };
-	LinkedList<int> getDuplicates();
+	string getData() const { return data; };
+	LinkedList<int> getDuplicates()const;
 	void setData(const string s) { data = s; };
 	void setDuplicates( LinkedList<int> dup);
 	bool operator <(const string &s)const { return data < s; };
@@ -26,8 +26,7 @@ public:
 	bool operator ==(const SecKeySS &s)const { return data == s.data; };
 	void operator = (const SecKeySS &s);
 };
-SecKeySS::SecKeySS (SecKeySS& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
-SecKeySS::SecKeySS () { }
+SecKeySS::SecKeySS(const SecKeySS& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
 SecKeySS::~SecKeySS() { duplicates.clear(); }
 
 bool operator <(const string s1, SecKeySS &s2) {
@@ -43,7 +42,7 @@ void SecKeySS::operator = (const SecKeySS &s){
 	data = s.data;
 	duplicates = s.duplicates;
 }
-LinkedList<int> SecKeySS::getDuplicates()  {
+LinkedList<int> SecKeySS::getDuplicates() const {
 	LinkedList<int> list;
 	int temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {

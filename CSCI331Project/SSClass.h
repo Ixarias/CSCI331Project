@@ -29,6 +29,7 @@
 #include "LinkedList.h"
 #include "Node.h"
 #include "SecKeySS.h"
+#include "ListInterface.h"
 
 using namespace std;
 
@@ -89,6 +90,7 @@ public:
 	   Preconditions:   None
 	   Postconditions:  */
 	SSClass();
+	SSClass(const SSClass& ss);
 	/*---------------------------------------------------------------------------
 	   Default destructor
 	   Preconditions:   None
@@ -173,12 +175,18 @@ bool SSClass::createBlockRecordFile() {
 */
 SSClass::SSClass() {
 	numRecords = 0;
-	secKeyZip = LinkedList<SecKeySS>();
-	secKeyPlace = LinkedList<SecKeySS>();
-	secKeyState = LinkedList<SecKeySS>();
-	secKeyCounty = LinkedList<SecKeySS>();
-	secKeyLat = LinkedList<SecKeySS>();
-	secKeyLon = LinkedList<SecKeySS>();
+	openFile("us_postal_codes.txt");
+}
+SSClass::SSClass(const SSClass& ss) {
+	numLinesIndex = ss.numLinesIndex;
+	numRecords = ss.numRecords;
+	nextEmpty = ss.nextEmpty;
+	secKeyZip = ss.secKeyZip;
+	secKeyPlace= ss.secKeyPlace;
+	secKeyState = ss.secKeyState;
+	secKeyCounty = ss.secKeyCounty;
+	secKeyLat = ss.secKeyLat;
+	secKeyLon = ss.secKeyLon;
 	openFile("us_postal_codes.txt");
 }
 SSClass::~SSClass(){

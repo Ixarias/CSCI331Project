@@ -34,14 +34,15 @@ public:
    bool isEmpty() const;
    int getLength() const;
    bool insert(int newPosition, const ItemType& newEntry);
-   void remove(int position, int used, int unused);
+   //void remove(int position);
    bool deletion(int position);
    void clear();
-   int getItemCount();
+   int getItemCount() const;
+   LinkedList<ItemType>& operator = (const LinkedList<ItemType>& rhs);
 
    /** @throw PrecondViolatedExcep if position < 1 or 
                                       position > getLength(). */
-   ItemType getEntry(int position); 
+   ItemType getEntry(int position) const; 
 
    /** @throw PrecondViolatedExcep if position < 1 or 
                                       position > getLength(). */

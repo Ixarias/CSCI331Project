@@ -1,8 +1,11 @@
 #include <fstream>
 #include <iostream>
 #include "SSClass.h"
+
 #include "LinkedList.h"
+#include "LinkedList.cpp"
 #include "Node.h"
+#include "Node.cpp"
 #include "SecKeySS.h"
 
 using namespace std;

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
   
 using namespace std;
 
@@ -95,8 +96,9 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
    return ableToInsert;
 }  // end inser
 
+/*
 template<class ItemType>
-void LinkedList<ItemType>::remove(int position, int used, int unused)
+void LinkedList<ItemType>::remove(int position)
 {
 	   bool ableToNull = (position >= 1) && (position <= itemCount);
 	   if (ableToNull)
@@ -107,7 +109,7 @@ void LinkedList<ItemType>::remove(int position, int used, int unused)
 	
 
 }  // end remove
-
+*/
 template<class ItemType>
 bool LinkedList<ItemType>::deletion(int position)
 {
@@ -150,7 +152,7 @@ void LinkedList<ItemType>::clear()
 
 
 template<class ItemType>
-ItemType LinkedList<ItemType>::getEntry(int position)//const throw(PrecondViolatedExcep)
+ItemType LinkedList<ItemType>::getEntry(int position) const//const throw(PrecondViolatedExcep)
 {
    bool ableToGet = (position > 0) && (position <= itemCount);
    if (ableToGet)
@@ -160,7 +162,7 @@ ItemType LinkedList<ItemType>::getEntry(int position)//const throw(PrecondViolat
    }
    else
    {
-	   return NULL;
+	   return ItemType();
 	   //throw(PrecondViolatedExcep(message)); 
    }  // end if
 }  // end getEntr
@@ -196,7 +198,7 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 //  End of implementation file.
 
 template<class ItemType>
-int LinkedList<ItemType>::getItemCount()
+int LinkedList<ItemType>::getItemCount() const
 {
 	return itemCount;
 }
@@ -209,4 +211,11 @@ ItemType LinkedList<ItemType>::displayList()
 		Node<ItemType>* nodePtr = getNodeAt(i);
 		return nodePtr->getItem();
 	}
+}
+template<class ItemType>
+LinkedList<ItemType>& LinkedList<ItemType>::operator = (const LinkedList<ItemType>& rhs) 
+{
+    LinkedList<ItemType> temp(rhs);
+    swap(temp.headPtr, headPtr);
+    return *this;
 }
