@@ -1,5 +1,10 @@
-
-
+/***************************************************************************//**
+* \class LinkedList LinkedList.h "LinkedList.h"
+* \brief This is LinkedList class creating a list of linked nodes.
+*
+* This class is to create a linked list of nodes. The nodes are of type template
+* ItemType, item and a Node pointer of item type, next.
+*******************************************************************************/
 #ifndef LINKED_LIST_
 #define LINKED_LIST_
 
@@ -16,7 +21,7 @@ class LinkedList : public ListInterface<ItemType>
 private:
    Node<ItemType>* headPtr; // Pointer to first node in the chain;
    // (contains the first entry in the list)
-   int itemCount; // Current count of list items
+   int itemCount; // Current count of list items   
    // Locates a specified node in this linked list.
    // @pre  position is the number of the desired node;
    //       position >= 1 and position <= itemCount.

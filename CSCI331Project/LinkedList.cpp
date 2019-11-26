@@ -1,5 +1,3 @@
-
-
 #include "LinkedList.h"  // Header file
 #include "Node.h"
 //#include "PrecondViolatedExcep.h"
@@ -12,11 +10,20 @@
   
 using namespace std;
 
+//! LinkedList default constructor
+/*!
+    Sets headptr to null and itemCount to 0.
+*/
 template<class ItemType>
 LinkedList<ItemType>::LinkedList() : headPtr(NULL), itemCount(0)
 {
 }  // end default constructor
 
+//! LinkedList constructor
+/*!
+    A copy constructor with one argumet passed, aList. 
+    \param aLsit a refrence to a list
+*/
 template<class ItemType>
 LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(aList.itemCount)
 {
@@ -55,24 +62,46 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(
    }  // end if
 }  // end copy constructor
 
+//! LinkedList deconstructor
+/*!
+    A deconstructor to clear a LinkedList
+*/
 template<class ItemType>
 LinkedList<ItemType>::~LinkedList()
 {
    clear();
 }  // end destructor
 
+//! Memebr function to check if a LinkedList is empty
+/*!
+    Checks and returns a boolean value if the list is true or not
+    \return itemCount == 0 returns 1 if the LinkedList is empty, 0 otherwise.
+*/
 template<class ItemType>
 bool LinkedList<ItemType>::isEmpty() const
 {
    return itemCount == 0;
 }  // end isEmpty
 
+//! Member function to get the length of the LinkedList
+/*!
+    \return itemCount the length (count of items)  of the LinkedList
+*/
 template<class ItemType>
 int LinkedList<ItemType>::getLength() const
 {
    return itemCount;
 }  // end getLength
 
+//! Memebr function to insert a new item into a  Node of a LinkedList
+/*!
+    \param newPosition a node position to insert a item into
+    \param newEntry a reference to an item of itemType to be inserted into 
+           the Node.
+    \return ableToInsert if newEntry can be inserted into the Node at newPosition
+    \pre newPosition >= 1
+    \pre newPosition <= itemCount + 1
+*/
 template<class ItemType>
 bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
 {
@@ -110,6 +139,13 @@ void LinkedList<ItemType>::remove(int position)
 
 }  // end remove
 */
+
+//! Member function for deletion of a Node
+/*!
+    \param position the position of te Node to be removed
+    \return ableToRemove returns true if the Node is a valid Node.
+    \pre To be a valid Node to remove, psition >= 1 and position <= itemCount
+*/
 template<class ItemType>
 bool LinkedList<ItemType>::deletion(int position)
 {
@@ -140,8 +176,10 @@ bool LinkedList<ItemType>::deletion(int position)
    return ableToRemove;
 }  // end remove
 
-
-
+//! Memebr Fucntion to clear a LinkedList
+/*!
+    Removes 1 Node at a time while the LinkedList is not Empty
+*/
 template<class ItemType>
 void LinkedList<ItemType>::clear()
 {
@@ -149,8 +187,12 @@ void LinkedList<ItemType>::clear()
       remove(1);
 }  // end clear
 
-
-
+//! Memebr function to get (return) an entry at a position
+/*!
+    \param position the position of a Node to return anItem
+    \return nodePtr->getItem() an item at the position, position.
+    \pre position > 0 and position <= itemCount
+*/
 template<class ItemType>
 ItemType LinkedList<ItemType>::getEntry(int position) const//const throw(PrecondViolatedExcep)
 {
@@ -166,6 +208,12 @@ ItemType LinkedList<ItemType>::getEntry(int position) const//const throw(Precond
 	   //throw(PrecondViolatedExcep(message)); 
    }  // end if
 }  // end getEntr
+
+//! Member function to replace an item at a position
+/*!
+    \param position the position of the Node whos item will be replaced
+    \param newEntry the new entery to replace the old entry of a Node
+*/
 template<class ItemType>
 void LinkedList<ItemType>::replace(int position, const ItemType& newEntry)// throw(PrecondViolatedExcep)
 {
@@ -182,6 +230,15 @@ void LinkedList<ItemType>::replace(int position, const ItemType& newEntry)// thr
    }  // end if
 }  // end replace
 
+
+//! Locates a specified node in this linked list.
+/*!
+    \pre  position is the number of the desired node. position >= 1 and 
+	  position <= itemCount.
+    \post  The node is found and a pointer to it is returned.
+    \param position  The number of the node to locate.
+    \return  A pointer to the node at the given position.
+*/
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 {
@@ -197,12 +254,21 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 }  // end getNodeAt
 //  End of implementation file.
 
+//! Member function to get the item count
+/*! 
+    /return itemCount the count of items in the LinkedList
+*/
 template<class ItemType>
 int LinkedList<ItemType>::getItemCount() const
 {
 	return itemCount;
 }
 
+//! Member function to display the list
+/*!
+    Displays the list by returing one Node item at a time
+    \return nodePtr->getItem() an item at a node
+*/
 template<class ItemType>
 ItemType LinkedList<ItemType>::displayList()
 {
@@ -212,6 +278,12 @@ ItemType LinkedList<ItemType>::displayList()
 		return nodePtr->getItem();
 	}
 }
+
+//! operator function =
+/*!
+    \param rhs referance to a LinkedList
+    \return *this a pointer to the LinkedList
+*/
 template<class ItemType>
 LinkedList<ItemType>& LinkedList<ItemType>::operator = (const LinkedList<ItemType>& rhs) 
 {
