@@ -1,0 +1,33 @@
+\indexentry{Linked\+List$<$ Item\+Type $>$@{Linked\+List$<$ Item\+Type $>$}|hyperpage}{7}
+\indexentry{List\+Interface$<$ Item\+Type $>$@{List\+Interface$<$ Item\+Type $>$}|hyperpage}{7}
+\indexentry{List\+Interface@{List\+Interface}!clear@{clear}|hyperpage}{8}
+\indexentry{clear@{clear}!List\+Interface@{List\+Interface}|hyperpage}{8}
+\indexentry{List\+Interface@{List\+Interface}!deletion@{deletion}|hyperpage}{8}
+\indexentry{deletion@{deletion}!List\+Interface@{List\+Interface}|hyperpage}{8}
+\indexentry{List\+Interface@{List\+Interface}!get\+Entry@{get\+Entry}|hyperpage}{8}
+\indexentry{get\+Entry@{get\+Entry}!List\+Interface@{List\+Interface}|hyperpage}{8}
+\indexentry{List\+Interface@{List\+Interface}!get\+Length@{get\+Length}|hyperpage}{9}
+\indexentry{get\+Length@{get\+Length}!List\+Interface@{List\+Interface}|hyperpage}{9}
+\indexentry{List\+Interface@{List\+Interface}!insert@{insert}|hyperpage}{9}
+\indexentry{insert@{insert}!List\+Interface@{List\+Interface}|hyperpage}{9}
+\indexentry{List\+Interface@{List\+Interface}!is\+Empty@{is\+Empty}|hyperpage}{11}
+\indexentry{is\+Empty@{is\+Empty}!List\+Interface@{List\+Interface}|hyperpage}{11}
+\indexentry{List\+Interface@{List\+Interface}!replace@{replace}|hyperpage}{11}
+\indexentry{replace@{replace}!List\+Interface@{List\+Interface}|hyperpage}{11}
+\indexentry{Node$<$ Item\+Type $>$@{Node$<$ Item\+Type $>$}|hyperpage}{12}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{12}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{12}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{13}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{13}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{13}
+\indexentry{Node@{Node}!Node@{Node}|hyperpage}{13}
+\indexentry{Node@{Node}!get\+Item@{get\+Item}|hyperpage}{14}
+\indexentry{get\+Item@{get\+Item}!Node@{Node}|hyperpage}{14}
+\indexentry{Node@{Node}!get\+Next@{get\+Next}|hyperpage}{14}
+\indexentry{get\+Next@{get\+Next}!Node@{Node}|hyperpage}{14}
+\indexentry{Node@{Node}!set\+Item@{set\+Item}|hyperpage}{14}
+\indexentry{set\+Item@{set\+Item}!Node@{Node}|hyperpage}{14}
+\indexentry{Node@{Node}!set\+Next@{set\+Next}|hyperpage}{15}
+\indexentry{set\+Next@{set\+Next}!Node@{Node}|hyperpage}{15}
+\indexentry{Sec\+Key\+SS@{Sec\+Key\+SS}|hyperpage}{15}
+\indexentry{S\+S\+Class@{S\+S\+Class}|hyperpage}{16}
