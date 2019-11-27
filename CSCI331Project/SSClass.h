@@ -2,24 +2,23 @@
 #ifndef SSCLASS_
 #define SSCLASS_
 
-//---------------------------------------------------------------------------
-// SSClass.h
-// LinkedList integration for blocks, records, and fields 
-// Authors: Jordan Bremer, ..., ..., ..., ...
-//---------------------------------------------------------------------------
-// Sequence Set class:  
-//   -- allows for insert and deletion of linked list
-//   -- populates secondary keys
-//   -- allows for searching of said linked list
-//   -- ability to return city, state, county, lattitude, longitude, zip, and
-// lower and upper indicies 
-//   -- ability to input a txt file and populate it's contents 
-//
-// Implementation and assumptions:
-//   -- size defaults are listed towards the top of the program
-//   -- array/vector elements are initialized to zero
-//---------------------------------------------------------------------------
+//! \class SSClass  SSClass.h "SSClass.h"
+/*!
+     LinkedList integration for blocks, records, and fields 
+    \authors Jordan Bremer, Melvin Schmid, ..., ..., ...
 
+   Sequence Set class:  
+     -- allows for insert and deletion of linked list
+     -- populates secondary keys
+     -- allows for searching of said linked list
+     -- ability to return city, state, county, lattitude, longitude, zip, and
+   lower and upper indicies 
+     -- ability to input a txt file and populate it's contents 
+  
+   Implementation and assumptions:
+     -- size defaults are listed towards the top of the program
+     -- array/vector elements are initialized to zero
+*/
 
 #include <iostream>
 #include <string>
@@ -33,13 +32,27 @@
 
 using namespace std;
 
+//! \brief NUMSECKEYS The numebr of section keys
 const int NUMSECKEYS = 6;
+
+//! \brief ZIPSIZE The size of the zip code
 const int ZIPSIZE = 6;
+
+//! \brief PLACESIZE The size of the place (city) 
 const int PLACESIZE = 31;
+
+//! \brief STATESIZE The size of the sate letters 
 const int STATESIZE = 2;
+
+//! \brief COUNTYSIZE The size of letters for the county 
 const int COUNTYSIZE = 36;
+
+//! \brief LATSIZE The size of the Lattatude 
 const int LATSIZE = 9;
+
+//! \brief LONSIZE The size (including sign) of the longitude
 const int LONSIZE = 10;
+ 
 const int ZIPOFFSET = 0;
 const int PLACEOFFSET = ZIPSIZE - 1;
 const int STATEOFFSET = PLACEOFFSET + PLACESIZE;
@@ -85,26 +98,27 @@ private:
 	void populate(); //populates data from text file
 
 public:
-	/*---------------------------------------------------------------------------
-	   Default constructor
-	   Preconditions:   None
-	   Postconditions:  */
+	//! Default constructor
 	SSClass();
+
+	//! Constructor
 	SSClass(const SSClass& ss);
-	/*---------------------------------------------------------------------------
-	   Default destructor
-	   Preconditions:   None
-	   Postconditions:  */
+	
+	//! Deconstructor
 	~SSClass();
-	/*---------------------------------------------------------------------------
-	   Check if numRecords is 0
-	   Preconditions:   None
-	   Postconditions:  returns false if empty, otherwise returns true */
+
+	//! Check if numRecords is 0
+	/*!
+	     \return  returns false if empty, otherwise returns true
+	*/
 	bool isEmpty() { return numRecords == 0; };
-	/*---------------------------------------------------------------------------
-	   Opens external file
-	   Preconditions:   data file
-	   Postconditions:  returns true if file location exists, otherwise returns false*/
+
+	//! Opens external file
+	/*!
+	    \param input string
+	    \pre  data file
+	    \return true if file location exists, otherwise returns false
+	*/
 	bool openFile(string input);
 	/*---------------------------------------------------------------------------
 	   Creates external file
@@ -116,22 +130,33 @@ public:
 	   Preconditions:   data file
 	   Postconditions:  returns true if file location exists, otherwise returns false */
 	//bool createBlockRecordFile();
-	/*---------------------------------------------------------------------------
-	   inserts line by line into data
-	   Preconditions:   None
-	   Postconditions:  */
+	   
+	//! inserts line by line into data
+	/*!
+	    \param s a string to insert
+	*/
 	void insert(string s);
-	//---------------------------------------------------------------------------
-	// Searches for record 
-	// Preconditions:   None
-	// Postconditions: 
+	
+	//! Searches for record 
+	/*!
+	    \param s strign to search for
+	    \parm fieldNum the field in whitch to search
+	    \return vector of results
+	*/
 	vector<int> search(string s, unsigned fieldNum);
 
+	//! Searches directly (N, S, W, E)
+	/*!
+	    \param state the state to search
+	    \param direction (N, S, W, E) 
+	*/
 	int directionalSearch(string state, char direction);
-	/*---------------------------------------------------------------------------
-	   Fills secondary key vector
-	   Preconditions:   None
-	   Postconditions: */
+	
+	//! Fills secondary key vector
+	/*! 
+	    \param rrn and integer refring to the line to get
+	*/
+	
 	string returnLine(int rrn);
 };
 

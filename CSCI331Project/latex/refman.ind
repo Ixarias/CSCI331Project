@@ -7,6 +7,8 @@
 
   \item {deletion}
     \subitem {List\+Interface}, \hyperpage{8}
+  \item {directional\+Search}
+    \subitem {S\+S\+Class}, \hyperpage{16}
 
   \indexspace
 
@@ -23,8 +25,10 @@
 
   \item {insert}
     \subitem {List\+Interface}, \hyperpage{9}
+    \subitem {S\+S\+Class}, \hyperpage{17}
   \item {is\+Empty}
     \subitem {List\+Interface}, \hyperpage{11}
+    \subitem {S\+S\+Class}, \hyperpage{18}
 
   \indexspace
 
@@ -51,12 +55,27 @@
 
   \indexspace
 
+  \item {open\+File}
+    \subitem {S\+S\+Class}, \hyperpage{18}
+
+  \indexspace
+
   \item {replace}
     \subitem {List\+Interface}, \hyperpage{11}
+  \item {return\+Line}
+    \subitem {S\+S\+Class}, \hyperpage{19}
 
   \indexspace
 
   \item {S\+S\+Class}, \hyperpage{16}
+    \subitem {directional\+Search}, \hyperpage{16}
+    \subitem {insert}, \hyperpage{17}
+    \subitem {is\+Empty}, \hyperpage{18}
+    \subitem {open\+File}, \hyperpage{18}
+    \subitem {return\+Line}, \hyperpage{19}
+    \subitem {search}, \hyperpage{19}
+  \item {search}
+    \subitem {S\+S\+Class}, \hyperpage{19}
   \item {Sec\+Key\+SS}, \hyperpage{15}
   \item {set\+Item}
     \subitem {Node}, \hyperpage{14}
