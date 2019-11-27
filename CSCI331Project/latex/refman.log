@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.26)  26 NOV 2019 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.26)  26 NOV 2019 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1399,22 +1399,28 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
 (Font)              using `T1/pcr/m/n' instead on input line 47.
 
-[12] [13] [14]) (./classSecKeySS.tex) (./classSSClass.tex [15] [16] [17]
-Underfull \hbox (badness 10000) detected at line 177
+[12] [13] [14]) (./classSecKeySS.tex) (./classSSClass.tex [15]
+Underfull \hbox (badness 10000) detected at line 41
 [][][]
  []
 
+[16]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
 
-Overfull \vbox (8.23071pt too high) has occurred while \output is active []
-
+[17]
+Underfull \hbox (badness 10000) detected at line 196
+[][][]
+ []
 
 [18]
-Underfull \hbox (badness 10000) detected at line 203
+Underfull \hbox (badness 10000) detected at line 222
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 206
+Underfull \hbox (badness 10000) detected at line 225
 [][][]
  []
 
@@ -1422,7 +1428,12 @@ Underfull \hbox (badness 10000) detected at line 206
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-Underfull \hbox (badness 10000) detected at line 265
+Underfull \hbox (badness 10000) detected at line 256
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 287
 [][][]
  []
 
@@ -1446,13 +1457,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 15039 strings out of 492982
- 215073 string characters out of 6134896
- 310659 words of memory out of 5000000
- 18207 multiletter control sequences out of 15000+600000
+ 15040 strings out of 492982
+ 215091 string characters out of 6134896
+ 307659 words of memory out of 5000000
+ 18208 multiletter control sequences out of 15000+600000
  69413 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,15n,92p,642b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,16n,92p,642b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{classLinkedList_afc6635f854f48f2f126cf3b60d845220
 } has been referenced but does not exist, replaced by a fixed one
 
@@ -1489,10 +1500,10 @@ sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (27 pages, 151859 bytes).
+Output written on refman.pdf (27 pages, 153758 bytes).
 PDF statistics:
- 693 PDF objects out of 1000 (max. 8388607)
- 645 compressed objects within 7 object streams
+ 696 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
  134 named destinations out of 1000 (max. 500000)
  321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

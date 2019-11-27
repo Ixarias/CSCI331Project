@@ -1,10 +1,6 @@
+/** \class SSClass  SSClass.h "SSClass.h"
 
-#ifndef SSCLASS_
-#define SSCLASS_
-
-//! \class SSClass  SSClass.h "SSClass.h"
-/*!
-     LinkedList integration for blocks, records, and fields 
+    \brief LinkedList integration for blocks, records, and fields 
     \authors Jordan Bremer, Melvin Schmid, ..., ..., ...
 
    Sequence Set class:  
@@ -19,6 +15,10 @@
      -- size defaults are listed towards the top of the program
      -- array/vector elements are initialized to zero
 */
+
+
+#ifndef SSCLASS_
+#define SSCLASS_
 
 #include <iostream>
 #include <string>
@@ -77,24 +77,116 @@ private:
 	LinkedList<SecKeySS> secKeyLon;
 	fstream indexFile;
 	//fstream blockRecordFile;
+	
+	//! Inserts the zip code feild
+	/*!
+	    \param s a string of the zipcode digtis
+	    \param rrn relative record number
+	*/
 	void insertZip(string s, int rrn);
+	
+	//! Insert a string for the place into a specific position
+	/*! 
+	    \param s a string to insert
+	    \param rrn relative record number
+	*/
 	void insertPlace(string s, int rrn);
+	
+	//! Inserts a string for the state into the LinkedList
+	/*!
+	    \param s a string contating the two state letters
+	    \param rrn relative record number
+	*/
 	void insertState(string s, int rrn);
+	
+	//! Inserts a string for the county into the LinkedList
+	/*!
+	    \param s a string containing the county 
+	    \param rrn relative record number
+	*/
 	void insertCounty(string s, int rrn);
+	
+	//! Inserts latatude as a string int the LinkedList
+	/*!
+	    \param s a string containing the latatude
+	    \param rrn relative record number
+	*/
 	void insertLat(string s, int rrn);
+	
+	//! Inserts the longitude into the LinkeList
+	/*! 
+	    \param s a string containing the longitude including sign
+	    \param rrn relative record number
+	*/
 	void insertLon(string s, int rrn);
+	
+
 	//get functions take the entire line for a record and return the specified data member
-	string getZip(string s);
+	//! Takes the entire line for a record and returns feild zip
+	/*!
+	    \param s a string of a record
+	    \return zip code as a string (use stoi(getzip()) for int)
+	*/
+	string getZip(string s);	
+
+	//! Takes the entire line for a record and returns feild place
+	/*!
+	    \param s a string of a record
+	    \return place as a string
+	*/
 	string getPlace(string s);
+
+	//! Takes the entire line for a record and returns feild palce
+	/*!
+	    \param s a string of a record
+	    \return state  as a string
+	*/
 	string getState(string s);
+
+	//! Takes the entire line for a record and returns feild state
+	/*!
+	    \param s a string of a record
+	    \return state as a string
+	*/
 	string getCounty(string s);
+
+	//! Takes the entire line for a record and returns latitude
+	/*!
+	    \param s a string of a record
+	    \return lattitude as a string (use stoi(getLat()) for int)
+	*/
 	string getLat(string s);
+
+	//! Takes the entire line for a record and returns feild longitude
+	/*!
+	    \param s a string of a record
+	    \return longitude as a string (use stoi(getLon()) for int)
+	*/
 	string getLon(string s);
+	
+	//! Goes to a line in a file
+	/*!
+	    \param file the file 
+	    \param num the number of line to goto in the file
+	*/
 	void goToLine(fstream& file, unsigned num);
+
+	//! Goes to data
+	/*!
+	    \param file
+	*/
 	void goToData(fstream& file);
 	//bool replace(string s);
 	//bool delete(int position);
+
+	//! Create the string needed when removing a record
+	/*!
+	    \param next and int for the next line
+	    \return a string for the recored
+	*/
 	string createUnusedLine(int next); //creates the string needed when removing a record
+
+	//! populates data from a text file
 	void populate(); //populates data from text file
 
 public:
@@ -145,18 +237,19 @@ public:
 	*/
 	vector<int> search(string s, unsigned fieldNum);
 
-	//! Searches directly (N, S, W, E)
+	//! Searches directionly (N, S, W, E)
 	/*!
 	    \param state the state to search
-	    \param direction (N, S, W, E) 
+	    \param direction (N, S, W, E)
+	    \return the line contating the soght after direction 
 	*/
 	int directionalSearch(string state, char direction);
 	
 	//! Fills secondary key vector
 	/*! 
 	    \param rrn and integer refring to the line to get
-	*/
-	
+	    \return string containging the contents of the line
+	*/	
 	string returnLine(int rrn);
 };
 
@@ -224,11 +317,10 @@ SSClass::~SSClass(){
 	indexFile.close();
 	//blockRecord.close();
 }
-/*---------------------------------------------------------------------------
-	Insertion of records into both the index file as well as the linkedlist
-	of linkedlists
-	Preconditions:   String that you want to have inserted
-	Postconditions:  None
+
+/*! Insertion of records into both the index file as well as the linkedlist
+    of linkedlists
+    /param s string to be inserted
 */
 void SSClass::insert(string s) {
 	if (nextEmpty == -1) {

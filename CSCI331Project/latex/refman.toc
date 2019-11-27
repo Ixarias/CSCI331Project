@@ -30,11 +30,11 @@
 \contentsline {subsection}{\numberline {4.4.1}Detailed Description}{16}{subsection.4.4.1}
 \contentsline {section}{\numberline {4.5}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Class Class Reference}{16}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Detailed Description}{16}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Member Function Documentation}{16}{subsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.2.1}directional\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Search()}{16}{subsubsection.4.5.2.1}
-\contentsline {subsubsection}{\numberline {4.5.2.2}insert()}{17}{subsubsection.4.5.2.2}
+\contentsline {subsection}{\numberline {4.5.2}Member Function Documentation}{17}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}directional\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Search()}{17}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}insert()}{18}{subsubsection.4.5.2.2}
 \contentsline {subsubsection}{\numberline {4.5.2.3}is\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Empty()}{18}{subsubsection.4.5.2.3}
-\contentsline {subsubsection}{\numberline {4.5.2.4}open\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}File()}{18}{subsubsection.4.5.2.4}
+\contentsline {subsubsection}{\numberline {4.5.2.4}open\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}File()}{19}{subsubsection.4.5.2.4}
 \contentsline {subsubsection}{\numberline {4.5.2.5}return\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Line()}{19}{subsubsection.4.5.2.5}
-\contentsline {subsubsection}{\numberline {4.5.2.6}search()}{19}{subsubsection.4.5.2.6}
+\contentsline {subsubsection}{\numberline {4.5.2.6}search()}{20}{subsubsection.4.5.2.6}
 \contentsline {chapter}{Index}{23}{section*.8}

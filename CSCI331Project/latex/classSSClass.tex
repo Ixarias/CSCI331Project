@@ -1,5 +1,14 @@
 \hypertarget{classSSClass}{}\section{S\+S\+Class Class Reference}
 \label{classSSClass}\index{S\+S\+Class@{S\+S\+Class}}
+
+
+\hyperlink{classLinkedList}{Linked\+List} integration for blocks, records, and fields.  
+
+
+
+
+{\ttfamily \#include \char`\"{}S\+S\+Class.\+h\char`\"{}}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,13 +30,20 @@ void \hyperlink{classSSClass_a45c5585c784bf7c4f823f66426664aea}{insert} (string 
 vector$<$ int $>$ \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search} (string s, unsigned field\+Num)
 \begin{DoxyCompactList}\small\item\em Searches for record. \end{DoxyCompactList}\item 
 int \hyperlink{classSSClass_ad03c99840c2946a2112f5f1942c287f2}{directional\+Search} (string state, char direction)
-\begin{DoxyCompactList}\small\item\em Searches directly (N, S, W, E) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Searches directionly (N, S, W, E) \end{DoxyCompactList}\item 
 string \hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{return\+Line} (int rrn)
 \begin{DoxyCompactList}\small\item\em Fills secondary key vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+\hyperlink{classLinkedList}{Linked\+List} integration for blocks, records, and fields. 
 
+\begin{DoxyAuthor}{Authors}
+Jordan Bremer, Melvin Schmid, ..., ..., ...
+\end{DoxyAuthor}
+Sequence Set class\+: -- allows for insert and deletion of linked list -- populates secondary keys -- allows for searching of said linked list -- ability to return city, state, county, lattitude, longitude, zip, and lower and upper indicies -- ability to input a txt file and populate it\textquotesingle{}s contents
+
+Implementation and assumptions\+: -- size defaults are listed towards the top of the program -- array/vector elements are initialized to zero 
 
 Definition at line 65 of file S\+S\+Class.\+h.
 
@@ -42,7 +58,7 @@ Definition at line 65 of file S\+S\+Class.\+h.
 
 
 
-Searches directly (N, S, W, E) 
+Searches directionly (N, S, W, E) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -51,74 +67,77 @@ Searches directly (N, S, W, E)
 {\em direction} & (N, S, W, E) \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the line contating the soght after direction 
+\end{DoxyReturn}
 
 
-Definition at line 342 of file S\+S\+Class.\+h.
+Definition at line 434 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-342                                                             \{
-343     direction = toupper(direction);
-344     \textcolor{keywordtype}{int} i = 1;
-345     \textcolor{keywordtype}{int} returnIndex = -1;
-346     \textcolor{keywordtype}{double} highOrLow;
-347     vector<int> state = \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search}(stateS, 3);
-348     \textcolor{keywordflow}{switch} (direction) \{
-349     \textcolor{keywordflow}{case} \textcolor{charliteral}{'N'}:
-350     \{
-351         returnIndex = state[0];
-352         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
-353         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
-354             \textcolor{keywordflow}{if} (highOrLow < stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
-355                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
-356                 returnIndex = i;
-357             \}
-358 
-359         \}
-360     \}
-361     \textcolor{keywordflow}{break};
-362     \textcolor{keywordflow}{case} \textcolor{charliteral}{'E'}:
-363     \{
-364         returnIndex = state[0];
-365         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
-366         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
-367             \textcolor{keywordflow}{if} (highOrLow < stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
-368                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
-369                 returnIndex = i;
-370             \}
-371         \}
-372         
-373     \}
-374     \textcolor{keywordflow}{break};
-375     \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}:
-376     \{
-377         returnIndex = state[0];
-378         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
-379         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
-380             \textcolor{keywordflow}{if} (highOrLow > stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
-381                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
-382                 returnIndex = i;
-383             \}
-384         \}
-385         \textcolor{keywordflow}{break};
-386     \}
-387     \textcolor{keywordflow}{case} \textcolor{charliteral}{'W'}:
-388     \{
-389         returnIndex = state[0];
-390         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
-391         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
-392             \textcolor{keywordflow}{if} (highOrLow > stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
-393                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
-394                 returnIndex = i;
-395             \}
-396         \}
-397 
-398     \}
-399     \textcolor{keywordflow}{break};
-400     \}
-401     \textcolor{keywordflow}{return} returnIndex;
-402 
-403 \}
+434                                                             \{
+435     direction = toupper(direction);
+436     \textcolor{keywordtype}{int} i = 1;
+437     \textcolor{keywordtype}{int} returnIndex = -1;
+438     \textcolor{keywordtype}{double} highOrLow;
+439     vector<int> state = \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search}(stateS, 3);
+440     \textcolor{keywordflow}{switch} (direction) \{
+441     \textcolor{keywordflow}{case} \textcolor{charliteral}{'N'}:
+442     \{
+443         returnIndex = state[0];
+444         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+445         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+446             \textcolor{keywordflow}{if} (highOrLow < stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+447                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+448                 returnIndex = i;
+449             \}
+450 
+451         \}
+452     \}
+453     \textcolor{keywordflow}{break};
+454     \textcolor{keywordflow}{case} \textcolor{charliteral}{'E'}:
+455     \{
+456         returnIndex = state[0];
+457         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+458         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+459             \textcolor{keywordflow}{if} (highOrLow < stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+460                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+461                 returnIndex = i;
+462             \}
+463         \}
+464         
+465     \}
+466     \textcolor{keywordflow}{break};
+467     \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}:
+468     \{
+469         returnIndex = state[0];
+470         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+471         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+472             \textcolor{keywordflow}{if} (highOrLow > stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+473                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+474                 returnIndex = i;
+475             \}
+476         \}
+477         \textcolor{keywordflow}{break};
+478     \}
+479     \textcolor{keywordflow}{case} \textcolor{charliteral}{'W'}:
+480     \{
+481         returnIndex = state[0];
+482         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+483         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+484             \textcolor{keywordflow}{if} (highOrLow > stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+485                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+486                 returnIndex = i;
+487             \}
+488         \}
+489 
+490     \}
+491     \textcolor{keywordflow}{break};
+492     \}
+493     \textcolor{keywordflow}{return} returnIndex;
+494 
+495 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classSSClass_a45c5585c784bf7c4f823f66426664aea}\label{classSSClass_a45c5585c784bf7c4f823f66426664aea}} 
 \index{S\+S\+Class@{S\+S\+Class}!insert@{insert}}
@@ -132,37 +151,37 @@ inserts line by line into data
 
 
 \begin{DoxyParams}{Parameters}
-{\em s} & a string to insert \\
+{\em s} & a string to insert\\
 \hline
 \end{DoxyParams}
+Insertion of records into both the index file as well as the linkedlist of linkedlists /param s string to be inserted 
 
-
-Definition at line 233 of file S\+S\+Class.\+h.
+Definition at line 325 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-233                              \{
-234     \textcolor{keywordflow}{if} (nextEmpty == -1) \{
-235         goToLine(indexFile, numLinesIndex);
-236         indexFile << \textcolor{stringliteral}{"\(\backslash\)n"} << s;
-237         insertZip(getZip(s), numLinesIndex);
-238         insertPlace(getPlace(s), numLinesIndex);
-239         insertState(getState(s), numLinesIndex);
-240         insertCounty(getCounty(s), numLinesIndex);
-241         insertLat(getLat(s), numLinesIndex);
-242         insertLon(getLon(s), numLinesIndex);
-243         numLinesIndex++;
-244         \textcolor{keywordflow}{return};
-245     \}
-246     goToLine(indexFile, nextEmpty);
-247     \textcolor{comment}{//replace(s, nextEmpty);}
-248     insertZip(getZip(s), nextEmpty);
-249     insertPlace(getPlace(s), nextEmpty);
-250     insertState(getState(s), nextEmpty);
-251     insertCounty(getCounty(s), nextEmpty);
-252     insertLat(getLat(s), nextEmpty);
-253     insertLon(getLon(s), nextEmpty);
-254 \}
+325                              \{
+326     \textcolor{keywordflow}{if} (nextEmpty == -1) \{
+327         goToLine(indexFile, numLinesIndex);
+328         indexFile << \textcolor{stringliteral}{"\(\backslash\)n"} << s;
+329         insertZip(getZip(s), numLinesIndex);
+330         insertPlace(getPlace(s), numLinesIndex);
+331         insertState(getState(s), numLinesIndex);
+332         insertCounty(getCounty(s), numLinesIndex);
+333         insertLat(getLat(s), numLinesIndex);
+334         insertLon(getLon(s), numLinesIndex);
+335         numLinesIndex++;
+336         \textcolor{keywordflow}{return};
+337     \}
+338     goToLine(indexFile, nextEmpty);
+339     \textcolor{comment}{//replace(s, nextEmpty);}
+340     insertZip(getZip(s), nextEmpty);
+341     insertPlace(getPlace(s), nextEmpty);
+342     insertState(getState(s), nextEmpty);
+343     insertCounty(getCounty(s), nextEmpty);
+344     insertLat(getLat(s), nextEmpty);
+345     insertLon(getLon(s), nextEmpty);
+346 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classSSClass_afc95611385e4d389818332414d5c491c}\label{classSSClass_afc95611385e4d389818332414d5c491c}} 
 \index{S\+S\+Class@{S\+S\+Class}!is\+Empty@{is\+Empty}}
@@ -179,11 +198,11 @@ returns false if empty, otherwise returns true
 \end{DoxyReturn}
 
 
-Definition at line 114 of file S\+S\+Class.\+h.
+Definition at line 206 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-114 \{ \textcolor{keywordflow}{return} numRecords == 0; \};
+206 \{ \textcolor{keywordflow}{return} numRecords == 0; \};
 \end{DoxyCode}
 \mbox{\Hypertarget{classSSClass_a92e012441608ea36f3013fb3cbea9da8}\label{classSSClass_a92e012441608ea36f3013fb3cbea9da8}} 
 \index{S\+S\+Class@{S\+S\+Class}!open\+File@{open\+File}}
@@ -208,16 +227,16 @@ true if file location exists, otherwise returns false
 \end{DoxyReturn}
 
 
-Definition at line 168 of file S\+S\+Class.\+h.
+Definition at line 261 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-168                                    \{ \textcolor{comment}{//input is a file name}
-169     indexFile.open(input);
-170     nextEmpty = -1;
-171     \textcolor{keywordflow}{return} (indexFile.is\_open());
-172 
-173 \}
+261                                    \{ \textcolor{comment}{//input is a file name}
+262     indexFile.open(input);
+263     nextEmpty = -1;
+264     \textcolor{keywordflow}{return} (indexFile.is\_open());
+265 
+266 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}\label{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}} 
 \index{S\+S\+Class@{S\+S\+Class}!return\+Line@{return\+Line}}
@@ -234,18 +253,21 @@ Fills secondary key vector.
 {\em rrn} & and integer refring to the line to get \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string containging the contents of the line 
+\end{DoxyReturn}
 
 
-Definition at line 260 of file S\+S\+Class.\+h.
+Definition at line 352 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-260                                   \{
-261     \textcolor{keywordtype}{string} returnVal;
-262     goToLine(indexFile, rrn);
-263     getline(indexFile, returnVal);
-264     \textcolor{keywordflow}{return} returnVal;
-265 \}
+352                                   \{
+353     \textcolor{keywordtype}{string} returnVal;
+354     goToLine(indexFile, rrn);
+355     getline(indexFile, returnVal);
+356     \textcolor{keywordflow}{return} returnVal;
+357 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}\label{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}} 
 \index{S\+S\+Class@{S\+S\+Class}!search@{search}}
@@ -267,96 +289,96 @@ vector of results
 \end{DoxyReturn}
 
 
-Definition at line 268 of file S\+S\+Class.\+h.
+Definition at line 360 of file S\+S\+Class.\+h.
 
 
 \begin{DoxyCode}
-268                                                        \{
-269     \hyperlink{classSecKeySS}{SecKeySS} secCopy;
-270     \textcolor{keywordtype}{int} i;
-271     vector<int> results;
-272     \textcolor{keywordflow}{switch} (fieldNum) \{
-273     \textcolor{keywordflow}{case} 1:
-274     \{
-275         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyZip.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyZip.
+360                                                        \{
+361     \hyperlink{classSecKeySS}{SecKeySS} secCopy;
+362     \textcolor{keywordtype}{int} i;
+363     vector<int> results;
+364     \textcolor{keywordflow}{switch} (fieldNum) \{
+365     \textcolor{keywordflow}{case} 1:
+366     \{
+367         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyZip.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyZip.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-276         \textcolor{keywordflow}{if} (stoi(secKeyZip.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == stoi(s)) \{
-277             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyZip.
+368         \textcolor{keywordflow}{if} (stoi(secKeyZip.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == stoi(s)) \{
+369             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyZip.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-278             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-279                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-280             \}
-281         \}
-282     \}
-283     \textcolor{keywordflow}{break};
-284     \textcolor{keywordflow}{case} 2:
-285     \{
-286         \textcolor{keywordflow}{for}(i = 1; (i < (secKeyPlace.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyPlace.
+370             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+371                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+372             \}
+373         \}
+374     \}
+375     \textcolor{keywordflow}{break};
+376     \textcolor{keywordflow}{case} 2:
+377     \{
+378         \textcolor{keywordflow}{for}(i = 1; (i < (secKeyPlace.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyPlace.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-287         \textcolor{keywordflow}{if} ((secKeyPlace.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
-288             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyPlace.
+379         \textcolor{keywordflow}{if} ((secKeyPlace.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
+380             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyPlace.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-289             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-290                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-291             \}
-292         \}
-293     \}
-294     \textcolor{keywordflow}{break};
-295     \textcolor{keywordflow}{case} 3:
-296     \{
-297         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyState.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyState.
+381             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+382                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+383             \}
+384         \}
+385     \}
+386     \textcolor{keywordflow}{break};
+387     \textcolor{keywordflow}{case} 3:
+388     \{
+389         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyState.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyState.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-298         \textcolor{keywordflow}{if} ((secKeyState.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
-299             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyState.
+390         \textcolor{keywordflow}{if} ((secKeyState.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
+391             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyState.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-300             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-301                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-302             \}
-303         \}
-304     \}
-305     \textcolor{keywordflow}{break};
-306     \textcolor{keywordflow}{case} 4:
-307     \{
-308         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyCounty.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyCounty.
+392             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+393                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+394             \}
+395         \}
+396     \}
+397     \textcolor{keywordflow}{break};
+398     \textcolor{keywordflow}{case} 4:
+399     \{
+400         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyCounty.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyCounty.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-309         \textcolor{keywordflow}{if} ((secKeyCounty.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
-310             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyCounty.
+401         \textcolor{keywordflow}{if} ((secKeyCounty.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == (s)) \{
+402             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyCounty.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-311             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-312                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-313             \}
-314         \}
-315     \}
-316     \textcolor{keywordflow}{break};
-317     \textcolor{keywordflow}{case} 5:
-318     \{
-319         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLat.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLat.
+403             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+404                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+405             \}
+406         \}
+407     \}
+408     \textcolor{keywordflow}{break};
+409     \textcolor{keywordflow}{case} 5:
+410     \{
+411         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLat.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLat.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-320         \textcolor{keywordflow}{if} (stoi(secKeyLat.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == static\_cast<int>(stod(s))) \{
-321             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLat.
+412         \textcolor{keywordflow}{if} (stoi(secKeyLat.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == static\_cast<int>(stod(s))) \{
+413             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLat.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-322             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-323                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-324             \}
-325         \}
-326     \}
-327     \textcolor{keywordflow}{break};
-328     \textcolor{keywordflow}{case} 6:
-329     \{
-330         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLon.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLon.
+414             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+415                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+416             \}
+417         \}
+418     \}
+419     \textcolor{keywordflow}{break};
+420     \textcolor{keywordflow}{case} 6:
+421     \{
+422         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLon.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLon.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData() < s); i++);
-331         \textcolor{keywordflow}{if} (stoi(secKeyLon.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == static\_cast<int>(stod(s))) \{
-332             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLon.
+423         \textcolor{keywordflow}{if} (stoi(secKeyLon.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getData()) == static\_cast<int>(stod(s))) \{
+424             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLon.
       \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).getDuplicates());
-333             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
-334                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
-335             \}
-336         \}
-337     \}
-338     \textcolor{keywordflow}{break};
-339     \}
-340     \textcolor{keywordflow}{return} results;
-341 \}
+425             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+426                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+427             \}
+428         \}
+429     \}
+430     \textcolor{keywordflow}{break};
+431     \}
+432     \textcolor{keywordflow}{return} results;
+433 \}
 \end{DoxyCode}
 
 
