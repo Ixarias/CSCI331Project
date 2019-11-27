@@ -1,5 +1,10 @@
 \begin{theindex}
 
+  \item {$\sim$\+Sec\+Key\+SS}
+    \subitem {Sec\+Key\+SS}, \hyperpage{16}
+
+  \indexspace
+
   \item {clear}
     \subitem {List\+Interface}, \hyperpage{8}
 
@@ -8,10 +13,14 @@
   \item {deletion}
     \subitem {List\+Interface}, \hyperpage{8}
   \item {directional\+Search}
-    \subitem {S\+S\+Class}, \hyperpage{17}
+    \subitem {S\+S\+Class}, \hyperpage{22}
 
   \indexspace
 
+  \item {get\+Data}
+    \subitem {Sec\+Key\+SS}, \hyperpage{17}
+  \item {get\+Duplicates}
+    \subitem {Sec\+Key\+SS}, \hyperpage{17}
   \item {get\+Entry}
     \subitem {List\+Interface}, \hyperpage{8}
   \item {get\+Item}
@@ -25,10 +34,10 @@
 
   \item {insert}
     \subitem {List\+Interface}, \hyperpage{9}
-    \subitem {S\+S\+Class}, \hyperpage{18}
+    \subitem {S\+S\+Class}, \hyperpage{23}
   \item {is\+Empty}
     \subitem {List\+Interface}, \hyperpage{11}
-    \subitem {S\+S\+Class}, \hyperpage{18}
+    \subitem {S\+S\+Class}, \hyperpage{24}
 
   \indexspace
 
@@ -56,27 +65,49 @@
   \indexspace
 
   \item {open\+File}
-    \subitem {S\+S\+Class}, \hyperpage{19}
+    \subitem {S\+S\+Class}, \hyperpage{24}
+  \item {operator$<$}
+    \subitem {Sec\+Key\+SS}, \hyperpage{17, 18}
+  \item {operator$>$}
+    \subitem {Sec\+Key\+SS}, \hyperpage{19, 20}
+  \item {operator=}
+    \subitem {Sec\+Key\+SS}, \hyperpage{18}
+  \item {operator==}
+    \subitem {Sec\+Key\+SS}, \hyperpage{19}
 
   \indexspace
 
   \item {replace}
     \subitem {List\+Interface}, \hyperpage{11}
   \item {return\+Line}
-    \subitem {S\+S\+Class}, \hyperpage{19}
+    \subitem {S\+S\+Class}, \hyperpage{25}
 
   \indexspace
 
-  \item {S\+S\+Class}, \hyperpage{16}
-    \subitem {directional\+Search}, \hyperpage{17}
-    \subitem {insert}, \hyperpage{18}
-    \subitem {is\+Empty}, \hyperpage{18}
-    \subitem {open\+File}, \hyperpage{19}
-    \subitem {return\+Line}, \hyperpage{19}
-    \subitem {search}, \hyperpage{20}
+  \item {S\+S\+Class}, \hyperpage{21}
+    \subitem {directional\+Search}, \hyperpage{22}
+    \subitem {insert}, \hyperpage{23}
+    \subitem {is\+Empty}, \hyperpage{24}
+    \subitem {open\+File}, \hyperpage{24}
+    \subitem {return\+Line}, \hyperpage{25}
+    \subitem {search}, \hyperpage{25}
   \item {search}
-    \subitem {S\+S\+Class}, \hyperpage{20}
+    \subitem {S\+S\+Class}, \hyperpage{25}
   \item {Sec\+Key\+SS}, \hyperpage{15}
+    \subitem {$\sim$\+Sec\+Key\+SS}, \hyperpage{16}
+    \subitem {get\+Data}, \hyperpage{17}
+    \subitem {get\+Duplicates}, \hyperpage{17}
+    \subitem {operator$<$}, \hyperpage{17, 18}
+    \subitem {operator$>$}, \hyperpage{19, 20}
+    \subitem {operator=}, \hyperpage{18}
+    \subitem {operator==}, \hyperpage{19}
+    \subitem {Sec\+Key\+SS}, \hyperpage{16}
+    \subitem {set\+Data}, \hyperpage{20}
+    \subitem {set\+Duplicates}, \hyperpage{21}
+  \item {set\+Data}
+    \subitem {Sec\+Key\+SS}, \hyperpage{20}
+  \item {set\+Duplicates}
+    \subitem {Sec\+Key\+SS}, \hyperpage{21}
   \item {set\+Item}
     \subitem {Node}, \hyperpage{14}
   \item {set\+Next}
