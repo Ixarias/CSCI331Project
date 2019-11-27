@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['getdata',['getData',['../classSecKeySS.html#add52510d280d0ca89b653386500f08f5',1,'SecKeySS']]],
+  ['getduplicates',['getDuplicates',['../classSecKeySS.html#aaae9db891cfcdc3f78d8a44145f4f08c',1,'SecKeySS']]],
   ['getentry',['getEntry',['../classLinkedList.html#a341bfd7772c9d24d29eb7a7f3936915b',1,'LinkedList::getEntry()'],['../classListInterface.html#a86987f69e5056d287212ede41db1956a',1,'ListInterface::getEntry()']]],
   ['getitem',['getItem',['../classNode.html#a6c08caef312b6f2f69b5e090cf047514',1,'Node']]],
   ['getitemcount',['getItemCount',['../classLinkedList.html#afc6635f854f48f2f126cf3b60d845220',1,'LinkedList']]],

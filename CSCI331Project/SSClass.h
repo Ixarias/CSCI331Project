@@ -32,25 +32,25 @@
 
 using namespace std;
 
-//! \brief NUMSECKEYS The numebr of section keys
+/** \brief NUMSECKEYS The numebr of section keys */
 const int NUMSECKEYS = 6;
 
-//! \brief ZIPSIZE The size of the zip code
+/** \brief ZIPSIZE The size of the zip code */
 const int ZIPSIZE = 6;
 
-//! \brief PLACESIZE The size of the place (city) 
+/** \brief PLACESIZE The size of the place (city) */ 
 const int PLACESIZE = 31;
 
-//! \brief STATESIZE The size of the sate letters 
+/** \brief STATESIZE The size of the sate letters */
 const int STATESIZE = 2;
 
-//! \brief COUNTYSIZE The size of letters for the county 
+/** \brief COUNTYSIZE The size of letters for the county */
 const int COUNTYSIZE = 36;
 
-//! \brief LATSIZE The size of the Lattatude 
+/** \brief LATSIZE The size of the Lattatude */
 const int LATSIZE = 9;
 
-//! \brief LONSIZE The size (including sign) of the longitude
+/** \brief LONSIZE The size (including sign) of the longitude */
 const int LONSIZE = 10;
  
 const int ZIPOFFSET = 0;
@@ -344,11 +344,7 @@ void SSClass::insert(string s) {
 	insertLat(getLat(s), nextEmpty);
 	insertLon(getLon(s), nextEmpty);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 string SSClass::returnLine(int rrn) {
 	string returnVal;
 	goToLine(indexFile, rrn);
@@ -431,6 +427,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	}
 	return results;
 }
+
 int SSClass::directionalSearch(string stateS, char direction) {
 	direction = toupper(direction);
 	int i = 1;
@@ -493,11 +490,7 @@ int SSClass::directionalSearch(string stateS, char direction) {
 	return returnIndex;
 
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 //get value at index in getEntry(index)         insert is insert(index)   
 void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create new one....    match found -> insert at index 1
 	int index;
@@ -519,11 +512,7 @@ void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create
 	secKeyZip.insert(i, secCopy);
 
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 void SSClass::insertPlace(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
@@ -543,11 +532,7 @@ void SSClass::insertPlace(string s, int rrn) {
 	secCopy.setData(getPlace(s));
 	secKeyPlace.insert(i, secCopy);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 void SSClass::insertState(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
@@ -567,11 +552,7 @@ void SSClass::insertState(string s, int rrn) {
 	secCopy.setData(getState(s));
 	secKeyState.insert(i, secCopy);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 void SSClass::insertCounty(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
@@ -591,11 +572,7 @@ void SSClass::insertCounty(string s, int rrn) {
 	secCopy.setData(getCounty(s));
 	secKeyCounty.insert(i, secCopy);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 void SSClass::insertLat(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
@@ -615,11 +592,7 @@ void SSClass::insertLat(string s, int rrn) {
 	secCopy.setData(to_string(static_cast<int>(stod(getLat(s)))));
 	secKeyLat.insert(i, secCopy);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 void SSClass::insertLon(string s, int rrn) {
 	int index;
 	SecKeySS secCopy;
@@ -639,91 +612,58 @@ void SSClass::insertLon(string s, int rrn) {
 	secCopy.setData(to_string(static_cast<int>(stod(getLon(s)))));
 	secKeyLon.insert(i, secCopy);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-void SSClass::goToLine(fstream& file, unsigned num) {
-	goToData(file); //beginning of our data file
+
+void ssclass::gotoline(fstream& file, unsigned num) {
+	gotodata(file); //beginning of our data file
 	for (int i = 0; i < num - 1; ++i) {
 		file.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	//return file;
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-void SSClass::goToData(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
+
+void ssclass::gotodata(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
 	file.seekg(ios::beg);
 	string in;
 	getline(file, in);
-	while (in != "ENDOFHDR")
+	while (in != "endofhdr")
 		getline(file, in);
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-string SSClass::getZip(string s) { //use stoi(getZip(s)); to return int value
-	string returnValue;
-	for (int i = 0; i < ZIPSIZE; i++)
-		returnValue[i] = s[ZIPOFFSET + i];
-	return returnValue;
-}
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-string SSClass::getPlace(string s) {
-	string returnValue;
-	for (int i = 0; i < PLACESIZE; i++)
-		returnValue[i] = s[PLACEOFFSET + i];
-	return returnValue;
-}
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-string SSClass::getState(string s) {
-	string returnValue;
-	for (int i = 0; i < STATESIZE; i++)
-		returnValue[i] = s[STATEOFFSET + i];
-	return returnValue;
-}
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-string SSClass::getCounty(string s) {
-	string returnValue;
-	for (int i = 0; i < COUNTYSIZE; i++)
-		returnValue[i] = s[COUNTYOFFSET + i];
-	return returnValue;
-}
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
-string SSClass::getLat(string s) { //use stod(getLat(s)); to return double value
-	string returnValue;
-	for (int i = 0; i < LATSIZE; i++)
-		returnValue[i] = s[LATOFFSET + i];
-	return returnValue;
+
+string ssclass::getzip(string s) { //use stoi(getzip(s)); to return int value
+	string returnvalue;
+	for (int i = 0; i < zipsize; i++)
+		returnvalue[i] = s[zipoffset + i];
+	return returnvalue;
 }
 
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+string ssclass::getplace(string s) {
+	string returnvalue;
+	for (int i = 0; i < placesize; i++)
+		returnvalue[i] = s[placeoffset + i];
+	return returnvalue;
+}
+
+string ssclass::getstate(string s) {
+	string returnvalue;
+	for (int i = 0; i < statesize; i++)
+		returnvalue[i] = s[stateoffset + i];
+	return returnvalue;
+}
+
+string ssclass::getcounty(string s) {
+	string returnvalue;
+	for (int i = 0; i < countysize; i++)
+		returnvalue[i] = s[countyoffset + i];
+	return returnvalue;
+}
+
+string ssclass::getlat(string s) { //use stod(getlat(s)); to return double value
+	string returnvalue;
+	for (int i = 0; i < latsize; i++)
+		returnvalue[i] = s[latoffset + i];
+	return returnvalue;
+}
+
 string SSClass::getLon(string s) { //use stod(getLon(s)); to return double value
 	string returnValue;
 	for (int i = 0; i < LONSIZE; i++)
@@ -731,11 +671,6 @@ string SSClass::getLon(string s) { //use stod(getLon(s)); to return double value
 	return returnValue;
 }
 
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
 string SSClass::createUnusedLine(int next) { //pass in the integer value of the next empty line
 	string unusedLine = to_string(next);
 	int i;
@@ -744,11 +679,7 @@ string SSClass::createUnusedLine(int next) { //pass in the integer value of the 
 	}
 	return unusedLine;
 }
-/*---------------------------------------------------------------------------
-	Default constructor
-	Preconditions:   None
-	Postconditions:
-*/
+
 /*
 bool SSClass::replace(string s, int line) { // To be able to replace a line in a text file, you have to write everything to a new file, with the updated line, then delete the previous file 
 	goToLine(indexFile, line);				// and rename the temperary file
