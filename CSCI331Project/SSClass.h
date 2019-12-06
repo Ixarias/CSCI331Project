@@ -613,7 +613,7 @@ void SSClass::insertLon(string s, int rrn) {
 	secKeyLon.insert(i, secCopy);
 }
 
-void ssclass::gotoline(fstream& file, unsigned num) {
+void SSClass::gotoline(fstream& file, unsigned num) {
 	gotodata(file); //beginning of our data file
 	for (int i = 0; i < num - 1; ++i) {
 		file.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -621,7 +621,7 @@ void ssclass::gotoline(fstream& file, unsigned num) {
 	//return file;
 }
 
-void ssclass::gotodata(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
+void SSClass::gotodata(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
 	file.seekg(ios::beg);
 	string in;
 	getline(file, in);
@@ -629,35 +629,35 @@ void ssclass::gotodata(fstream& file) { //puts cursor at the beginning of the da
 		getline(file, in);
 }
 
-string ssclass::getzip(string s) { //use stoi(getzip(s)); to return int value
+string SSClass::getZip(string s) { //use stoi(getzip(s)); to return int value
 	string returnvalue;
 	for (int i = 0; i < zipsize; i++)
 		returnvalue[i] = s[zipoffset + i];
 	return returnvalue;
 }
 
-string ssclass::getplace(string s) {
+string SSClass::getPlace(string s) {
 	string returnvalue;
 	for (int i = 0; i < placesize; i++)
 		returnvalue[i] = s[placeoffset + i];
 	return returnvalue;
 }
 
-string ssclass::getstate(string s) {
+string SSClass::getState(string s) {
 	string returnvalue;
 	for (int i = 0; i < statesize; i++)
 		returnvalue[i] = s[stateoffset + i];
 	return returnvalue;
 }
 
-string ssclass::getcounty(string s) {
+string SSClass::getCounty(string s) {
 	string returnvalue;
 	for (int i = 0; i < countysize; i++)
 		returnvalue[i] = s[countyoffset + i];
 	return returnvalue;
 }
 
-string ssclass::getlat(string s) { //use stod(getlat(s)); to return double value
+string SSClass::getLat(string s) { //use stod(getlat(s)); to return double value
 	string returnvalue;
 	for (int i = 0; i < latsize; i++)
 		returnvalue[i] = s[latoffset + i];
