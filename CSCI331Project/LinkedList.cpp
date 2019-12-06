@@ -184,7 +184,7 @@ template<class ItemType>
 void LinkedList<ItemType>::clear()
 {
    while (!isEmpty())
-      remove(1);
+      deletion(1);
 }  // end clear
 
 //! Memebr function to get (return) an entry at a position

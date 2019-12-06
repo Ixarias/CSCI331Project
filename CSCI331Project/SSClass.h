@@ -618,7 +618,7 @@ void SSClass::insertLon(string s, int rrn) {
 void SSClass::goToLine(fstream& file, unsigned num) {
 	goToData(file); //beginning of our data file
 	for (int i = 0; i < num - 1; ++i) {
-		file.ignore(1000, '\n');
+		file.ignore(1000, '\n'); //ignore one line
 	}
 	//return file;
 }
