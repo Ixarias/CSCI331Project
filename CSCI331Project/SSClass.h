@@ -29,6 +29,7 @@
 #include "Node.h"
 #include "SecKeySS.h"
 #include "ListInterface.h"
+#include <limits>
 
 using namespace std;
 
@@ -617,7 +618,7 @@ void SSClass::insertLon(string s, int rrn) {
 void SSClass::goToLine(fstream& file, unsigned num) {
 	goToData(file); //beginning of our data file
 	for (int i = 0; i < num - 1; ++i) {
-		file.ignore(numeric_limits<streamsize>::max(), '\n');
+		file.ignore(1000, '\n');
 	}
 	//return file;
 }
