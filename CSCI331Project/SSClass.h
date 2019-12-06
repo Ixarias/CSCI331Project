@@ -172,6 +172,7 @@ private:
 	void goToLine(fstream& file, unsigned num);
 
 	//! Goes to data
+
 	/*!
 	    \param file
 	*/
@@ -613,15 +614,15 @@ void SSClass::insertLon(string s, int rrn) {
 	secKeyLon.insert(i, secCopy);
 }
 
-void SSClass::gotoline(fstream& file, unsigned num) {
-	gotodata(file); //beginning of our data file
+void SSClass::goToLine(fstream& file, unsigned num) {
+	goToData(file); //beginning of our data file
 	for (int i = 0; i < num - 1; ++i) {
 		file.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	//return file;
 }
 
-void SSClass::gotodata(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
+void SSClass::goToData(fstream& file) { //puts cursor at the beginning of the data portion of the txt file
 	file.seekg(ios::beg);
 	string in;
 	getline(file, in);
@@ -630,37 +631,37 @@ void SSClass::gotodata(fstream& file) { //puts cursor at the beginning of the da
 }
 
 string SSClass::getZip(string s) { //use stoi(getzip(s)); to return int value
-	string returnvalue;
-	for (int i = 0; i < zipsize; i++)
-		returnvalue[i] = s[zipoffset + i];
-	return returnvalue;
+	string returnValue;
+	for (int i = 0; i < ZIPSIZE; i++)
+		returnValue[i] = s[ZIPOFFSET + i];
+	return returnValue;
 }
 
 string SSClass::getPlace(string s) {
 	string returnvalue;
-	for (int i = 0; i < placesize; i++)
-		returnvalue[i] = s[placeoffset + i];
+	for (int i = 0; i < PLACESIZE; i++)
+		returnvalue[i] = s[PLACEOFFSET + i];
 	return returnvalue;
 }
 
 string SSClass::getState(string s) {
 	string returnvalue;
-	for (int i = 0; i < statesize; i++)
-		returnvalue[i] = s[stateoffset + i];
+	for (int i = 0; i < STATESIZE; i++)
+		returnvalue[i] = s[STATEOFFSET + i];
 	return returnvalue;
 }
 
 string SSClass::getCounty(string s) {
 	string returnvalue;
-	for (int i = 0; i < countysize; i++)
-		returnvalue[i] = s[countyoffset + i];
+	for (int i = 0; i < COUNTYSIZE; i++)
+		returnvalue[i] = s[COUNTYOFFSET + i];
 	return returnvalue;
 }
 
 string SSClass::getLat(string s) { //use stod(getlat(s)); to return double value
 	string returnvalue;
-	for (int i = 0; i < latsize; i++)
-		returnvalue[i] = s[latoffset + i];
+	for (int i = 0; i < LATSIZE; i++)
+		returnvalue[i] = s[LATOFFSET + i];
 	return returnvalue;
 }
 
