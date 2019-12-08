@@ -70,12 +70,12 @@ private:
 	unsigned numRecords;
 	int nextEmpty;
 	//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values
-	LinkedList<SecKeySS> secKeyZip;
-	LinkedList<SecKeySS> secKeyPlace;
-	LinkedList<SecKeySS> secKeyState;
-	LinkedList<SecKeySS> secKeyCounty;
-	LinkedList<SecKeySS> secKeyLat;
-	LinkedList<SecKeySS> secKeyLon;
+	LinkedList<SecKeySS<int>> secKeyZip;
+	LinkedList<SecKeySS<string>> secKeyPlace;
+	LinkedList<SecKeySS<string>> secKeyState;
+	LinkedList<SecKeySS<string>> secKeyCounty;
+	LinkedList<SecKeySS<int>> secKeyLat;
+	LinkedList<SecKeySS<int>> secKeyLon;
 	fstream indexFile;
 	//fstream blockRecordFile;
 	
@@ -363,7 +363,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	case 1:
 	{
 		for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < s); i++);
-		if (stoi(secKeyZip.getEntry(i).getData()) == stoi(s)) {
+		if (secKeyZip.getEntry(i).getData() == stoi(s)) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyZip.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
 				results.push_back(toCopy.getEntry(j));
@@ -407,7 +407,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	case 5:
 	{
 		for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
-		if (stoi(secKeyLat.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+		if (secKeyLat.getEntry(i).getData() == static_cast<int>(stod(s))) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyLat.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
 				results.push_back(toCopy.getEntry(j));
@@ -418,7 +418,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	case 6:
 	{
 		for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
-		if (stoi(secKeyLon.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+		if (secKeyLon.getEntry(i).getData() == static_cast<int>(stod(s))) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyLon.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
 				results.push_back(toCopy.getEntry(j));
@@ -494,13 +494,14 @@ int SSClass::directionalSearch(string stateS, char direction) {
 }
 
 //get value at index in getEntry(index)         insert is insert(index)   
-void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create new one....    match found -> insert at index 1
+void SSClass::insertZip(string st, int rrn) {				 //no sec key matching -> create new one....    match found -> insert at index 1
 	int index;
-	SecKeySS secCopy;
+	int s = stoi(st);
+	SecKeySS<int> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < s); i++);
-	if (stoi(secKeyZip.getEntry(i).getData()) == stoi(s)) {
+	if (secKeyZip.getEntry(i).getData() == s) {
 		secCopy = secKeyZip.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
 		copyDup.insert(1, rrn);
@@ -510,14 +511,14 @@ void SSClass::insertZip(string s, int rrn) {				 //no sec key matching -> create
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(getZip(s));
+	secCopy.setData(s);
 	secKeyZip.insert(i, secCopy);
 
 }
 
 void SSClass::insertPlace(string s, int rrn) {
 	int index;
-	SecKeySS secCopy;
+	SecKeySS<string> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyPlace.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
@@ -537,7 +538,7 @@ void SSClass::insertPlace(string s, int rrn) {
 
 void SSClass::insertState(string s, int rrn) {
 	int index;
-	SecKeySS secCopy;
+	SecKeySS<string> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyState.getItemCount() + 1)) && (secKeyState.getEntry(i).getData() < s); i++);
@@ -557,7 +558,7 @@ void SSClass::insertState(string s, int rrn) {
 
 void SSClass::insertCounty(string s, int rrn) {
 	int index;
-	SecKeySS secCopy;
+	SecKeySS<string> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyCounty.getItemCount() + 1)) && (secKeyCounty.getEntry(i).getData() < s); i++);
@@ -575,13 +576,14 @@ void SSClass::insertCounty(string s, int rrn) {
 	secKeyCounty.insert(i, secCopy);
 }
 
-void SSClass::insertLat(string s, int rrn) {
+void SSClass::insertLat(string st, int rrn) {
 	int index;
-	SecKeySS secCopy;
+	int s = static_cast<int>(stod(st));
+	SecKeySS<int> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
-	if (stoi(secKeyLat.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+	if (secKeyLat.getEntry(i).getData() == s) {
 		secCopy = secKeyLat.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
 		copyDup.insert(1, rrn);
