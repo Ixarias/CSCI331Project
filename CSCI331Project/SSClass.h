@@ -593,17 +593,18 @@ void SSClass::insertLat(string st, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(to_string(static_cast<int>(stod(getLat(s)))));
+	secCopy.setData(static_cast<int>(stod(st)));
 	secKeyLat.insert(i, secCopy);
 }
 
-void SSClass::insertLon(string s, int rrn) {
+void SSClass::insertLon(string st, int rrn) {
 	int index;
-	SecKeySS secCopy;
+	int s = static_cast<int>(stod(st));
+	SecKeySS<int> secCopy;
 	LinkedList<int> copyDup;
 		int i;
 	for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
-	if (stoi(secKeyLon.getEntry(i).getData()) == static_cast<int>(stod(s))) {
+	if (secKeyLon.getEntry(i).getData() == s) {
 		secCopy = secKeyLon.getEntry(i);
 		copyDup = LinkedList<int>(secCopy.getDuplicates());
 		copyDup.insert(1, rrn);
@@ -613,7 +614,7 @@ void SSClass::insertLon(string s, int rrn) {
 	}
 	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
-	secCopy.setData(to_string(static_cast<int>(stod(getLon(s)))));
+	secCopy.setData(static_cast<int>(stod(st)));
 	secKeyLon.insert(i, secCopy);
 }
 
