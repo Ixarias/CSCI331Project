@@ -26,6 +26,7 @@ public:
     @return  True if insertion is successful, or false if not. */
    virtual bool insert(int newPosition, const ItemType& newEntry) = 0;
    
+   //virtual void remove(int position);
    /** Removes the entry at a given position from this list.
     @pre  None.
     @post  If 1 <= position <= getLength() and the removal is successful,

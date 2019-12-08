@@ -627,7 +627,7 @@ void SSClass::goToData(fstream& file) { //puts cursor at the beginning of the da
 	file.seekg(ios::beg);
 	string in;
 	getline(file, in);
-	while (in != "endofhdr")
+	while (in != "ENDOFHDR")
 		getline(file, in);
 }
 

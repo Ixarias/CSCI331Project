@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
 	// command line args: insert, remove, modify, display record, display field in record, verify
 	if (argc == 1) {
 		cout << "Operations are  as follows:\n" << "-help for information\n" << "-o for opening data file\n" << "-i for insert\n" << "-r for remove\n" << "-m for modify\n"
-			<< "-dr for display recrod\n" << "-dfr for display field in record\n" << "-v for verify\n" << "-t to run test sequence\n" << "-s";
+			<< "-dr for display recrod\n" << "-dfr for display field in record\n" << "-v for verify\n" << "-t to run test sequence\n" << "-s enter state, enter direction (N,E,S,W)\n";
 	}
 	else {
 		for (int i = 1; i < argc; i++) {
