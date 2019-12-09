@@ -62,7 +62,6 @@ const int LATOFFSET = COUNTYOFFSET + COUNTYSIZE;
 const int LONOFFSET = LATOFFSET + LATSIZE;
 const int CHARINLINE = LONOFFSET + LONSIZE;
 
-
 class SSClass
 {
 private:
@@ -70,7 +69,7 @@ private:
 	unsigned numRecords;
 	int nextEmpty;
 	//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values
-	LinkedList<SecKeySS<int>> secKeyZip;
+	LinkedList<SecKeySS<string>> secKeyZip;
 	LinkedList<SecKeySS<string>> secKeyPlace;
 	LinkedList<SecKeySS<string>> secKeyState;
 	LinkedList<SecKeySS<string>> secKeyCounty;
@@ -354,9 +353,9 @@ string SSClass::returnLine(int rrn) {
 	return returnVal;
 }
 
-template <typename T>
+
 vector<int> SSClass::search(string s, unsigned fieldNum) {
-	SecKeySS<T> secCopy;
+	typedef SecKeySS<string> secCopy;
 	int i;
 	vector<int> results;
 	switch (fieldNum) {
