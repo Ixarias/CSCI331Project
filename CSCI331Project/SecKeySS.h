@@ -17,46 +17,46 @@ private:
 	LinkedList<int> duplicates;
 public:
 	/** Default constructor */
-	template <typename T>
+//	template <typename T>
 	SecKeySS() { duplicates = LinkedList<int>(); };
 	
 	/** Copy Constructor */
-	template <typename T>
+//	template <typename T>
 	SecKeySS(const SecKeySS<T>& s);
 
 	/** Deconstuctor */
-	template <typename T>
+//	template <typename T>
 	~SecKeySS();
 
 	/** Gets data
 	    \return data the data to be returned
 	*/
-	template <typename T>
+//	template <typename T>
 	T getData() const { return data; };
 
 	/** Gets duplicates
 	    \returns LinkedList of itemType
 	*/
-	template <typename T>
+//	template <typename T>
 	LinkedList<int> getDuplicates()const;
 
 	/** Sets the data equal to argument 1
 	    \param s a string to set data to
 	*/
-	template <typename T>
+//	template <typename T>
 	void setData(const T s) { data = s; };
 
 	/** Sets duplicates
 	    \param LinkedList dup
 	*/
-	template <typename T>
+//	template <typename T>
 	void setDuplicates( LinkedList<int> dup);
 
 	/** Operator less than
 	    \param s a reference to a string to check if than
 	    \return true is data < s
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator <(const T &s)const { return data < s; };
 
 
@@ -64,7 +64,7 @@ public:
 	    \param s a string to check if than
 	    \return true is data < s.data
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator <(const SecKeySS<T>& s)const { return data < s.data; };
 
 
@@ -72,7 +72,7 @@ public:
 	    \param s a reference to a string to check if > than
 	    \return true is data > s
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator >(const T &s)const { return data > s; };
 
 
@@ -80,14 +80,14 @@ public:
 	    \param s a string to check if greater than
 	    \return true is data > s.data
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator >(const SecKeySS<T> &s)const { return data > s.data; };
 
 	/** Operator is equal
 	    \param s a reference to a string
 	    \return true if data is equal to s
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator ==(const T &s)const { return data == s; };
 
 
@@ -95,19 +95,19 @@ public:
 	    \param s a reference to a secKeySS
 	    \return true if data is equal to s.data
 	*/
-	template <typename T>
+//	template <typename T>
 	bool operator ==(const SecKeySS<T> &s)const { return data == s.data; };
 
 	/** Operator equal for copy constructor
 	    \param s a reference to a SecKeySS
 	*/
-	template <typename T>
+//	template <typename T>
 	void operator = (const SecKeySS<T> &s);
 };
 template <typename T>
-SecKeySS::SecKeySS(const SecKeySS<T>& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
+SecKeySS<T>::SecKeySS(const SecKeySS<T>& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
 template <typename T>
-SecKeySS::~SecKeySS() { duplicates.clear(); }
+SecKeySS<T>::~SecKeySS() { duplicates.clear(); }
 template <typename T>
 bool operator <(const T s1, SecKeySS<T> &s2) {
 	return s1 < s2.getData();
@@ -121,12 +121,12 @@ bool operator ==(const T s1, SecKeySS<T> s2) {
 	return s1 == s2.getData();
 }
 template <typename T>
-void SecKeySS::operator = (const SecKeySS<T> &s){
+void SecKeySS<T>::operator = (const SecKeySS<T> &s){
 	data = s.data;
 	duplicates = s.duplicates;
 }
 template <typename T>
-LinkedList<int> SecKeySS::getDuplicates() const {
+LinkedList<int> SecKeySS<T>::getDuplicates() const {
 	LinkedList<int> list;
 	T temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
@@ -136,7 +136,7 @@ LinkedList<int> SecKeySS::getDuplicates() const {
 	return list;
 }
 template <typename T>
-void SecKeySS::setDuplicates(LinkedList<int> list) {
+void SecKeySS<T>::setDuplicates(LinkedList<int> list) {
 	T temp;
 	duplicates.clear();
 	for (int i = 1; i < list.getItemCount() + 1; i++) {

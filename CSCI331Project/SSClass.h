@@ -354,9 +354,9 @@ string SSClass::returnLine(int rrn) {
 	return returnVal;
 }
 
-
+template <typename T>
 vector<int> SSClass::search(string s, unsigned fieldNum) {
-	SecKeySS secCopy;
+	SecKeySS<T> secCopy;
 	int i;
 	vector<int> results;
 	switch (fieldNum) {

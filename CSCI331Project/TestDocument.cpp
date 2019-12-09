@@ -11,7 +11,7 @@
 using namespace std;
 
 // Function prototype for menu
-void menu(int &);
+void menu(uint8_t &);
 
 int main()
 {
@@ -53,7 +53,7 @@ int main()
 	return 0;
 }
 
-void menu(int &menuSelection)
+void menu(uint8_t &menuSelection)
 {
 	string file_name;	// allocates memory for file name
 	char direction;
@@ -73,12 +73,12 @@ void menu(int &menuSelection)
 				break;
 		
 		case 2: cout << "Insert: ";
-				cin >> temp; cout << endl;
+				//cin >> temp; cout << endl;
 				//list.insert();	// TODO add param(s)
 				break;
 		
 		case 3: cout << "remove: ";
-				cin >> temp; cout << endl;
+				//cin >> temp; cout << endl;
 				//list.remove();	// TODO add param(s)
 				break;
 
