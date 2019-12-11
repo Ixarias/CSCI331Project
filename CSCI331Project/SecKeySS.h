@@ -18,7 +18,7 @@ private:
 	LinkedList<T> list;
 public:
 	/** Default constructor */
-//	template <typename T>
+	template <typename T>
 	SecKeySS() { duplicates = LinkedList<T>(); };
 	
 	/** Copy Constructor */
