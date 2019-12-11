@@ -39,7 +39,7 @@ public:
 	    \returns LinkedList of itemType
 	*/
 	//template <typename T>
-	LinkedList<T> getDuplicates() ;
+	LinkedList<T> getDuplicates() const;
 
 	/** Sets the data equal to argument 1
 	    \param s a string to set data to
@@ -127,7 +127,7 @@ void SecKeySS<T>::operator = (const SecKeySS<T> &s){
 	duplicates = s.duplicates;
 }
 template <typename T>
-LinkedList<T> SecKeySS<T>::getDuplicates() {
+LinkedList<T> SecKeySS<T>::getDuplicates() const{
 	T temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
 		temp = duplicates.getEntry(i);
