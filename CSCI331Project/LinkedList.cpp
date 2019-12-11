@@ -125,6 +125,29 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
    return ableToInsert;
 }  // end inser
 
+template<class ItemType>
+bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry, int x)
+{
+   bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
+   if (ableToInsert)
+   {
+      Node<ItemType>* newNodePtr = new Node<ItemType>(stoi(newEntry));  
+      if (newPosition == 1)
+      {
+         newNodePtr->setNext(headPtr); 
+         headPtr = newNodePtr;
+      }
+      else
+      {
+         Node<ItemType>* prevPtr = getNodeAt(newPosition - 1);
+         newNodePtr->setNext(prevPtr->getNext()); 
+         prevPtr->setNext(newNodePtr);
+      }  // end if
+      itemCount++; 
+   }  // end if
+   return ableToInsert;
+}  // end inser
+
 /*
 template<class ItemType>
 void LinkedList<ItemType>::remove(int position)
