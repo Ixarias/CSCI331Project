@@ -25,7 +25,7 @@ public:
     @param newEntry  The entry to insert into the list.
     @return  True if insertion is successful, or false if not. */
    virtual bool insert(int newPosition, const ItemType& newEntry) = 0;
-   
+
    //virtual void remove(int position);
    /** Removes the entry at a given position from this list.
     @pre  None.

@@ -527,12 +527,12 @@ void SSClass::insertPlace(string s, int rrn) {
 	if (secKeyPlace.getEntry(i).getData() == s) {
 		secCopy = secKeyPlace.getEntry(i);
 		copyDup = LinkedList<string>(secCopy.getDuplicates());
-		copyDup.insert(1, to_string(rrn), 1);
+		copyDup.insert(1, rrn);
 		secCopy.setDuplicates(copyDup);
 		secKeyPlace.replace(i, secCopy);
 		return;
 	}
-	copyDup.insert(1, to_string(rrn), 1);
+	copyDup.insert(1, rrn);
 	secCopy.setDuplicates(copyDup);
 	secCopy.setData(getPlace(s));
 	secKeyPlace.insert(i, secCopy);
