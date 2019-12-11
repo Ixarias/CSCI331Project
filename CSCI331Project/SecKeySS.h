@@ -23,7 +23,7 @@ public:
 	
 	/** Copy Constructor */
 //	template <typename T>
-	SecKeySS(const SecKeySS<T>& s);
+	SecKeySS( SecKeySS<T>& s);
 
 	/** Deconstuctor */
 //	template <typename T>
@@ -39,7 +39,7 @@ public:
 	    \returns LinkedList of itemType
 	*/
 	//template <typename T>
-	LinkedList<T> getDuplicates() const;
+	LinkedList<T> getDuplicates() ;
 
 	/** Sets the data equal to argument 1
 	    \param s a string to set data to
@@ -106,7 +106,7 @@ public:
 	void operator = (const SecKeySS<T> &s);
 };
 template <typename T>
-SecKeySS<T>::SecKeySS(const SecKeySS<T>& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
+SecKeySS<T>::SecKeySS( SecKeySS<T>& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
 template <typename T>
 SecKeySS<T>::~SecKeySS() { duplicates.clear(); }
 template <typename T>
@@ -127,7 +127,7 @@ void SecKeySS<T>::operator = (const SecKeySS<T> &s){
 	duplicates = s.duplicates;
 }
 template <typename T>
-LinkedList<T> SecKeySS<T>::getDuplicates() const{
+LinkedList<T> SecKeySS<T>::getDuplicates() {
 	T temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
 		temp = duplicates.getEntry(i);
