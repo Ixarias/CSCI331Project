@@ -38,7 +38,7 @@ public:
    
    bool isEmpty() const;
    int getLength() const;
-   bool insert(int newPosition, const ItemType& newEntry);
+   bool insert(int& newPosition, ItemType& newEntry);
    //void remove(int position);
    bool deletion(int position);
    void clear();
