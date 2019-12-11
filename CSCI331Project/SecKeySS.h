@@ -18,7 +18,7 @@ private:
 	LinkedList<T> list;
 public:
 	/** Default constructor */
-	template <typename T>
+	//template <typename T>
 	SecKeySS() { duplicates = LinkedList<T>(); };
 	
 	/** Copy Constructor */
@@ -38,8 +38,8 @@ public:
 	/** Gets duplicates
 	    \returns LinkedList of itemType
 	*/
-//	template <typename T>
-	LinkedList<int> getDuplicates() ;
+	//template <typename T>
+	LinkedList<T> getDuplicates() ;
 
 	/** Sets the data equal to argument 1
 	    \param s a string to set data to
