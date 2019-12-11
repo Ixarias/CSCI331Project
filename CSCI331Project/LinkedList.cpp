@@ -103,7 +103,7 @@ int LinkedList<ItemType>::getLength() const
     \pre newPosition <= itemCount + 1
 */
 template<class ItemType>
-bool LinkedList<ItemType>::insert(int newPosition&, ItemType& newEntry)
+bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
 {
    bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
    if (ableToInsert)
