@@ -69,7 +69,7 @@ private:
 	unsigned numRecords;
 	int nextEmpty;
 	//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values
-	LinkedList<SecKeySS<string>> secKeyZip;
+	LinkedList<SecKeySS<int>> secKeyZip;
 	LinkedList<SecKeySS<string>> secKeyPlace;
 	LinkedList<SecKeySS<string>> secKeyState;
 	LinkedList<SecKeySS<string>> secKeyCounty;
@@ -405,7 +405,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	break;
 	case 5:
 	{
-		for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < s); i++);
+		for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < stoi(s)); i++);
 		if (secKeyLat.getEntry(i).getData() == static_cast<int>(stod(s))) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyLat.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
@@ -416,7 +416,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	break;
 	case 6:
 	{
-		for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < s); i++);
+		for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < stoi(s)); i++);
 		if (secKeyLon.getEntry(i).getData() == static_cast<int>(stod(s))) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyLon.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
