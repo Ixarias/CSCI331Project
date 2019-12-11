@@ -51,7 +51,7 @@ public:
 	    \param LinkedList dup
 	*/
 //	template <typename T>
-	void setDuplicates( LinkedList<int> dup);
+	void setDuplicates( LinkedList<T> dup);
 
 	/** Operator less than
 	    \param s a reference to a string to check if than
