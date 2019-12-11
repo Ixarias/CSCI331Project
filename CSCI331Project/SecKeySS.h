@@ -15,6 +15,7 @@ class SecKeySS {
 private:
 	T data;
 	LinkedList<int> duplicates;
+	LinkedList<int> list;
 public:
 	/** Default constructor */
 //	template <typename T>
@@ -127,7 +128,6 @@ void SecKeySS<T>::operator = (const SecKeySS<T> &s){
 }
 template <typename T>
 LinkedList<int> SecKeySS<T>::getDuplicates() const {
-	LinkedList<int> list;
 	T temp;
 	for (int i = 1; i < duplicates.getItemCount() + 1; i++) {
 		temp = duplicates.getEntry(i);

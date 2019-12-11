@@ -361,7 +361,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	switch (fieldNum) {
 	case 1:
 	{
-		for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < s); i++);
+		for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < stoi(s)); i++);
 		if (secKeyZip.getEntry(i).getData() == stoi(s)) {
 			LinkedList<int> toCopy = LinkedList<int>(secKeyZip.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
