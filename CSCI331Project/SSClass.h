@@ -527,12 +527,12 @@ void SSClass::insertPlace(string s, int rrn) {
 	if (secKeyPlace.getEntry(i).getData() == s) {
 		secCopy = secKeyPlace.getEntry(i);
 		copyDup = LinkedList<string>(secCopy.getDuplicates());
-		copyDup.insert(1, rrn);
+		copyDup.insert(1, to_string(rrn));
 		secCopy.setDuplicates(copyDup);
 		secKeyPlace.replace(i, secCopy);
 		return;
 	}
-	copyDup.insert(1, rrn);
+	copyDup.insert(1, to_string(rrn));
 	secCopy.setDuplicates(copyDup);
 	secCopy.setData(getPlace(s));
 	secKeyPlace.insert(i, secCopy);
@@ -547,12 +547,12 @@ void SSClass::insertState(string s, int rrn) {
 	if (secKeyState.getEntry(i).getData() == s) {
 		secCopy = secKeyState.getEntry(i);
 		copyDup = LinkedList<string>(secCopy.getDuplicates());
-		copyDup.insert(1, to_string(rrn), 1);
+		copyDup.insert(1, to_string(rrn));
 		secCopy.setDuplicates(copyDup);
 		secKeyState.replace(i, secCopy);
 		return;
 	}
-	copyDup.insert(1, to_string(rrn), 1);
+	copyDup.insert(1, to_string(rrn));
 	secCopy.setDuplicates(copyDup);
 	secCopy.setData(getState(s));
 	secKeyState.insert(i, secCopy);
@@ -567,12 +567,12 @@ void SSClass::insertCounty(string s, int rrn) {
 	if (secKeyCounty.getEntry(i).getData() == s) {
 		secCopy = secKeyCounty.getEntry(i);
 		copyDup = LinkedList<string>(secCopy.getDuplicates());
-		copyDup.insert(1, to_string(rrn), 1);
+		copyDup.insert(1, to_string(rrn));
 		secCopy.setDuplicates(copyDup);
 		secKeyCounty.replace(i, secCopy);
 		return;
 	}
-	copyDup.insert(1, to_string(rrn), 1);
+	copyDup.insert(1, to_string(rrn));
 	secCopy.setDuplicates(copyDup);
 	secCopy.setData(getCounty(s));
 	secKeyCounty.insert(i, secCopy);
