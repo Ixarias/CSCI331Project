@@ -277,7 +277,6 @@ ItemType LinkedList<ItemType>::displayList()
 		Node<ItemType>* nodePtr = getNodeAt(i);
 		return nodePtr->getItem();
 	}
-	return;
 }
 
 //! operator function =
