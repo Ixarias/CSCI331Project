@@ -376,7 +376,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 		if ((secKeyPlace.getEntry(i).getData()) == (s)) {
 			LinkedList<string> toCopy = LinkedList<string>(secKeyPlace.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi string type linked list
+				// stoi toCopy.getEntry returns string
 				results.push_back(stoi(toCopy.getEntry(j)));
 			}
 		}
@@ -388,7 +388,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 		if ((secKeyState.getEntry(i).getData()) == (s)) {
 			LinkedList<string> toCopy = LinkedList<string>(secKeyState.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi string type linked list
+				// stoi toCopy.getEntry returns string
 				results.push_back(stoi(toCopy.getEntry(j)));
 			}
 		}
@@ -400,7 +400,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 		if ((secKeyCounty.getEntry(i).getData()) == (s)) {
 			LinkedList<string> toCopy = LinkedList<string>(secKeyCounty.getEntry(i).getDuplicates());
 			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi string type linked list
+				// stoi toCopy.getEntry returns string
 				results.push_back(stoi(toCopy.getEntry(j)));
 			}
 		}

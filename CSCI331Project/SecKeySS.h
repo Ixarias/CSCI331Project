@@ -136,7 +136,7 @@ LinkedList<T> SecKeySS<T>::getDuplicates() {
 	return list;
 }
 template <typename T>
-void SecKeySS<T>::setDuplicates(LinkedList<int> list) {
+void SecKeySS<T>::setDuplicates(LinkedList<T> list) {
 	T temp;
 	duplicates.clear();
 	for (int i = 1; i < list.getItemCount() + 1; i++) {
