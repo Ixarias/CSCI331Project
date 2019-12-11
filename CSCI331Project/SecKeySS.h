@@ -39,7 +39,7 @@ public:
 	    \returns LinkedList of itemType
 	*/
 //	template <typename T>
-	LinkedList<int> getDuplicates();
+	LinkedList<int> getDuplicates() const;
 
 	/** Sets the data equal to argument 1
 	    \param s a string to set data to
