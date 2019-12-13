@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['getdata',['getData',['../classSecKeySS.html#add52510d280d0ca89b653386500f08f5',1,'SecKeySS']]],
-  ['getduplicates',['getDuplicates',['../classSecKeySS.html#aaae9db891cfcdc3f78d8a44145f4f08c',1,'SecKeySS']]],
-  ['getentry',['getEntry',['../classLinkedList.html#a341bfd7772c9d24d29eb7a7f3936915b',1,'LinkedList::getEntry()'],['../classListInterface.html#a86987f69e5056d287212ede41db1956a',1,'ListInterface::getEntry()']]],
-  ['getitem',['getItem',['../classNode.html#a6c08caef312b6f2f69b5e090cf047514',1,'Node']]],
-  ['getitemcount',['getItemCount',['../classLinkedList.html#afc6635f854f48f2f126cf3b60d845220',1,'LinkedList']]],
-  ['getlength',['getLength',['../classLinkedList.html#a61d045ef6008b494a1a516ecc992c0e7',1,'LinkedList::getLength()'],['../classListInterface.html#afc85695d4137f1e29ff02e179c9f3221',1,'ListInterface::getLength()']]],
-  ['getnext',['getNext',['../classNode.html#a3eb0c96e03a3fd46ea1cff4c305bbedd',1,'Node']]]
+  ['data',['data',['../structBTreeNode.html#af877c66e47b110ed0f05e95351003531',1,'BTreeNode']]],
+  ['deletion',['deletion',['../classLinkedList.html#a7dc3cca217b45c6fe5d28c9d16b7bf9e',1,'LinkedList::deletion()'],['../classListInterface.html#a68520ce2942ec716c745b1137c50a3c6',1,'ListInterface::deletion()']]],
+  ['directionalsearch',['directionalSearch',['../classSSClass.html#ad03c99840c2946a2112f5f1942c287f2',1,'SSClass']]],
+  ['displaylist',['displayList',['../classLinkedList.html#a65fb58d9f9b8af41e9569d1dc3200583',1,'LinkedList::displayList()'],['../classListInterface.html#a2f2f533e962dd89111ee50b972dc28e7',1,'ListInterface::displayList()']]]
 ];

@@ -9,6 +9,24 @@ This is \hyperlink{classNode}{Node} class for linked list.
 
 {\ttfamily \#include \char`\"{}Node.\+h\char`\"{}}
 
+
+
+Inheritance diagram for Node$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Node$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classNode__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,10 +54,6 @@ This is \hyperlink{classNode}{Node} class for linked list.
 
 This class is to create a node that is used in linked list class. The \hyperlink{classNode}{Node} will store a template Item\+Type, item and a \hyperlink{classNode}{Node} pointer of item type, next. 
 
-Definition at line 12 of file Node.\+h.
-
-
-
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classNode_a627e94f4fba0e73c546e0fb2a7266f36}\label{classNode_a627e94f4fba0e73c546e0fb2a7266f36}} 
 \index{Node@{Node}!Node@{Node}}
@@ -52,17 +66,7 @@ Definition at line 12 of file Node.\+h.
 
 \hyperlink{classNode}{Node} default constructor. 
 
-Default constructor assiging next as N\+U\+L\+L\+P\+TR 
-
-Definition at line 8 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-8                      : next(\textcolor{keyword}{nullptr})
-9 \{
-10 \} \textcolor{comment}{// end default constructor}
-\end{DoxyCode}
-\mbox{\Hypertarget{classNode_a0288598fcb0244739ce95099c26250ae}\label{classNode_a0288598fcb0244739ce95099c26250ae}} 
+Default constructor assiging next as N\+U\+L\+L\+P\+TR \mbox{\Hypertarget{classNode_a0288598fcb0244739ce95099c26250ae}\label{classNode_a0288598fcb0244739ce95099c26250ae}} 
 \index{Node@{Node}!Node@{Node}}
 \index{Node@{Node}!Node@{Node}}
 \subsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
@@ -78,16 +82,6 @@ Taking one argument to assign to item and assigns next to null pointer.
 {\em an\+Item} & a constant reference to an item of itemtype \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 18 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-18                                            : item(anItem), next(\textcolor{keyword}{nullptr})
-19 \{
-20 \} \textcolor{comment}{// end constructor}
-\end{DoxyCode}
 \mbox{\Hypertarget{classNode_adf98d3f9b7227622cb5a0fdd7e8f0b18}\label{classNode_adf98d3f9b7227622cb5a0fdd7e8f0b18}} 
 \index{Node@{Node}!Node@{Node}}
 \index{Node@{Node}!Node@{Node}}
@@ -108,17 +102,6 @@ Taking two arguments. The first to assign to item and the other assigns next to 
 \end{DoxyParams}
 
 
-Definition at line 30 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-30                                                                         :
-31     item(anItem), next(nextNodePtr)
-32 \{
-33 \} \textcolor{comment}{// end constructor}
-\end{DoxyCode}
-
-
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classNode_a6c08caef312b6f2f69b5e090cf047514}\label{classNode_a6c08caef312b6f2f69b5e090cf047514}} 
 \index{Node@{Node}!get\+Item@{get\+Item}}
@@ -131,17 +114,7 @@ Item\+Type \hyperlink{classNode}{Node}$<$ Item\+Type $>$\+::get\+Item (\begin{Do
 
 Member function returning an item. 
 
-/return the item of item\+Type 
-
-Definition at line 60 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-61 \{
-62     \textcolor{keywordflow}{return} item;
-63 \} \textcolor{comment}{// end getItem}
-\end{DoxyCode}
-\mbox{\Hypertarget{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}\label{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}} 
+/return the item of item\+Type \mbox{\Hypertarget{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}\label{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}} 
 \index{Node@{Node}!get\+Next@{get\+Next}}
 \index{get\+Next@{get\+Next}!Node@{Node}}
 \subsubsection{\texorpdfstring{get\+Next()}{getNext()}}
@@ -152,17 +125,7 @@ Definition at line 60 of file Node.\+cpp.
 
 Memebr funtion to get the pointer to the next \hyperlink{classNode}{Node}. 
 
-/return a pointer to the next node. 
-
-Definition at line 70 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-71 \{
-72     \textcolor{keywordflow}{return} next;
-73 \} \textcolor{comment}{// end getNext}
-\end{DoxyCode}
-\mbox{\Hypertarget{classNode_ab4ceecdecc5df799011de486b9f54974}\label{classNode_ab4ceecdecc5df799011de486b9f54974}} 
+/return a pointer to the next node. \mbox{\Hypertarget{classNode_ab4ceecdecc5df799011de486b9f54974}\label{classNode_ab4ceecdecc5df799011de486b9f54974}} 
 \index{Node@{Node}!set\+Item@{set\+Item}}
 \index{set\+Item@{set\+Item}!Node@{Node}}
 \subsubsection{\texorpdfstring{set\+Item()}{setItem()}}
@@ -178,16 +141,6 @@ Member function taking one argument to set the memebr item.
 {\em an\+Item} & to be reference to by item \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 40 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-41 \{
-42     item = anItem;
-43 \} \textcolor{comment}{// end setItem}
-\end{DoxyCode}
 \mbox{\Hypertarget{classNode_a01c1a66d4e39f5b149e090413deb4633}\label{classNode_a01c1a66d4e39f5b149e090413deb4633}} 
 \index{Node@{Node}!set\+Next@{set\+Next}}
 \index{set\+Next@{set\+Next}!Node@{Node}}
@@ -201,17 +154,7 @@ Member function taking one argument, a pointer to a \hyperlink{classNode}{Node}.
 
 /param next\+Node\+Ptr a point to a \hyperlink{classNode}{Node}, the next \hyperlink{classNode}{Node} in a linked list 
 
-Definition at line 50 of file Node.\+cpp.
-
-
-\begin{DoxyCode}
-51 \{
-52     next = nextNodePtr;
-53 \} \textcolor{comment}{// end setNext}
-\end{DoxyCode}
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Node.\+h\item 
-Node.\+cpp\end{DoxyCompactItemize}
+\hyperlink{Node_8h}{Node.\+h}\item 
+\hyperlink{Node_8cpp}{Node.\+cpp}\end{DoxyCompactItemize}

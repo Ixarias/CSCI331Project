@@ -1,0 +1,98 @@
+\hypertarget{BTree_8h}{}\section{B\+Tree.\+h File Reference}
+\label{BTree_8h}\index{B\+Tree.\+h@{B\+Tree.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for B\+Tree.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{BTree_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBTreeNode}{B\+Tree\+Node$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$ \hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{init} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}{traverse} (\hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$p)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}{sort} (int $\ast$p, int n)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{BTree_8h_a80292238f91964bc30573f633a3b991c}{split\+\_\+child} (\hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}, int i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}{insert} (T a)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$ \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root} = N\+U\+LL
+\item 
+struct \hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$ \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np} = N\+U\+LL
+\item 
+struct \hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$ \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{BTree_8h_a30a93849f7d32829662c20400ced546b}\label{BTree_8h_a30a93849f7d32829662c20400ced546b}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!init@{init}}
+\index{init@{init}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{structBTreeNode}{B\+Tree\+Node}$\ast$ init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}\label{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!insert@{insert}}
+\index{insert@{insert}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void insert (\begin{DoxyParamCaption}\item[{T}]{a }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}\label{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!sort@{sort}}
+\index{sort@{sort}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void sort (\begin{DoxyParamCaption}\item[{int $\ast$}]{p,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{BTree_8h_a80292238f91964bc30573f633a3b991c}\label{BTree_8h_a80292238f91964bc30573f633a3b991c}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!split\+\_\+child@{split\+\_\+child}}
+\index{split\+\_\+child@{split\+\_\+child}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{split\+\_\+child()}{split\_child()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T split\+\_\+child (\begin{DoxyParamCaption}\item[{\hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$}]{x,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}\label{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!traverse@{traverse}}
+\index{traverse@{traverse}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void traverse (\begin{DoxyParamCaption}\item[{\hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{BTree_8h_a84eeac28397095456715e78262e4fc9c}\label{BTree_8h_a84eeac28397095456715e78262e4fc9c}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!np@{np}}
+\index{np@{np}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{np}{np}}
+{\footnotesize\ttfamily struct \hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$  np = N\+U\+LL}
+
+\mbox{\Hypertarget{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}\label{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!root@{root}}
+\index{root@{root}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily struct \hyperlink{structBTreeNode}{B\+Tree\+Node}$\ast$ root = N\+U\+LL}
+
+\mbox{\Hypertarget{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}\label{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}} 
+\index{B\+Tree.\+h@{B\+Tree.\+h}!x@{x}}
+\index{x@{x}!B\+Tree.\+h@{B\+Tree.\+h}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily struct \hyperlink{structBTreeNode}{B\+Tree\+Node} $\ast$  x = N\+U\+LL}
+

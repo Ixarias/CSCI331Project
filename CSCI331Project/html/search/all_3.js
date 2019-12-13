@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['insert',['insert',['../classLinkedList.html#ae8a19375505e87e2e4fc0e9b5afe4d4d',1,'LinkedList::insert()'],['../classListInterface.html#a5b2f86954a86172699a3495982c38e77',1,'ListInterface::insert()'],['../classSSClass.html#a45c5585c784bf7c4f823f66426664aea',1,'SSClass::insert()']]],
-  ['isempty',['isEmpty',['../classLinkedList.html#a008e916c3d51d28b4cc9c8cdf3e9d921',1,'LinkedList::isEmpty()'],['../classListInterface.html#a924f91e7f81d7dcd3fda79bbcc671394',1,'ListInterface::isEmpty()'],['../classSSClass.html#afc95611385e4d389818332414d5c491c',1,'SSClass::isEmpty()']]]
+  ['getdata',['getData',['../classSecKeySS.html#a9fdb8a771250b7aaab556f019b381eab',1,'SecKeySS']]],
+  ['getduplicates',['getDuplicates',['../classSecKeySS.html#abef7c9c03e9bc6b818d599966428fdec',1,'SecKeySS']]],
+  ['getentry',['getEntry',['../classLinkedList.html#a341bfd7772c9d24d29eb7a7f3936915b',1,'LinkedList::getEntry()'],['../classListInterface.html#a86987f69e5056d287212ede41db1956a',1,'ListInterface::getEntry()']]],
+  ['getitem',['getItem',['../classNode.html#a6c08caef312b6f2f69b5e090cf047514',1,'Node']]],
+  ['getitemcount',['getItemCount',['../classLinkedList.html#afc6635f854f48f2f126cf3b60d845220',1,'LinkedList::getItemCount()'],['../classListInterface.html#a3e085e6ea9c5dc3e8007010cd889159c',1,'ListInterface::getItemCount()']]],
+  ['getlength',['getLength',['../classLinkedList.html#a61d045ef6008b494a1a516ecc992c0e7',1,'LinkedList::getLength()'],['../classListInterface.html#afc85695d4137f1e29ff02e179c9f3221',1,'ListInterface::getLength()']]],
+  ['getnext',['getNext',['../classNode.html#a3eb0c96e03a3fd46ea1cff4c305bbedd',1,'Node']]]
 ];

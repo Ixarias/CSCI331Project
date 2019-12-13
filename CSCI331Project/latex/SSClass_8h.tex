@@ -1,0 +1,177 @@
+\hypertarget{SSClass_8h}{}\section{S\+S\+Class.\+h File Reference}
+\label{SSClass_8h}\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}Linked\+List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Node.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sec\+Key\+S\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}List\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for S\+S\+Class.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SSClass_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{SSClass_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classSSClass}{S\+S\+Class}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLinkedList}{Linked\+List} integration for blocks, records, and fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{SSClass_8h_ad0b49971b6f96c3d0772461b5de08c1a}{N\+U\+M\+S\+E\+C\+K\+E\+YS} = 6
+\begin{DoxyCompactList}\small\item\em N\+U\+M\+S\+E\+C\+K\+E\+YS The numebr of section keys. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{Z\+I\+P\+S\+I\+ZE} = 6
+\begin{DoxyCompactList}\small\item\em Z\+I\+P\+S\+I\+ZE The size of the zip code. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{P\+L\+A\+C\+E\+S\+I\+ZE} = 31
+\begin{DoxyCompactList}\small\item\em P\+L\+A\+C\+E\+S\+I\+ZE The size of the place (city) \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{S\+T\+A\+T\+E\+S\+I\+ZE} = 2
+\begin{DoxyCompactList}\small\item\em S\+T\+A\+T\+E\+S\+I\+ZE The size of the sate letters. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{C\+O\+U\+N\+T\+Y\+S\+I\+ZE} = 36
+\begin{DoxyCompactList}\small\item\em C\+O\+U\+N\+T\+Y\+S\+I\+ZE The size of letters for the county. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{L\+A\+T\+S\+I\+ZE} = 9
+\begin{DoxyCompactList}\small\item\em L\+A\+T\+S\+I\+ZE The size of the Lattatude. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{L\+O\+N\+S\+I\+ZE} = 10
+\begin{DoxyCompactList}\small\item\em L\+O\+N\+S\+I\+ZE The size (including sign) of the longitude. \end{DoxyCompactList}\item 
+const int \hyperlink{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}{Z\+I\+P\+O\+F\+F\+S\+ET} = 0
+\item 
+const int \hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET} = \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{Z\+I\+P\+S\+I\+ZE} -\/ 1
+\item 
+const int \hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET} = \hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{P\+L\+A\+C\+E\+S\+I\+ZE}
+\item 
+const int \hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET} = \hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{S\+T\+A\+T\+E\+S\+I\+ZE}
+\item 
+const int \hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{L\+A\+T\+O\+F\+F\+S\+ET} = \hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{C\+O\+U\+N\+T\+Y\+S\+I\+ZE}
+\item 
+const int \hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{L\+O\+N\+O\+F\+F\+S\+ET} = \hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{L\+A\+T\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{L\+A\+T\+S\+I\+ZE}
+\item 
+const int \hyperlink{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}{C\+H\+A\+R\+I\+N\+L\+I\+NE} = \hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{L\+O\+N\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{L\+O\+N\+S\+I\+ZE}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}\label{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!C\+H\+A\+R\+I\+N\+L\+I\+NE@{C\+H\+A\+R\+I\+N\+L\+I\+NE}}
+\index{C\+H\+A\+R\+I\+N\+L\+I\+NE@{C\+H\+A\+R\+I\+N\+L\+I\+NE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{C\+H\+A\+R\+I\+N\+L\+I\+NE}{CHARINLINE}}
+{\footnotesize\ttfamily const int C\+H\+A\+R\+I\+N\+L\+I\+NE = \hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{L\+O\+N\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{L\+O\+N\+S\+I\+ZE}}
+
+\mbox{\Hypertarget{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}\label{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET@{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET}}
+\index{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET@{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET}{COUNTYOFFSET}}
+{\footnotesize\ttfamily const int C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET = \hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{S\+T\+A\+T\+E\+S\+I\+ZE}}
+
+\mbox{\Hypertarget{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}\label{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!C\+O\+U\+N\+T\+Y\+S\+I\+ZE@{C\+O\+U\+N\+T\+Y\+S\+I\+ZE}}
+\index{C\+O\+U\+N\+T\+Y\+S\+I\+ZE@{C\+O\+U\+N\+T\+Y\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+U\+N\+T\+Y\+S\+I\+ZE}{COUNTYSIZE}}
+{\footnotesize\ttfamily const int C\+O\+U\+N\+T\+Y\+S\+I\+ZE = 36}
+
+
+
+C\+O\+U\+N\+T\+Y\+S\+I\+ZE The size of letters for the county. 
+
+\mbox{\Hypertarget{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}\label{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!L\+A\+T\+O\+F\+F\+S\+ET@{L\+A\+T\+O\+F\+F\+S\+ET}}
+\index{L\+A\+T\+O\+F\+F\+S\+ET@{L\+A\+T\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{L\+A\+T\+O\+F\+F\+S\+ET}{LATOFFSET}}
+{\footnotesize\ttfamily const int L\+A\+T\+O\+F\+F\+S\+ET = \hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{C\+O\+U\+N\+T\+Y\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{C\+O\+U\+N\+T\+Y\+S\+I\+ZE}}
+
+\mbox{\Hypertarget{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}\label{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!L\+A\+T\+S\+I\+ZE@{L\+A\+T\+S\+I\+ZE}}
+\index{L\+A\+T\+S\+I\+ZE@{L\+A\+T\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{L\+A\+T\+S\+I\+ZE}{LATSIZE}}
+{\footnotesize\ttfamily const int L\+A\+T\+S\+I\+ZE = 9}
+
+
+
+L\+A\+T\+S\+I\+ZE The size of the Lattatude. 
+
+\mbox{\Hypertarget{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}\label{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!L\+O\+N\+O\+F\+F\+S\+ET@{L\+O\+N\+O\+F\+F\+S\+ET}}
+\index{L\+O\+N\+O\+F\+F\+S\+ET@{L\+O\+N\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+N\+O\+F\+F\+S\+ET}{LONOFFSET}}
+{\footnotesize\ttfamily const int L\+O\+N\+O\+F\+F\+S\+ET = \hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{L\+A\+T\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{L\+A\+T\+S\+I\+ZE}}
+
+\mbox{\Hypertarget{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}\label{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!L\+O\+N\+S\+I\+ZE@{L\+O\+N\+S\+I\+ZE}}
+\index{L\+O\+N\+S\+I\+ZE@{L\+O\+N\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+N\+S\+I\+ZE}{LONSIZE}}
+{\footnotesize\ttfamily const int L\+O\+N\+S\+I\+ZE = 10}
+
+
+
+L\+O\+N\+S\+I\+ZE The size (including sign) of the longitude. 
+
+\mbox{\Hypertarget{SSClass_8h_ad0b49971b6f96c3d0772461b5de08c1a}\label{SSClass_8h_ad0b49971b6f96c3d0772461b5de08c1a}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!N\+U\+M\+S\+E\+C\+K\+E\+YS@{N\+U\+M\+S\+E\+C\+K\+E\+YS}}
+\index{N\+U\+M\+S\+E\+C\+K\+E\+YS@{N\+U\+M\+S\+E\+C\+K\+E\+YS}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{N\+U\+M\+S\+E\+C\+K\+E\+YS}{NUMSECKEYS}}
+{\footnotesize\ttfamily const int N\+U\+M\+S\+E\+C\+K\+E\+YS = 6}
+
+
+
+N\+U\+M\+S\+E\+C\+K\+E\+YS The numebr of section keys. 
+
+\mbox{\Hypertarget{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}\label{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!P\+L\+A\+C\+E\+O\+F\+F\+S\+ET@{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET}}
+\index{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET@{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET}{PLACEOFFSET}}
+{\footnotesize\ttfamily const int P\+L\+A\+C\+E\+O\+F\+F\+S\+ET = \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{Z\+I\+P\+S\+I\+ZE} -\/ 1}
+
+\mbox{\Hypertarget{SSClass_8h_a6802669f0c794331636a12aad9da53f5}\label{SSClass_8h_a6802669f0c794331636a12aad9da53f5}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!P\+L\+A\+C\+E\+S\+I\+ZE@{P\+L\+A\+C\+E\+S\+I\+ZE}}
+\index{P\+L\+A\+C\+E\+S\+I\+ZE@{P\+L\+A\+C\+E\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+A\+C\+E\+S\+I\+ZE}{PLACESIZE}}
+{\footnotesize\ttfamily const int P\+L\+A\+C\+E\+S\+I\+ZE = 31}
+
+
+
+P\+L\+A\+C\+E\+S\+I\+ZE The size of the place (city) 
+
+\mbox{\Hypertarget{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}\label{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!S\+T\+A\+T\+E\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET}}
+\index{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+A\+T\+E\+O\+F\+F\+S\+ET}{STATEOFFSET}}
+{\footnotesize\ttfamily const int S\+T\+A\+T\+E\+O\+F\+F\+S\+ET = \hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{P\+L\+A\+C\+E\+O\+F\+F\+S\+ET} + \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{P\+L\+A\+C\+E\+S\+I\+ZE}}
+
+\mbox{\Hypertarget{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}\label{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!S\+T\+A\+T\+E\+S\+I\+ZE@{S\+T\+A\+T\+E\+S\+I\+ZE}}
+\index{S\+T\+A\+T\+E\+S\+I\+ZE@{S\+T\+A\+T\+E\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+A\+T\+E\+S\+I\+ZE}{STATESIZE}}
+{\footnotesize\ttfamily const int S\+T\+A\+T\+E\+S\+I\+ZE = 2}
+
+
+
+S\+T\+A\+T\+E\+S\+I\+ZE The size of the sate letters. 
+
+\mbox{\Hypertarget{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}\label{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!Z\+I\+P\+O\+F\+F\+S\+ET@{Z\+I\+P\+O\+F\+F\+S\+ET}}
+\index{Z\+I\+P\+O\+F\+F\+S\+ET@{Z\+I\+P\+O\+F\+F\+S\+ET}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{Z\+I\+P\+O\+F\+F\+S\+ET}{ZIPOFFSET}}
+{\footnotesize\ttfamily const int Z\+I\+P\+O\+F\+F\+S\+ET = 0}
+
+\mbox{\Hypertarget{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}\label{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}} 
+\index{S\+S\+Class.\+h@{S\+S\+Class.\+h}!Z\+I\+P\+S\+I\+ZE@{Z\+I\+P\+S\+I\+ZE}}
+\index{Z\+I\+P\+S\+I\+ZE@{Z\+I\+P\+S\+I\+ZE}!S\+S\+Class.\+h@{S\+S\+Class.\+h}}
+\subsubsection{\texorpdfstring{Z\+I\+P\+S\+I\+ZE}{ZIPSIZE}}
+{\footnotesize\ttfamily const int Z\+I\+P\+S\+I\+ZE = 6}
+
+
+
+Z\+I\+P\+S\+I\+ZE The size of the zip code. 
+
