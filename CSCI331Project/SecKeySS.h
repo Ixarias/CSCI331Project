@@ -23,7 +23,7 @@ public:
 	
 	/** Copy Constructor */
 //	template <typename T>
-	SecKeySS( SecKeySS<T>& s);
+	SecKeySS( SecKeySS<T> s);
 
 	/** Deconstuctor */
 //	template <typename T>
@@ -106,7 +106,7 @@ public:
 	void operator = (const SecKeySS<T> &s);
 };
 template <typename T>
-SecKeySS<T>::SecKeySS( SecKeySS<T>& s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
+SecKeySS<T>::SecKeySS( SecKeySS<T> s) { data = s.getData(); setDuplicates(s.getDuplicates()); }
 template <typename T>
 SecKeySS<T>::~SecKeySS() { duplicates.clear(); }
 template <typename T>

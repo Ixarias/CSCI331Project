@@ -16,8 +16,11 @@
      -- array/vector elements are initialized to zero
 */
 
-#ifndef INCLUDE
-#define INCLUDE
+#ifndef SSCLASS_
+#define SSCLASS_
+
+//#ifndef INCLUDE
+//#define INCLUDE
 
 #include <iostream>
 #include <string>
@@ -26,14 +29,14 @@
 #include <sstream>
 #include <limits>
 
-#endif
+//#endif
 
-#ifndef SSCLASS_
-#define SSCLASS_
+//#ifndef SSCLASS_
+//#define SSCLASS_
 
-#include "ListInterface.h"
+//#include "ListInterface.h"
 #include "SecKeySS.h"
-
+#include "LinkedList.h"
 using namespace std;
 
 /** \brief NUMSECKEYS The numebr of section keys */
@@ -257,5 +260,5 @@ public:
 	string returnLine(int rrn);
 };
 
-
+#include "SSClass.cpp"
 #endif

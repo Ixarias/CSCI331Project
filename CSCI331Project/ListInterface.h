@@ -1,7 +1,9 @@
-#include <vector>
+//#include <vector>
 
 #ifndef _LIST_INTERFACE
 #define _LIST_INTERFACE
+
+#include <vector>
 
 template<class ItemType>
 class ListInterface

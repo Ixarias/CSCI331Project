@@ -6,8 +6,10 @@
 * ItemType, item and a Node pointer of item type, next.
 *******************************************************************************/
 
-#ifndef INCLUDE
-#define INCLUDE
+//#ifndef INCLUDE
+//#define INCLUDE
+#ifndef _LinkedList
+#define _LinkedList
 
 #include <algorithm>
 #include <cassert>
@@ -19,10 +21,10 @@
 #include <sstream>
 #include <limits>
 
-#endif
+//#endif
 
-#ifndef LINKED_LIST_
-#define LINKED_LIST_
+//#ifndef LINKED_LIST_
+//#define LINKED_LIST_
 
 #include "ListInterface.h"
 #include "Node.h"
@@ -75,5 +77,5 @@ public:
 
 }; // end LinkedList
 
-//#include "LinkedList.cpp"
+#include "LinkedList.cpp"
 #endif

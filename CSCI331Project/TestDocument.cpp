@@ -104,10 +104,10 @@ void menu(uint8_t &menuSelection)
 			cout << "What is the zip code you would like to know the state and place name of?:";
 			cin >> zipCode;
 			cout << endl;
-			rrnVector = sequence.search(zipCode, 1);
-			for (int i = 0; i < rrnVector.size(); i++) {
-				cout << sequence.returnLine(rrnVector[i]);
-			}
+//			rrnVector = sequence.search(zipCode, 1);
+//			for (int i = 0; i < rrnVector.size(); i++) {
+//				cout << sequence.returnLine(rrnVector[i]);
+//			}
 
 				break;
 
@@ -125,7 +125,7 @@ void menu(uint8_t &menuSelection)
 
 				if (direction == 'N' || direction == 'S' || direction == 'E' || direction == 'W')
 				{
-					cout << sequence.returnLine(sequence.directionalSearch(string(1, state), direction));
+//					cout << sequence.returnLine(sequence.directionalSearch(string(1, state), direction));
 				}
 
 				else

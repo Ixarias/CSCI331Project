@@ -1,5 +1,5 @@
 #include "SSClass.h"
-
+using namespace std;
 /*---------------------------------------------------------------------------
 	Opens file
 	Preconditions:   File needs to be created
