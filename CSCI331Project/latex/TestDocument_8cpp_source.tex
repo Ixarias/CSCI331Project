@@ -1,0 +1,142 @@
+\hypertarget{TestDocument_8cpp_source}{}\section{Test\+Document.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <fstream>}
+00002 \textcolor{preprocessor}{#include <iostream>}
+00003 \textcolor{preprocessor}{#include "\hyperlink{SSClass_8h}{SSClass.h}"}
+00004 \textcolor{preprocessor}{#include <vector>}
+00005 
+00006 \textcolor{preprocessor}{#include "\hyperlink{LinkedList_8h}{LinkedList.h}"}
+00007 \textcolor{preprocessor}{#include "\hyperlink{LinkedList_8cpp}{LinkedList.cpp}"}
+00008 \textcolor{preprocessor}{#include "\hyperlink{Node_8h}{Node.h}"}
+00009 \textcolor{preprocessor}{#include "\hyperlink{Node_8cpp}{Node.cpp}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{SecKeySS_8h}{SecKeySS.h}"}
+00011 
+00012 \textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+00013 
+00014 \textcolor{comment}{// Function prototype for menu}
+00015 \textcolor{keywordtype}{void} \hyperlink{TestDocument_8cpp_a23e4bdfe8835d4c21bff59dfd73e05f5}{menu}(uint8\_t &);
+00016 
+\Hypertarget{TestDocument_8cpp_source_l00017}\hyperlink{TestDocument_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00017} \textcolor{keywordtype}{int} \hyperlink{TestDocument_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}()
+00018 \{
+00019     
+00020     uint8\_t menuSelection = 9;  \textcolor{comment}{// allocates the memory for menu selection, and innitile to 0 to display
+       menu}
+00021 
+00022     cout << \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nWelcome to CSCI 331 SS Class Program: "} << endl;   \textcolor{comment}{// welcom message}
+00023 
+00024     \textcolor{comment}{// do while loop to call menu after every selection, and display menu when selection is 0}
+00025     \textcolor{keywordflow}{do}
+00026     \{
+00027         \textcolor{keywordflow}{if}(menuSelection == 9)
+00028         \{
+00029             \textcolor{comment}{//Menu that will be displayed to the user.}
+00030             cout << endl << endl;
+00031             cout << \textcolor{stringliteral}{"*********************************************************"} << endl;
+00032             cout << \textcolor{stringliteral}{"*                           Menu\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00033             cout << \textcolor{stringliteral}{"*\(\backslash\)t0. \(\backslash\)tMenu  \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00034             cout << \textcolor{stringliteral}{"*\(\backslash\)t1. \(\backslash\)tOpen file\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00035             cout << \textcolor{stringliteral}{"*\(\backslash\)t2. \(\backslash\)tInsert  \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00036             cout << \textcolor{stringliteral}{"*\(\backslash\)t3. \(\backslash\)tRemove \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t**"} << endl;
+00037             cout << \textcolor{stringliteral}{"*\(\backslash\)t4. \(\backslash\)tModify \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t**"} << endl;
+00038             cout << \textcolor{stringliteral}{"*\(\backslash\)t5. \(\backslash\)tDisplay recrod \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t**"} << endl;
+00039             cout << \textcolor{stringliteral}{"*\(\backslash\)t6. \(\backslash\)tDisplay feild in recrod\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00040             cout << \textcolor{stringliteral}{"*\(\backslash\)t7. \(\backslash\)tVerify \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00041             cout << \textcolor{stringliteral}{"*\(\backslash\)t8. \(\backslash\)tRun Test Sequence\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00042             cout << \textcolor{stringliteral}{"*\(\backslash\)t9. \(\backslash\)tSearch state \(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;
+00043             cout << \textcolor{stringliteral}{"*\(\backslash\)t10. \(\backslash\)tQuit\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t\(\backslash\)t*"} << endl;         
+00044             cout << \textcolor{stringliteral}{"*********************************************************"} << endl;
+00045             cout << endl << endl;
+00046         \}
+00047         
+00048         \hyperlink{TestDocument_8cpp_a23e4bdfe8835d4c21bff59dfd73e05f5}{menu}(menuSelection);    \textcolor{comment}{// Calls menu function and passes menu selection}
+00049 
+00050     \}\textcolor{keywordflow}{while}(menuSelection != 10 );   \textcolor{comment}{// if selection is 10 quit the program}
+00051 
+00052     cout << \textcolor{stringliteral}{"Thank you for using SS Class program. Have a great day!!\(\backslash\)n"} << endl;   \textcolor{comment}{//good bye message}
+00053 
+00054     \textcolor{keywordflow}{return} 0;
+00055 \}
+00056 
+\Hypertarget{TestDocument_8cpp_source_l00057}\hyperlink{TestDocument_8cpp_a23e4bdfe8835d4c21bff59dfd73e05f5}{00057} \textcolor{keywordtype}{void} \hyperlink{TestDocument_8cpp_a23e4bdfe8835d4c21bff59dfd73e05f5}{menu}(uint8\_t &menuSelection)
+00058 \{
+00059     \hyperlink{classSSClass}{SSClass} sequence;
+00060     \textcolor{keywordtype}{string} file\_name;   \textcolor{comment}{// allocates memory for file name}
+00061     \textcolor{keywordtype}{char} direction;
+00062     \textcolor{keywordtype}{char} state;
+00063     \textcolor{keywordtype}{string} zipCode;
+00064     vector rrnVector;
+00065 
+00066     cout << \textcolor{stringliteral}{"Menu Selection: "};     \textcolor{comment}{// message to user  }
+00067     cin >> menuSelection;           \textcolor{comment}{// takes in user input for menuSelection}
+00068     cout << endl;                   
+00069 
+00070     \textcolor{keywordflow}{switch}(menuSelection)
+00071     \{
+00072         \textcolor{keywordflow}{case} 0: 
+00073                 \textcolor{keywordflow}{break};
+00074 
+00075         \textcolor{keywordflow}{case} 1: cout << \textcolor{stringliteral}{"Enter a file name: "};
+00076                 cin >> file\_name; cout << endl;
+00077                 \textcolor{comment}{//sequence.openFile(file\_name); // TODO should param be a string or char* []?}
+00078                 \textcolor{keywordflow}{break};
+00079         
+00080         \textcolor{keywordflow}{case} 2: cout << \textcolor{stringliteral}{"Insert: "};
+00081                 \textcolor{comment}{//cin >> temp; cout << endl;}
+00082                 \textcolor{comment}{//list.insert();    // TODO add param(s)}
+00083                 \textcolor{keywordflow}{break};
+00084         
+00085         \textcolor{keywordflow}{case} 3: cout << \textcolor{stringliteral}{"remove: "};
+00086                 \textcolor{comment}{//cin >> temp; cout << endl;}
+00087                 \textcolor{comment}{//list.remove();    // TODO add param(s)}
+00088                 \textcolor{keywordflow}{break};
+00089 
+00090         \textcolor{keywordflow}{case} 4: \textcolor{comment}{// TODO call modify function}
+00091                 \textcolor{keywordflow}{break};
+00092 
+00093         \textcolor{keywordflow}{case} 5: \textcolor{comment}{// TODO call Display recrod function}
+00094                 \textcolor{keywordflow}{break};
+00095 
+00096         \textcolor{keywordflow}{case} 6: \textcolor{comment}{// TODO call Display feild in recrod function}
+00097             cout << \textcolor{stringliteral}{"Display field in record\(\backslash\)n"};
+00098             cout << \textcolor{stringliteral}{"What is the zip code you would like to know the state and place name of?:"}
+00099                 cin << zipCode; cout << endl;
+00100             rrnVector = sequence.\hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search}(zipCode, 1);
+00101             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rrnVector.size(); i++) \{
+00102                 cout << sequence.\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(rrnVector[i]);
+00103             \}
+00104 
+00105                 \textcolor{keywordflow}{break};
+00106 
+00107         \textcolor{keywordflow}{case} 7: \textcolor{comment}{// TODO call Verify function}
+00108                 \textcolor{keywordflow}{break};
+00109 
+00110         \textcolor{keywordflow}{case} 8: \textcolor{comment}{// TODO call Run Test Sequence function}
+00111                 \textcolor{keywordflow}{break};
+00112 
+00113         \textcolor{keywordflow}{case} 9: \textcolor{comment}{// TODO call Search state function}
+00114                 cout << \textcolor{stringliteral}{"enter direction N, E, S, or W: "};
+00115                 cin >> direction; cout << endl;
+00116                 cout << \textcolor{stringliteral}{"enter state"};
+00117                 cin >> state; cout << endl;
+00118 
+00119                 \textcolor{keywordflow}{if} (direction == \textcolor{charliteral}{'N'} || direction == \textcolor{charliteral}{'S'} || direction == \textcolor{charliteral}{'E'} || direction == \textcolor{charliteral}{'W'})
+00120                 \{
+00121                     cout << sequence.\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(sequence.
+      \hyperlink{classSSClass_ad03c99840c2946a2112f5f1942c287f2}{directionalSearch}(state, direction));
+00122                 \}
+00123 
+00124                 \textcolor{keywordflow}{else}
+00125                 \{
+00126                     cout << direction << \textcolor{stringliteral}{" is not a valid response. please try again. "} << endl;
+00127                 \}
+00128                 \textcolor{keywordflow}{break};
+00129 
+00130         \textcolor{keywordflow}{case} 10: \textcolor{comment}{// quit}
+00131                 \textcolor{keywordflow}{break};
+00132 
+00133         \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"****Please make a valid menu selection. ****"} << endl << endl; 
+00134                 \textcolor{keywordflow}{break};
+00135     \}
+00136 \}
+\end{DoxyCode}

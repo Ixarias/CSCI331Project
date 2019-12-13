@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.26)  13 DEC 2019 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.26)  13 DEC 2019 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1198,8 +1198,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 9.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 18.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 18.
+(Font)              scaled to size 7.19995pt on input line 19.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1268,7 +1268,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<structBTreeNode__coll__graph.pdf, id=794, 251.94125pt x 243.91125pt>
+<structBTreeNode__coll__graph.pdf, id=860, 251.94125pt x 243.91125pt>
 File: structBTreeNode__coll__graph.pdf Graphic file (type pdf)
 <use structBTreeNode__coll__graph.pdf>
 Package pdftex.def Info: structBTreeNode__coll__graph.pdf  used on input line 1
@@ -1287,7 +1287,7 @@ File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 19.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 33.
+(Font)              scaled to size 8.99994pt on input line 31.
  [9 <./structBTreeNode__coll__graph.pdf>]) (./classLinkedList.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1305,14 +1305,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<classLinkedList__inherit__graph.pdf, id=827, 683.55376pt x 703.62875pt>
+<classLinkedList__inherit__graph.pdf, id=902, 683.55376pt x 703.62875pt>
 File: classLinkedList__inherit__graph.pdf Graphic file (type pdf)
 <use classLinkedList__inherit__graph.pdf>
 Package pdftex.def Info: classLinkedList__inherit__graph.pdf  used on input lin
 e 18.
 (pdftex.def)             Requested size: 350.0pt x 360.2846pt.
 [10]
-<classLinkedList__coll__graph.pdf, id=834, 210.7875pt x 453.695pt>
+<classLinkedList__coll__graph.pdf, id=916, 210.7875pt x 453.695pt>
 File: classLinkedList__coll__graph.pdf Graphic file (type pdf)
 <use classLinkedList__coll__graph.pdf>
 Package pdftex.def Info: classLinkedList__coll__graph.pdf  used on input line 2
@@ -1334,67 +1334,75 @@ LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 6.29996pt on input line 34.
  [12 <./classLinkedList__coll__graph.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 7.19995pt on input line 73.
+(Font)              scaled to size 7.19995pt on input line 77.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 73.
+(Font)              using `T1/pcr/m/n' instead on input line 77.
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 86.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 86.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
 [13]
-Underfull \hbox (badness 10000) detected at line 142
-[][][]
- []
+Overfull \vbox (4.02626pt too high) has occurred while \output is active []
+
 
 [14]
-Underfull \hbox (badness 10000) detected at line 145
+Underfull \hbox (badness 10000) detected at line 162
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 163
+Underfull \hbox (badness 10000) detected at line 165
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 191
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 194
+Underfull \hbox (badness 10000) detected at line 187
 [][][]
  []
 
 [15]
-Underfull \hbox (badness 10000) detected at line 227
+Underfull \hbox (badness 10000) detected at line 219
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 252
+Underfull \hbox (badness 10000) detected at line 222
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 255
+Underfull \hbox (badness 10000) detected at line 263
 [][][]
  []
 
 [16]
-Underfull \hbox (badness 10000) detected at line 275
+Underfull \hbox (badness 10000) detected at line 292
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 298
+Underfull \hbox (badness 10000) detected at line 295
 [][][]
  []
 
-[17]) (./classListInterface.tex
+
+Underfull \hbox (badness 10000) detected at line 319
+[][][]
+ []
+
+
+Overfull \vbox (1.48355pt too high) has occurred while \output is active []
+
+
+[17]
+Underfull \hbox (badness 10000) detected at line 346
+[][][]
+ []
+
+) (./classListInterface.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1411,89 +1419,99 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<classListInterface__inherit__graph.pdf, id=1013, 858.20625pt x 713.66624pt>
+<classListInterface__inherit__graph.pdf, id=1138, 858.20625pt x 713.66624pt>
 File: classListInterface__inherit__graph.pdf Graphic file (type pdf)
 <use classListInterface__inherit__graph.pdf>
 Package pdftex.def Info: classListInterface__inherit__graph.pdf  used on input 
 line 13.
 (pdftex.def)             Requested size: 350.0pt x 291.04782pt.
-<classListInterface__coll__graph.pdf, id=1014, 210.7875pt x 226.8475pt>
+[18]
+<classListInterface__coll__graph.pdf, id=1148, 210.7875pt x 226.8475pt>
 File: classListInterface__coll__graph.pdf Graphic file (type pdf)
 <use classListInterface__coll__graph.pdf>
 Package pdftex.def Info: classListInterface__coll__graph.pdf  used on input lin
 e 22.
 (pdftex.def)             Requested size: 210.0pt x 226.00581pt.
-[18 <./classListInterface__inherit__graph.pdf>]
-Underfull \hbox (badness 10000) detected at line 56
-[][][]
- []
+ [19 <./classListInterface__inherit__graph.pdf> <./classListInterface__coll__gr
+aph.pdf
 
-[19 <./classListInterface__coll__graph.pdf>]
-Underfull \hbox (badness 10000) detected at line 70
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 73
+pdfTeX warning: pdflatex (file ./classListInterface__coll__graph.pdf): PDF incl
+usion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 66
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 81
+Underfull \hbox (badness 10000) detected at line 80
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 106
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 109
+Underfull \hbox (badness 10000) detected at line 83
 [][][]
  []
 
 [20]
-Underfull \hbox (badness 10000) detected at line 117
+Underfull \hbox (badness 10000) detected at line 91
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 142
+Underfull \hbox (badness 10000) detected at line 116
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 156
+Underfull \hbox (badness 10000) detected at line 119
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 159
+Underfull \hbox (badness 10000) detected at line 127
 [][][]
  []
 
 [21]
+Underfull \hbox (badness 10000) detected at line 152
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 169
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 183
+Overfull \vbox (7.84517pt too high) has occurred while \output is active []
+
+
+[22]
+Underfull \hbox (badness 10000) detected at line 179
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 197
+Underfull \hbox (badness 10000) detected at line 193
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 200
+Underfull \hbox (badness 10000) detected at line 207
 [][][]
  []
 
-[22]) (./classNode.tex
+
+Underfull \hbox (badness 10000) detected at line 210
+[][][]
+ []
+
+[23]) (./classNode.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1510,21 +1528,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<classNode__inherit__graph.pdf, id=1144, 657.45625pt x 376.40625pt>
+<classNode__inherit__graph.pdf, id=1282, 657.45625pt x 376.40625pt>
 File: classNode__inherit__graph.pdf Graphic file (type pdf)
 <use classNode__inherit__graph.pdf>
 Package pdftex.def Info: classNode__inherit__graph.pdf  used on input line 18.
 (pdftex.def)             Requested size: 350.0pt x 200.3846pt.
-<classNode__coll__graph.pdf, id=1145, 179.67125pt x 204.765pt>
+<classNode__coll__graph.pdf, id=1283, 179.67125pt x 204.765pt>
 File: classNode__coll__graph.pdf Graphic file (type pdf)
 <use classNode__coll__graph.pdf>
 Package pdftex.def Info: classNode__coll__graph.pdf  used on input line 27.
 (pdftex.def)             Requested size: 179.0pt x 204.0146pt.
-[23 <./classNode__inherit__graph.pdf> <./classNode__coll__graph.pdf
+[24 <./classNode__inherit__graph.pdf> <./classNode__coll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./classNode__coll__graph.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->] [24] [25]) (./classSecKeySS.tex
+>] [25] [26]) (./classSecKeySS.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1541,17 +1559,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<classSecKeySS__inherit__graph.pdf, id=1226, 299.1175pt x 530.98375pt>
+<classSecKeySS__inherit__graph.pdf, id=1385, 299.1175pt x 530.98375pt>
 File: classSecKeySS__inherit__graph.pdf Graphic file (type pdf)
 <use classSecKeySS__inherit__graph.pdf>
 Package pdftex.def Info: classSecKeySS__inherit__graph.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 298.0pt x 529.03792pt.
-
-Underfull \vbox (badness 2359) has occurred while \output is active []
-
- [26]
-<classSecKeySS__coll__graph.pdf, id=1232, 172.645pt x 282.05376pt>
+[27]
+<classSecKeySS__coll__graph.pdf, id=1393, 172.645pt x 282.05376pt>
 File: classSecKeySS__coll__graph.pdf Graphic file (type pdf)
 <use classSecKeySS__coll__graph.pdf>
 Package pdftex.def Info: classSecKeySS__coll__graph.pdf  used on input line 27.
@@ -1560,267 +1575,309 @@ Package pdftex.def Info: classSecKeySS__coll__graph.pdf  used on input line 27.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27 <./classSecKeySS__inherit__graph.pdf>] [28 <./classSecKeySS__coll__graph.p
+ [28 <./classSecKeySS__inherit__graph.pdf>] [29 <./classSecKeySS__coll__graph.p
 df>]
-Underfull \hbox (badness 10000) detected at line 101
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 111
-[][][]
- []
-
-[29]
-Underfull \hbox (badness 10000) detected at line 126
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 141
+Underfull \hbox (badness 10000) detected at line 117
 [][][]
  []
 
 [30]
-Underfull \hbox (badness 10000) detected at line 168
+Underfull \hbox (badness 10000) detected at line 131
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 183
+Underfull \hbox (badness 10000) detected at line 150
 [][][]
  []
 
 [31]
-Underfull \hbox (badness 10000) detected at line 198
+Underfull \hbox (badness 10000) detected at line 169
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 213
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+[32]
+Underfull \hbox (badness 10000) detected at line 223
 [][][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) detected at line 242
+[][][]
+ []
 
- [32])
-(./classSSClass.tex
-<classSSClass__coll__graph.pdf, id=1351, 187.70125pt x 226.8475pt>
+
+Underfull \hbox (badness 10000) detected at line 261
+[][][]
+ []
+
+[33]) (./classSSClass.tex
+<classSSClass__coll__graph.pdf, id=1555, 187.70125pt x 226.8475pt>
 File: classSSClass__coll__graph.pdf Graphic file (type pdf)
 <use classSSClass__coll__graph.pdf>
 Package pdftex.def Info: classSSClass__coll__graph.pdf  used on input line 18.
 (pdftex.def)             Requested size: 187.0pt x 226.01273pt.
- [33 <./classSSClass__coll__graph.pdf>]
+ [34]
 Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
 
-[34]
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-[35]
-Underfull \hbox (badness 10000) detected at line 133
+[35 <./classSSClass__coll__graph.pdf>] [36]
+Underfull \hbox (badness 10000) detected at line 121
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 151
+Underfull \hbox (badness 10000) detected at line 157
+[][][]
+ []
+
+[37]
+Underfull \hbox (badness 10000) detected at line 179
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 154
-[][][]
- []
-
-[36]
-Underfull \hbox (badness 10000) detected at line 172
+Underfull \hbox (badness 10000) detected at line 182
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 190
+Underfull \hbox (badness 10000) detected at line 204
 [][][]
  []
 
-) [37] [38
+[38]
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+) [39] [40
 
 ]
 Chapter 6.
 (./BTree_8h.tex
-<BTree_8h__incl.pdf, id=1415, 264.99pt x 156.585pt>
+<BTree_8h__incl.pdf, id=1658, 264.99pt x 156.585pt>
 File: BTree_8h__incl.pdf Graphic file (type pdf)
 <use BTree_8h__incl.pdf>
 Package pdftex.def Info: BTree_8h__incl.pdf  used on input line 10.
 (pdftex.def)             Requested size: 264.0pt x 156.01117pt.
- [39 <./BTree_8h__incl.pdf>] [40]) (./LinkedList_8cpp.tex
-<LinkedList_8cpp__incl.pdf, id=1464, 646.415pt x 269.005pt>
+ [41 <./BTree_8h__incl.pdf>] [42]) (./BTree_8h_source.tex
+[43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44])
+(./LinkedList_8cpp.tex
+<LinkedList_8cpp__incl.pdf, id=1877, 646.415pt x 269.005pt>
 File: LinkedList_8cpp__incl.pdf Graphic file (type pdf)
 <use LinkedList_8cpp__incl.pdf>
 Package pdftex.def Info: LinkedList_8cpp__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 350.0pt x 145.65047pt.
-<LinkedList_8cpp__dep__incl.pdf, id=1465, 180.675pt x 156.585pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+<LinkedList_8cpp__dep__incl.pdf, id=1882, 180.675pt x 156.585pt>
 File: LinkedList_8cpp__dep__incl.pdf Graphic file (type pdf)
 <use LinkedList_8cpp__dep__incl.pdf>
 Package pdftex.def Info: LinkedList_8cpp__dep__incl.pdf  used on input line 22.
 
 (pdftex.def)             Requested size: 180.0pt x 156.00162pt.
 )
-(./LinkedList_8h.tex [41 <./LinkedList_8cpp__incl.pdf>]
-<LinkedList_8h__incl.pdf, id=1478, 464.73625pt x 212.795pt>
+(./LinkedList_8cpp_source.tex [46 <./LinkedList_8cpp__incl.pdf> <./LinkedList_8
+cpp__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./LinkedList_8cpp__dep__incl.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48])
+(./LinkedList_8h.tex
+<LinkedList_8h__incl.pdf, id=1981, 464.73625pt x 212.795pt>
 File: LinkedList_8h__incl.pdf Graphic file (type pdf)
 <use LinkedList_8h__incl.pdf>
 Package pdftex.def Info: LinkedList_8h__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 160.26472pt.
-<LinkedList_8h__dep__incl.pdf, id=1479, 331.2375pt x 269.005pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49]
+<LinkedList_8h__dep__incl.pdf, id=1987, 331.2375pt x 269.005pt>
 File: LinkedList_8h__dep__incl.pdf Graphic file (type pdf)
 <use LinkedList_8h__dep__incl.pdf>
 Package pdftex.def Info: LinkedList_8h__dep__incl.pdf  used on input line 20.
 (pdftex.def)             Requested size: 330.0pt x 268.01099pt.
+)
+(./LinkedList_8h_source.tex [50 <./LinkedList_8h__incl.pdf> <./LinkedList_8h__d
+ep__incl.pdf
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42 <./LinkedList_8cpp__dep__incl.pdf> <./LinkedList_8h__incl.pdf
-
-pdfTeX warning: pdflatex (file ./LinkedList_8h__incl.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file ./LinkedList_8h__dep__incl.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
 >]) (./ListInterface_8h.tex
-<ListInterface_8h__incl.pdf, id=1499, 159.59625pt x 156.585pt>
+<ListInterface_8h__incl.pdf, id=2031, 159.59625pt x 156.585pt>
 File: ListInterface_8h__incl.pdf Graphic file (type pdf)
 <use ListInterface_8h__incl.pdf>
 Package pdftex.def Info: ListInterface_8h__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 159.0pt x 156.00162pt.
-<ListInterface_8h__dep__incl.pdf, id=1500, 348.30125pt x 325.215pt>
+<ListInterface_8h__dep__incl.pdf, id=2032, 348.30125pt x 325.215pt>
 File: ListInterface_8h__dep__incl.pdf Graphic file (type pdf)
 <use ListInterface_8h__dep__incl.pdf>
 Package pdftex.def Info: ListInterface_8h__dep__incl.pdf  used on input line 15
 .
 (pdftex.def)             Requested size: 347.0pt x 324.0133pt.
- [43 <./LinkedList_8h__dep__incl.pdf> <./ListInterface_8h__incl.pdf
-
-pdfTeX warning: pdflatex (file ./ListInterface_8h__incl.pdf): PDF inclusion: mu
-ltiple pdfs with page group included in a single page
->]) (./Node_8cpp.tex
-<Node_8cpp__incl.pdf, id=1521, 139.52126pt x 156.585pt>
+ [51 <./ListInterface_8h__incl.pdf>])
+(./ListInterface_8h_source.tex) (./Node_8cpp.tex
+<Node_8cpp__incl.pdf, id=2056, 139.52126pt x 156.585pt>
 File: Node_8cpp__incl.pdf Graphic file (type pdf)
 <use Node_8cpp__incl.pdf>
 Package pdftex.def Info: Node_8cpp__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 139.0pt x 156.004pt.
-<Node_8cpp__dep__incl.pdf, id=1522, 180.675pt x 156.585pt>
+ [52 <./ListInterface_8h__dep__incl.pdf>]
+<Node_8cpp__dep__incl.pdf, id=2069, 180.675pt x 156.585pt>
 File: Node_8cpp__dep__incl.pdf Graphic file (type pdf)
 <use Node_8cpp__dep__incl.pdf>
 Package pdftex.def Info: Node_8cpp__dep__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 180.0pt x 156.00162pt.
-) (./Node_8h.tex [44 <./ListInterface_8h__dep__incl.pdf> <./Node_8cpp__incl.pdf
+) (./Node_8cpp_source.tex [53 <./Node_8cpp__incl.pdf> <./Node_8cpp__dep__incl.p
+df
 
-
-pdfTeX warning: pdflatex (file ./Node_8cpp__incl.pdf): PDF inclusion: multiple 
-pdfs with page group included in a single page
->]
-<Node_8h__dep__incl.pdf, id=1541, 456.70625pt x 325.215pt>
+pdfTeX warning: pdflatex (file ./Node_8cpp__dep__incl.pdf): PDF inclusion: mult
+iple pdfs with page group included in a single page
+>]) (./Node_8h.tex
+<Node_8h__dep__incl.pdf, id=2107, 456.70625pt x 325.215pt>
 File: Node_8h__dep__incl.pdf Graphic file (type pdf)
 <use Node_8h__dep__incl.pdf>
 Package pdftex.def Info: Node_8h__dep__incl.pdf  used on input line 7.
 (pdftex.def)             Requested size: 350.0pt x 249.24023pt.
-) (./README_8md.tex) (./SecKeySS_8h.tex
-<SecKeySS_8h__incl.pdf, id=1544, 464.73625pt x 269.005pt>
+) (./Node_8h_source.tex [54 <./Node_8h__dep__incl.pdf>])
+(./README_8md.tex) (./README_8md_source.tex) (./SecKeySS_8h.tex
+<SecKeySS_8h__incl.pdf, id=2135, 464.73625pt x 269.005pt>
 File: SecKeySS_8h__incl.pdf Graphic file (type pdf)
 <use SecKeySS_8h__incl.pdf>
 Package pdftex.def Info: SecKeySS_8h__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 350.0pt x 202.5988pt.
- [45 <./Node_8cpp__dep__incl.pdf> <./Node_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file ./Node_8h__dep__incl.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->]
-<SecKeySS_8h__dep__incl.pdf, id=1564, 273.02pt x 212.795pt>
+<SecKeySS_8h__dep__incl.pdf, id=2136, 273.02pt x 212.795pt>
 File: SecKeySS_8h__dep__incl.pdf Graphic file (type pdf)
 <use SecKeySS_8h__dep__incl.pdf>
 Package pdftex.def Info: SecKeySS_8h__dep__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 272.0pt x 212.01193pt.
- [46 <./SecKeySS_8h__incl.pdf> <./SecKeySS_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file ./SecKeySS_8h__dep__incl.pdf): PDF inclusion: mu
-ltiple pdfs with page group included in a single page
->]) (./SSClass_8cpp.tex
-<SSClass_8cpp__incl.pdf, id=1593, 565.11125pt x 381.425pt>
+ [55 <./SecKeySS_8h__incl.pdf>] [56 <./SecKeySS_8h__dep__incl.pdf>]) (./SecKeyS
+S_8h_source.tex
+[57]) (./SSClass_8cpp.tex
+<SSClass_8cpp__incl.pdf, id=2250, 565.11125pt x 381.425pt>
 File: SSClass_8cpp__incl.pdf Graphic file (type pdf)
 <use SSClass_8cpp__incl.pdf>
 Package pdftex.def Info: SSClass_8cpp__incl.pdf  used on input line 8.
 (pdftex.def)             Requested size: 350.0pt x 236.2366pt.
-) (./SSClass_8h.tex [47]
-<SSClass_8h__incl.pdf, id=1603, 565.11125pt x 325.215pt>
+) (./SSClass_8cpp_source.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+[59 <./SSClass_8cpp__incl.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+Overfull \hbox (15.15555pt too wide) in paragraph at lines 393--393
+[]\T1/pcr/m/n/7 00375 []void[] SSClass::goToData(fstream& file) { []//puts curs
+or at the beginning of the data portion of the txt file[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64])
+(./SSClass_8h.tex
+<SSClass_8h__incl.pdf, id=2526, 565.11125pt x 325.215pt>
 File: SSClass_8h__incl.pdf Graphic file (type pdf)
 <use SSClass_8h__incl.pdf>
 Package pdftex.def Info: SSClass_8h__incl.pdf  used on input line 17.
 (pdftex.def)             Requested size: 350.0pt x 201.42279pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48 <./SSClass_8cpp__incl.pdf>]
-<SSClass_8h__dep__incl.pdf, id=1616, 273.02pt x 156.585pt>
+<SSClass_8h__dep__incl.pdf, id=2527, 273.02pt x 156.585pt>
 File: SSClass_8h__dep__incl.pdf Graphic file (type pdf)
 <use SSClass_8h__dep__incl.pdf>
 Package pdftex.def Info: SSClass_8h__dep__incl.pdf  used on input line 24.
 (pdftex.def)             Requested size: 272.0pt x 156.00879pt.
- [49 <./SSClass_8h__incl.pdf> <./SSClass_8h__dep__incl.pdf
+ [65 <./SSClass_8h__incl.pdf> <./SSClass_8h__dep__incl.pdf
 
 pdfTeX warning: pdflatex (file ./SSClass_8h__dep__incl.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
->] [50] [51]) (./TestDocument_8cpp.tex
-<TestDocument_8cpp__incl.pdf, id=1696, 877.2775pt x 381.425pt>
+>] [66] [67]) (./SSClass_8h_source.tex [68] [69]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [70])
+(./TestDocument_8cpp.tex
+<TestDocument_8cpp__incl.pdf, id=2710, 877.2775pt x 381.425pt>
 File: TestDocument_8cpp__incl.pdf Graphic file (type pdf)
 <use TestDocument_8cpp__incl.pdf>
 Package pdftex.def Info: TestDocument_8cpp__incl.pdf  used on input line 16.
 (pdftex.def)             Requested size: 350.0pt x 152.17734pt.
- [52 <./TestDocument_8cpp__incl.pdf>])
-[53] [54
+) (./TestDocument_8cpp_source.tex [71 <./TestDocument_8cpp__incl.pdf>] [72]) [7
+3] [74
 
-] (./refman.ind [55
+] (./refman.ind [75
 
 
-] [56] [57
+] [76] [77
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 22E2F643F7FE853AA2C1E0A1A04CBEE5;24379.
+(rerunfilecheck)             Checksum: 4BDFB72ED79A2D77F04A1998B14377FE;26325.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 15597 strings out of 492982
- 229157 string characters out of 6134896
- 321495 words of memory out of 5000000
- 18481 multiletter control sequences out of 15000+600000
- 70268 words of font info for 93 fonts, out of 8000000 for 9000
+ 15759 strings out of 492982
+ 232405 string characters out of 6134896
+ 322510 words of memory out of 5000000
+ 18494 multiletter control sequences out of 15000+600000
+ 70567 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,16n,92p,1272b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
-rier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (65 pages, 303006 bytes).
+pdfTeX warning (dest): name{namespacestd} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (85 pages, 381042 bytes).
 PDF statistics:
- 2020 PDF objects out of 2073 (max. 8388607)
- 1851 compressed objects within 19 object streams
- 364 named destinations out of 1000 (max. 500000)
- 1163 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3091 PDF objects out of 3580 (max. 8388607)
+ 2891 compressed objects within 29 object streams
+ 488 named destinations out of 1000 (max. 500000)
+ 1267 words of extra memory for PDF output out of 10000 (max. 10000000)
 
