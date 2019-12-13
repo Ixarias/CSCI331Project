@@ -57,6 +57,7 @@ void menu(uint8_t &menuSelection)
 {
 	string file_name;	// allocates memory for file name
 	char direction;
+	char state;
 
 	cout << "Menu Selection: ";		// message to user	
 	cin >> menuSelection;			// takes in user input for menuSelection
@@ -100,10 +101,12 @@ void menu(uint8_t &menuSelection)
 		case 9: // TODO call Search state function
 				cout << "enter direction N, E, S, or W: ";
 				cin >> direction; cout << endl;
+				cout << "enter state";
+				cin >> state; cout << endl;
 
 				if (direction == 'N' || direction == 'S' || direction == 'E' || direction == 'W')
 				{
-					// TODO call state search function
+					cout << sequence.returnLine(sequence.directionalSearch(state, direction));
 				}
 
 				else
