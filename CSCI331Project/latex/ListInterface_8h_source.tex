@@ -1,0 +1,31 @@
+\hypertarget{ListInterface_8h_source}{}\section{List\+Interface.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <vector>}
+00002 
+00003 \textcolor{preprocessor}{#ifndef \_LIST\_INTERFACE}
+00004 \textcolor{preprocessor}{#define \_LIST\_INTERFACE}
+00005 
+00006 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{ListInterface_8h_source_l00007}\hyperlink{classListInterface}{00007} \textcolor{keyword}{class }\hyperlink{classListInterface}{ListInterface}
+00008 \{
+00009 \textcolor{keyword}{public}:
+00012    \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classListInterface_a924f91e7f81d7dcd3fda79bbcc671394}{isEmpty}() \textcolor{keyword}{const} = 0;
+00013    
+00016    \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{getLength}() \textcolor{keyword}{const} = 0;
+00017    \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{classListInterface_a3e085e6ea9c5dc3e8007010cd889159c}{getItemCount}() \textcolor{keyword}{const} = 0;
+00027    \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classListInterface_a5b2f86954a86172699a3495982c38e77}{insert}(\textcolor{keywordtype}{int} newPosition, \textcolor{keyword}{const} ItemType& newEntry) = 0;
+00028 
+00029    \textcolor{comment}{//virtual void remove(int position);}
+00037 \textcolor{comment}{}   \textcolor{comment}{//virtual void remove(int position) = 0;}
+00038    \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classListInterface_a68520ce2942ec716c745b1137c50a3c6}{deletion}(\textcolor{keywordtype}{int} position) = 0;
+00041    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classListInterface_adfda414908b645bdf19bcab8269168b7}{clear}() = 0;
+00042    
+00048    \textcolor{keyword}{virtual} ItemType \hyperlink{classListInterface_a86987f69e5056d287212ede41db1956a}{getEntry}(\textcolor{keywordtype}{int} position) \textcolor{keyword}{const} = 0;
+00049    
+00055    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classListInterface_aae877a56b7b9f5f526c37a00e234fad1}{replace}(\textcolor{keywordtype}{int} position, \textcolor{keyword}{const} ItemType& newEntry) = 0;
+00056 
+00057    \textcolor{keyword}{virtual} ItemType \hyperlink{classListInterface_a2f2f533e962dd89111ee50b972dc28e7}{displayList}() = 0;
+00058 \}; \textcolor{comment}{// end ListInterface}
+00059 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

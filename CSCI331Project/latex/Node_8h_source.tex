@@ -1,0 +1,27 @@
+\hypertarget{Node_8h_source}{}\section{Node.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/***************************************************************************/}
+00008 \textcolor{preprocessor}{#ifndef NODE\_}
+00009 \textcolor{preprocessor}{#define NODE\_}
+00010 
+00011 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{Node_8h_source_l00012}\hyperlink{classNode}{00012} \textcolor{keyword}{class }\hyperlink{classNode}{Node}
+00013 \{
+00014 \textcolor{keyword}{private}:
+00015    ItemType        item; \textcolor{comment}{// A data item}
+00016    \hyperlink{classNode}{Node<ItemType>}* next; \textcolor{comment}{// Pointer to next node}
+00017    
+00018 \textcolor{keyword}{public}:      
+00019    \hyperlink{classNode_a627e94f4fba0e73c546e0fb2a7266f36}{Node}();
+00020    \hyperlink{classNode_a627e94f4fba0e73c546e0fb2a7266f36}{Node}(\textcolor{keyword}{const} ItemType& anItem);
+00021    \hyperlink{classNode_a627e94f4fba0e73c546e0fb2a7266f36}{Node}(\textcolor{keyword}{const} ItemType& anItem, \hyperlink{classNode}{Node<ItemType>}* nextNodePtr);
+00022    \textcolor{keywordtype}{void} \hyperlink{classNode_ab4ceecdecc5df799011de486b9f54974}{setItem}(\textcolor{keyword}{const} ItemType& anItem);
+00023    \textcolor{keywordtype}{void} \hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(\hyperlink{classNode}{Node<ItemType>}* nextNodePtr);
+00024    ItemType \hyperlink{classNode_a6c08caef312b6f2f69b5e090cf047514}{getItem}() \textcolor{keyword}{const} ;
+00025    \hyperlink{classNode}{Node<ItemType>}* \hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}() \textcolor{keyword}{const} ;
+00026 \}; \textcolor{comment}{// end Node}
+00027 
+00028 \textcolor{comment}{//#include "Node.cpp"}
+00029 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

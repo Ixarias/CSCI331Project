@@ -1,0 +1,198 @@
+\hypertarget{BTree_8h_source}{}\section{B\+Tree.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef BTREE}
+00002 \textcolor{preprocessor}{#define BTREE}
+00003 
+00004 
+00005 \textcolor{preprocessor}{#include<stdio.h>}
+00006 \textcolor{preprocessor}{#include<conio.h>}
+00007 \textcolor{preprocessor}{#include<iostream>}
+00008 \textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+00009 
+00010 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00011}\hyperlink{structBTreeNode}{00011} \textcolor{keyword}{struct }\hyperlink{structBTreeNode}{BTreeNode}
+00012 \{
+\Hypertarget{BTree_8h_source_l00013}\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{00013}     T *\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data};
+\Hypertarget{BTree_8h_source_l00014}\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{00014}     \hyperlink{structBTreeNode}{BTreeNode}** \hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr};
+\Hypertarget{BTree_8h_source_l00015}\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{00015}     \textcolor{keywordtype}{bool} \hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf};
+\Hypertarget{BTree_8h_source_l00016}\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{00016}     \textcolor{keywordtype}{int} \hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n};
+00017 \}*\hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root} = NULL, * \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np} = NULL, * \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = NULL;
+00018 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00019}\hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{00019} \hyperlink{structBTreeNode}{BTreeNode}* \hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{init}()
+00020 \{
+00021     \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np} = \textcolor{keyword}{new} \hyperlink{structBTreeNode}{BTreeNode};
+00022     \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data} = \textcolor{keyword}{new} T[5];
+00023     \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np}->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr} = \textcolor{keyword}{new} \hyperlink{structBTreeNode}{BTreeNode} * [6];
+00024     \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np}->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} = \textcolor{keyword}{true};
+00025     \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n} = 0;
+00026     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 6; i++)
+00027     \{
+00028         \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np}->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i] = NULL;
+00029     \}
+00030     \textcolor{keywordflow}{return} \hyperlink{BTree_8h_a84eeac28397095456715e78262e4fc9c}{np};
+00031 \}
+00032 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00033}\hyperlink{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}{00033} \textcolor{keywordtype}{void} \hyperlink{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}{traverse}(\hyperlink{structBTreeNode}{BTreeNode}* p)
+00034 \{
+00035     cout << endl;
+00036     \textcolor{keywordtype}{int} i;
+00037     \textcolor{keywordflow}{for} (i = 0; i < p->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}; i++)
+00038     \{
+00039         \textcolor{keywordflow}{if} (p->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} == \textcolor{keyword}{false})
+00040         \{
+00041             \hyperlink{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}{traverse}(p->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i]);
+00042         \}
+00043         cout << \textcolor{stringliteral}{" "} << p->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[i];
+00044     \}
+00045     \textcolor{keywordflow}{if} (p->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} == \textcolor{keyword}{false})
+00046     \{
+00047         \hyperlink{BTree_8h_aeb0846dea9d7c76703072a63fdf91646}{traverse}(p->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i]);
+00048     \}
+00049     cout << endl;
+00050 \}
+00051 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00052}\hyperlink{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}{00052} \textcolor{keywordtype}{void} \hyperlink{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}{sort}(\textcolor{keywordtype}{int}* p, \textcolor{keywordtype}{int} n)
+00053 \{
+00054     \textcolor{keywordtype}{int} i, j;
+00055     T temp;
+00056     \textcolor{keywordflow}{for} (i = 0; i < n; i++)
+00057     \{
+00058         \textcolor{keywordflow}{for} (j = i; j <= n; j++)
+00059         \{
+00060             \textcolor{keywordflow}{if} (p[i] > p[j])
+00061             \{
+00062                 temp = p[i];
+00063                 p[i] = p[j];
+00064                 p[j] = temp;
+00065             \}
+00066         \}
+00067     \}
+00068 \}
+00069 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00070}\hyperlink{BTree_8h_a80292238f91964bc30573f633a3b991c}{00070} T \hyperlink{BTree_8h_a80292238f91964bc30573f633a3b991c}{split\_child}(\hyperlink{structBTreeNode}{BTreeNode}* \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}, \textcolor{keywordtype}{int} i)
+00071 \{
+00072     \textcolor{keywordtype}{int} j;
+00073     T mid;
+00074     \hyperlink{structBTreeNode}{BTreeNode}* np1, * np3, * y;
+00075     np3 = \hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{init}();
+00076     np3->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} = \textcolor{keyword}{true};
+00077     \textcolor{keywordflow}{if} (i == -1)
+00078     \{
+00079         mid = x->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[2];
+00080         x->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[2] = 0;
+00081         x->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}--;
+00082         np1 = \hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{init}();
+00083         np1->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} = \textcolor{keyword}{false};
+00084         x->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} = \textcolor{keyword}{true};
+00085         \textcolor{keywordflow}{for} (j = 3; j < 5; j++)
+00086         \{
+00087             np3->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j - 3] = x->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j];
+00088             np3->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[j - 3] = x->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[j];
+00089             np3->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}++;
+00090             x->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j] = 0;
+00091             x->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}--;
+00092         \}
+00093         \textcolor{keywordflow}{for} (j = 0; j < 6; j++)
+00094         \{
+00095             x->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[j] = NULL;
+00096         \}
+00097         np1->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[0] = mid;
+00098         np1->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[np1->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}] = \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x};
+00099         np1->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[np1->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n} + 1] = np3;
+00100         np1->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}++;
+00101         \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root} = np1;
+00102     \}
+00103     \textcolor{keywordflow}{else}
+00104     \{
+00105         y = x->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i];
+00106         mid = y->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[2];
+00107         y->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[2] = 0;
+00108         y->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}--;
+00109         \textcolor{keywordflow}{for} (j = 3; j < 5; j++)
+00110         \{
+00111             np3->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j - 3] = y->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j];
+00112             np3->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}++;
+00113             y->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[j] = 0;
+00114             y->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}--;
+00115         \}
+00116         x->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i + 1] = y;
+00117         x->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i + 1] = np3;
+00118     \}
+00119     \textcolor{keywordflow}{return} mid;
+00120 \}
+00121 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{BTree_8h_source_l00122}\hyperlink{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}{00122} \textcolor{keywordtype}{void} \hyperlink{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}{insert}(T a)
+00123 \{
+00124     \textcolor{keywordtype}{int} i;
+00125     T temp;
+00126     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root};
+00127     \textcolor{keywordflow}{if} (\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} == NULL)
+00128     \{
+00129         \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root} = \hyperlink{BTree_8h_a30a93849f7d32829662c20400ced546b}{init}();
+00130         \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root};
+00131     \}
+00132     \textcolor{keywordflow}{else}
+00133     \{
+00134         \textcolor{keywordflow}{if} (\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} == \textcolor{keyword}{true} && \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n} == 5)
+00135         \{
+00136             temp = \hyperlink{BTree_8h_a80292238f91964bc30573f633a3b991c}{split\_child}(\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}, -1);
+00137             \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = \hyperlink{BTree_8h_a060c65791205560994f49f7b4cdcd2f5}{root};
+00138             \textcolor{keywordflow}{for} (i = 0; i < (\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}); i++)
+00139             \{
+00140                 \textcolor{keywordflow}{if} ((a > \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[i]) && (a < \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[i + 1]))
+00141                 \{
+00142                     i++;
+00143                     \textcolor{keywordflow}{break};
+00144                 \}
+00145                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (a < x->data[0])
+00146                 \{
+00147                     \textcolor{keywordflow}{break};
+00148                 \}
+00149                 \textcolor{keywordflow}{else}
+00150                 \{
+00151                     \textcolor{keywordflow}{continue};
+00152                 \}
+00153             \}
+00154             \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i];
+00155         \}
+00156         \textcolor{keywordflow}{else}
+00157         \{
+00158             \textcolor{keywordflow}{while} (\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_a8350f9ddcf6e2323413d9d061c382ea6}{leaf} == \textcolor{keyword}{false})
+00159             \{
+00160                 \textcolor{keywordflow}{for} (i = 0; i < (\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}); i++)
+00161                 \{
+00162                     \textcolor{keywordflow}{if} ((a > \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[i]) && (a < \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[i + 1]))
+00163                     \{
+00164                         i++;
+00165                         \textcolor{keywordflow}{break};
+00166                     \}
+00167                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (a < x->data[0])
+00168                     \{
+00169                         \textcolor{keywordflow}{break};
+00170                     \}
+00171                     \textcolor{keywordflow}{else}
+00172                     \{
+00173                         \textcolor{keywordflow}{continue};
+00174                     \}
+00175                 \}
+00176                 \textcolor{keywordflow}{if} ((\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i])->n == 5)
+00177                 \{
+00178                     temp = \hyperlink{BTree_8h_a80292238f91964bc30573f633a3b991c}{split\_child}(\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}, i);
+00179                     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}] = temp;
+00180                     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}++;
+00181                     \textcolor{keywordflow}{continue};
+00182                 \}
+00183                 \textcolor{keywordflow}{else}
+00184                 \{
+00185                     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x} = \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_a723857b74be44c1921f17e177432a844}{child\_ptr}[i];
+00186                 \}
+00187             \}
+00188         \}
+00189     \}
+00190     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}[\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}] = a;
+00191     \hyperlink{BTree_8h_aff368fafc4ab510f2054a0b8dd6ee685}{sort}(\hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_af877c66e47b110ed0f05e95351003531}{data}, \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n});
+00192     \hyperlink{BTree_8h_abd38bc6ba9fbde6b140bd94db822df78}{x}->\hyperlink{structBTreeNode_ac6993709a99bec1116e1c6dccc3c0f8a}{n}++;
+00193 \}
+00194 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

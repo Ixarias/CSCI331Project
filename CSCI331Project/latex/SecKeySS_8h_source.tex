@@ -1,0 +1,107 @@
+\hypertarget{SecKeySS_8h_source}{}\section{Sec\+Key\+S\+S.\+h}
+
+\begin{DoxyCode}
+00001 
+00006 \textcolor{preprocessor}{#ifndef SECKEYSS}
+00007 \textcolor{preprocessor}{#define SECKEYSS}
+00008 
+00009 \textcolor{preprocessor}{#include "\hyperlink{LinkedList_8h}{LinkedList.h}"}
+00010 \textcolor{comment}{//#include <string>}
+00011 
+00012 \textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+00013 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00014}\hyperlink{classSecKeySS}{00014} \textcolor{keyword}{class }\hyperlink{classSecKeySS}{SecKeySS} \{
+00015 \textcolor{keyword}{private}:
+00016     T data;
+00017     \hyperlink{classLinkedList}{LinkedList<T>} duplicates;
+00018     \hyperlink{classLinkedList}{LinkedList<T>} list;
+00019 \textcolor{keyword}{public}:
+00021     \textcolor{comment}{//template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00022}\hyperlink{classSecKeySS_a9f905dffce0987d620cb2883b3f774cc}{00022}     \hyperlink{classSecKeySS_a9f905dffce0987d620cb2883b3f774cc}{SecKeySS}() \{ duplicates = \hyperlink{classLinkedList}{LinkedList<T>}(); \};
+00023     
+00025 \textcolor{comment}{//  template <typename T>}
+00026     \hyperlink{classSecKeySS}{SecKeySS}( \hyperlink{classSecKeySS}{SecKeySS<T>}& s);
+00027 
+00029 \textcolor{comment}{//  template <typename T>}
+00030     ~\hyperlink{classSecKeySS}{SecKeySS}();
+00031 
+00035 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00036}\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{00036}     T \hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} data; \};
+00037 
+00041     \textcolor{comment}{//template <typename T>}
+00042     \hyperlink{classLinkedList}{LinkedList<T>} getDuplicates() ;
+00043 
+00047 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00048}\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{00048}     \textcolor{keywordtype}{void} \hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(\textcolor{keyword}{const} T s) \{ data = s; \};
+00049 
+00053 \textcolor{comment}{//  template <typename T>}
+00054     \textcolor{keywordtype}{void} setDuplicates( \hyperlink{classLinkedList}{LinkedList<T>} dup);
+00055 
+00060 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00061}\hyperlink{classSecKeySS_a4a77c5d5b609ef01c17f82001e9f1a7b}{00061}     \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a242be966939216bfc391883fbaf6b580}{operator <}(\textcolor{keyword}{const} T &s)\textcolor{keyword}{const }\{ \textcolor{keywordflow}{return} data < s; \};
+00062 
+00063 
+00068 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00069}\hyperlink{classSecKeySS_ae39c46934a033ff213c1d1a7a32cd2bf}{00069}     \textcolor{keywordtype}{bool} operator <(const SecKeySS<T>& s)\textcolor{keyword}{const} \{ \textcolor{keywordflow}{return} data < s.data; \};
+00070 
+00071 
+00076 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00077}\hyperlink{classSecKeySS_a31bd2d2a2d8eeed14d478cbe88365843}{00077}     \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a4a6ce8378114d62c4438e007eb02dd59}{operator >}(\textcolor{keyword}{const} T &s)\textcolor{keyword}{const }\{ \textcolor{keywordflow}{return} data > s; \};
+00078 
+00079 
+00084 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00085}\hyperlink{classSecKeySS_a5c5416d15e14212627b1076644abbb42}{00085}     \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a4a6ce8378114d62c4438e007eb02dd59}{operator >}(\textcolor{keyword}{const} \hyperlink{classSecKeySS}{SecKeySS<T>} &s)\textcolor{keyword}{const }\{ \textcolor{keywordflow}{return} data > s.data; \};
+00086 
+00091 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00092}\hyperlink{classSecKeySS_ace15e2f5c729c58526f97919aff33036}{00092}     \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a38938ffedfa91568328ae9fef2a2bd02}{operator ==}(\textcolor{keyword}{const} T &s)\textcolor{keyword}{const }\{ \textcolor{keywordflow}{return} data == s; \};
+00093 
+00094 
+00099 \textcolor{comment}{//  template <typename T>}
+\Hypertarget{SecKeySS_8h_source_l00100}\hyperlink{classSecKeySS_abf4a9212fdc1af29ddf44d5cbd6efca7}{00100}     \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a38938ffedfa91568328ae9fef2a2bd02}{operator ==}(\textcolor{keyword}{const} \hyperlink{classSecKeySS}{SecKeySS<T>} &s)\textcolor{keyword}{const }\{ \textcolor{keywordflow}{return} data == s.data; \};
+00101 
+00105 \textcolor{comment}{//  template <typename T>}
+00106     \textcolor{keywordtype}{void} operator = (\textcolor{keyword}{const} \hyperlink{classSecKeySS}{SecKeySS<T>} &s);
+00107 \};
+00108 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00109}\hyperlink{classSecKeySS_ac9aecc7e01d33d17a98b732ac4f864c9}{00109} \hyperlink{classSecKeySS_a9f905dffce0987d620cb2883b3f774cc}{SecKeySS<T>::SecKeySS}( \hyperlink{classSecKeySS}{SecKeySS<T>}& s) \{ data = s.
+      \hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}(); setDuplicates(s.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}()); \}
+00110 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00111}\hyperlink{classSecKeySS_ada9aac8a98536f84b46bc04b7acf9fec}{00111} \hyperlink{classSecKeySS_ada9aac8a98536f84b46bc04b7acf9fec}{SecKeySS<T>::~SecKeySS}() \{ duplicates.clear(); \}
+00112 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00113}\hyperlink{SecKeySS_8h_a242be966939216bfc391883fbaf6b580}{00113} \textcolor{keywordtype}{bool} operator <(const T s1, SecKeySS<T> &s2) \{
+00114     \textcolor{keywordflow}{return} s1 < s2.getData();
+00115 \}
+00116 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00117}\hyperlink{SecKeySS_8h_a4a6ce8378114d62c4438e007eb02dd59}{00117} \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a4a6ce8378114d62c4438e007eb02dd59}{operator >}(\textcolor{keyword}{const} T s1, \hyperlink{classSecKeySS}{SecKeySS<T>} s2) \{
+00118     \textcolor{keywordflow}{return} s1 > s2.\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}();
+00119 \}
+00120 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00121}\hyperlink{SecKeySS_8h_a38938ffedfa91568328ae9fef2a2bd02}{00121} \textcolor{keywordtype}{bool} \hyperlink{SecKeySS_8h_a38938ffedfa91568328ae9fef2a2bd02}{operator ==}(\textcolor{keyword}{const} T s1, \hyperlink{classSecKeySS}{SecKeySS<T>} s2) \{
+00122     \textcolor{keywordflow}{return} s1 == s2.\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}();
+00123 \}
+00124 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00125}\hyperlink{classSecKeySS_a2a04aabc21e56094354fd6c843d5a491}{00125} \textcolor{keywordtype}{void} \hyperlink{classSecKeySS_a2a04aabc21e56094354fd6c843d5a491}{SecKeySS<T>::operator = }(\textcolor{keyword}{const} \hyperlink{classSecKeySS}{SecKeySS<T>} &s)\{
+00126     data = s.data;
+00127     duplicates = s.duplicates;
+00128 \}
+00129 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00130}\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{00130} \hyperlink{classLinkedList}{LinkedList<T>} \hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{SecKeySS<T>::getDuplicates}() \{
+00131     T temp;
+00132     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < duplicates.getItemCount() + 1; i++) \{
+00133         temp = duplicates.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00134         list.insert(i, temp);
+00135     \}
+00136     \textcolor{keywordflow}{return} list;
+00137 \}
+00138 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\Hypertarget{SecKeySS_8h_source_l00139}\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{00139} \textcolor{keywordtype}{void} \hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{SecKeySS<T>::setDuplicates}(\hyperlink{classLinkedList}{LinkedList<T>} list) \{
+00140     T temp;
+00141     duplicates.clear();
+00142     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < list.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1; i++) \{
+00143         temp = list.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00144         duplicates.insert(i, temp);
+00145     \}
+00146 \}
+00147 
+00148 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}
