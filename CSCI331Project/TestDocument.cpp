@@ -96,7 +96,12 @@ void menu(uint8_t &menuSelection)
 		case 6: // TODO call Display feild in recrod function
 			cout << "Display field in record\n";
 			cout << "What is the zip code you would like to know the state and place name of?:";
+<<<<<<< HEAD
 				cin >> zipCode; cout << endl;
+=======
+			cin >> zipCode; 
+			cout << endl;
+>>>>>>> 45eaca724865fe998ca385916e373d2d337b063c
 			rrnVector = sequence.search(zipCode, 1);
 			for (int i = 0; i < rrnVector.size(); i++) {
 				cout << sequence.returnLine(rrnVector[i]);
@@ -118,7 +123,7 @@ void menu(uint8_t &menuSelection)
 
 				if (direction == 'N' || direction == 'S' || direction == 'E' || direction == 'W')
 				{
-					cout << sequence.returnLine(sequence.directionalSearch(state, direction));
+					cout << sequence.returnLine(sequence.directionalSearch(string(1, state), direction));
 				}
 
 				else
