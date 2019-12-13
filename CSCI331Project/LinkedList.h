@@ -5,6 +5,22 @@
 * This class is to create a linked list of nodes. The nodes are of type template
 * ItemType, item and a Node pointer of item type, next.
 *******************************************************************************/
+
+#ifndef INCLUDE
+#define INCLUDE
+
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <limits>
+
+#endif
+
 #ifndef LINKED_LIST_
 #define LINKED_LIST_
 
@@ -21,7 +37,7 @@ class LinkedList : public ListInterface<ItemType>
 private:
    Node<ItemType>* headPtr; // Pointer to first node in the chain;
    // (contains the first entry in the list)
-   int itemCount; // Current count of list items   
+   int itemCount; // Current count of list items
    // Locates a specified node in this linked list.
    // @pre  position is the number of the desired node;
    //       position >= 1 and position <= itemCount.
@@ -29,13 +45,13 @@ private:
    // @param position  The number of the node to locate.
    // @return  A pointer to the node at the given position.
    Node<ItemType>* getNodeAt(int position) const;
-   
+
 public:
    LinkedList();
    LinkedList(const LinkedList<ItemType>& aList);
    virtual ~LinkedList();
 
-   
+
    bool isEmpty() const;
    int getLength() const;
    bool insert(int newPosition, const ItemType& newEntry);
@@ -45,13 +61,13 @@ public:
    int getItemCount() const;
    LinkedList<ItemType>& operator = (const LinkedList<ItemType>& rhs);
 
-   /** @throw PrecondViolatedExcep if position < 1 or 
+   /** @throw PrecondViolatedExcep if position < 1 or
                                       position > getLength(). */
-   ItemType getEntry(int position) const; 
+   ItemType getEntry(int position) const;
 
-   /** @throw PrecondViolatedExcep if position < 1 or 
+   /** @throw PrecondViolatedExcep if position < 1 or
                                       position > getLength(). */
-   void replace(int position, const ItemType &newEntry); 
+   void replace(int position, const ItemType &newEntry);
 
    ItemType displayList();
 
@@ -60,4 +76,4 @@ public:
 }; // end LinkedList
 
 //#include "LinkedList.cpp"
-#endif 
+#endif

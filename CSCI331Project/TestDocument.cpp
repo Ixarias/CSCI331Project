@@ -1,13 +1,19 @@
-#include <fstream>
-#include <iostream>
-#include "SSClass.h"
-#include <vector>
+#ifndef INCLUDE
+#define INCLUDE
 
-#include "LinkedList.h"
-#include "LinkedList.cpp"
-#include "Node.h"
-#include "Node.cpp"
-#include "SecKeySS.h"
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <limits>
+
+#endif
+
+#include "SSClass.h"
 
 using namespace std;
 

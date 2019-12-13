@@ -1,6 +1,4 @@
-
 #include "SSClass.h"
-
 
 /*---------------------------------------------------------------------------
 	Opens file
@@ -206,7 +204,7 @@ int SSClass::directionalSearch(string stateS, char direction) {
 				returnIndex = i;
 			}
 		}
-		
+
 	}
 	break;
 	case 'S':
@@ -239,7 +237,7 @@ int SSClass::directionalSearch(string stateS, char direction) {
 
 }
 
-//get value at index in getEntry(index)         insert is insert(index)   
+//get value at index in getEntry(index)         insert is insert(index)
 void SSClass::insertZip(string st, int rrn) {				 //no sec key matching -> create new one....    match found -> insert at index 1
 	int index;
 	int s = stoi(st);
@@ -432,7 +430,7 @@ string SSClass::createUnusedLine(int next) { //pass in the integer value of the 
 }
 
 /*
-bool SSClass::replace(string s, int line) { // To be able to replace a line in a text file, you have to write everything to a new file, with the updated line, then delete the previous file 
+bool SSClass::replace(string s, int line) { // To be able to replace a line in a text file, you have to write everything to a new file, with the updated line, then delete the previous file
 	goToLine(indexFile, line);				// and rename the temperary file
 	string strReplace;
 	getline(indexFile, strReplace);

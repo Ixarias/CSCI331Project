@@ -1,13 +1,6 @@
 #include "LinkedList.h"  // Header file
-#include "Node.h"
 //#include "PrecondViolatedExcep.h"
-#include <cassert>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-  
+
 using namespace std;
 
 //! LinkedList default constructor
@@ -21,7 +14,7 @@ LinkedList<ItemType>::LinkedList() : headPtr(NULL), itemCount(0)
 
 //! LinkedList constructor
 /*!
-    A copy constructor with one argumet passed, aList. 
+    A copy constructor with one argumet passed, aList.
     \param aLsit a refrence to a list
 */
 template<class ItemType>
@@ -36,7 +29,7 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(
       // Copy first node
       headPtr = new Node<ItemType>();
       headPtr->setItem(origChainPtr->getItem());
-      
+
       // Copy remaining nodes
       Node<ItemType>* newChainPtr = headPtr;      // Points to last node in new chain
       origChainPtr = origChainPtr->getNext();     // Advance original-chain pointer
@@ -44,20 +37,20 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(
       {
          // Get next item from original chain
          ItemType nextItem = origChainPtr->getItem();
-         
-         // Create a new node containing the next item 
-         Node<ItemType>* newNodePtr = new Node<ItemType>(nextItem);  
-         
+
+         // Create a new node containing the next item
+         Node<ItemType>* newNodePtr = new Node<ItemType>(nextItem);
+
          // Link new node to end of new chain
-         newChainPtr->setNext(newNodePtr); 
-         
-         // Advance pointer to new last node      
+         newChainPtr->setNext(newNodePtr);
+
+         // Advance pointer to new last node
          newChainPtr = newChainPtr->getNext();
-         
+
          // Advance original-chain pointer
          origChainPtr = origChainPtr->getNext();
       }  // end while
-      
+
       newChainPtr->setNext(NULL);              // Flag end of chain
    }  // end if
 }  // end copy constructor
@@ -96,7 +89,7 @@ int LinkedList<ItemType>::getLength() const
 //! Memebr function to insert a new item into a  Node of a LinkedList
 /*!
     \param newPosition a node position to insert a item into
-    \param newEntry a reference to an item of itemType to be inserted into 
+    \param newEntry a reference to an item of itemType to be inserted into
            the Node.
     \return ableToInsert if newEntry can be inserted into the Node at newPosition
     \pre newPosition >= 1
@@ -108,19 +101,19 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
    bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
    if (ableToInsert)
    {
-      Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);  
+      Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
       if (newPosition == 1)
       {
-         newNodePtr->setNext(headPtr); 
+         newNodePtr->setNext(headPtr);
          headPtr = newNodePtr;
       }
       else
       {
          Node<ItemType>* prevPtr = getNodeAt(newPosition - 1);
-         newNodePtr->setNext(prevPtr->getNext()); 
+         newNodePtr->setNext(prevPtr->getNext());
          prevPtr->setNext(newNodePtr);
       }  // end if
-      itemCount++; 
+      itemCount++;
    }  // end if
    return ableToInsert;
 }  // end inser
@@ -136,7 +129,7 @@ void LinkedList<ItemType>::remove(int position)
 		  Node<ItemType>* nodePtr = getNodeAt(position);
 		  nodePtr->setItem(NULL);
 	   }  // end if
-	
+
 
 }  // end remove
 */
@@ -165,15 +158,15 @@ bool LinkedList<ItemType>::deletion(int position)
 			 curPtr = prevPtr->getNext();
 			 prevPtr->setNext(curPtr->getNext());
 		  }  // end if
-	  
+
 		  curPtr->setNext(NULL);
 		  delete curPtr;
 		  curPtr = NULL;
-		  itemCount--; 
-	  
+		  itemCount--;
+
  // Decrease count of entries
    }  // end if
-   
+
    return ableToRemove;
 }  // end remove
 
@@ -206,7 +199,7 @@ ItemType LinkedList<ItemType>::getEntry(int position) const//const throw(Precond
    else
    {
 	   return ItemType();
-	   //throw(PrecondViolatedExcep(message)); 
+	   //throw(PrecondViolatedExcep(message));
    }  // end if
 }  // end getEntr
 
@@ -227,14 +220,14 @@ void LinkedList<ItemType>::replace(int position, const ItemType& newEntry)// thr
    else
    {
       string message = "replace() called with an invalid position.";
-      //throw(PrecondViolatedExcep(message)); 
+      //throw(PrecondViolatedExcep(message));
    }  // end if
 }  // end replace
 
 
 //! Locates a specified node in this linked list.
 /*!
-    \pre  position is the number of the desired node. position >= 1 and 
+    \pre  position is the number of the desired node. position >= 1 and
 	  position <= itemCount.
     \post  The node is found and a pointer to it is returned.
     \param position  The number of the node to locate.
@@ -245,18 +238,18 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 {
    // Debugging check of precondition
    assert( (position >= 1) && (position <= itemCount) );
-   
+
    // Count from the beginning of the chain
    Node<ItemType>* curPtr = headPtr;
    for (int skip = 1; skip < position; skip++)
       curPtr = curPtr->getNext();
-      
+
    return curPtr;
 }  // end getNodeAt
 //  End of implementation file.
 
 //! Member function to get the item count
-/*! 
+/*!
     /return itemCount the count of items in the LinkedList
 */
 template<class ItemType>
@@ -286,7 +279,7 @@ ItemType LinkedList<ItemType>::displayList()
     \return *this a pointer to the LinkedList
 */
 template<class ItemType>
-LinkedList<ItemType>& LinkedList<ItemType>::operator = (const LinkedList<ItemType>& rhs) 
+LinkedList<ItemType>& LinkedList<ItemType>::operator = (const LinkedList<ItemType>& rhs)
 {
     LinkedList<ItemType> temp(rhs);
     swap(temp.headPtr, headPtr);

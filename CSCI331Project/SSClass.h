@@ -1,35 +1,38 @@
 /** \class SSClass  SSClass.h "SSClass.h"
 
-    \brief LinkedList integration for blocks, records, and fields 
+    \brief LinkedList integration for blocks, records, and fields
     \authors Jordan Bremer, Melvin Schmid, ..., ..., ...
 
-   Sequence Set class:  
+   Sequence Set class:
      -- allows for insert and deletion of linked list
      -- populates secondary keys
      -- allows for searching of said linked list
      -- ability to return city, state, county, lattitude, longitude, zip, and
-   lower and upper indicies 
-     -- ability to input a txt file and populate it's contents 
-  
+   lower and upper indicies
+     -- ability to input a txt file and populate it's contents
+
    Implementation and assumptions:
      -- size defaults are listed towards the top of the program
      -- array/vector elements are initialized to zero
 */
 
-
-#ifndef SSCLASS_
-#define SSCLASS_
+#ifndef INCLUDE
+#define INCLUDE
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include "LinkedList.h"
-#include "Node.h"
-#include "SecKeySS.h"
-#include "ListInterface.h"
 #include <limits>
+
+#endif
+
+#ifndef SSCLASS_
+#define SSCLASS_
+
+#include "ListInterface.h"
+#include "SecKeySS.h"
 
 using namespace std;
 
@@ -39,7 +42,7 @@ const int NUMSECKEYS = 6;
 /** \brief ZIPSIZE The size of the zip code */
 const int ZIPSIZE = 6;
 
-/** \brief PLACESIZE The size of the place (city) */ 
+/** \brief PLACESIZE The size of the place (city) */
 const int PLACESIZE = 31;
 
 /** \brief STATESIZE The size of the sate letters */
@@ -53,7 +56,7 @@ const int LATSIZE = 9;
 
 /** \brief LONSIZE The size (including sign) of the longitude */
 const int LONSIZE = 10;
- 
+
 const int ZIPOFFSET = 0;
 const int PLACEOFFSET = ZIPSIZE - 1;
 const int STATEOFFSET = PLACEOFFSET + PLACESIZE;
@@ -77,49 +80,49 @@ private:
 	LinkedList<SecKeySS<int>> secKeyLon;
 	fstream indexFile;
 	//fstream blockRecordFile;
-	
+
 	//! Inserts the zip code feild
 	/*!
 	    \param s a string of the zipcode digtis
 	    \param rrn relative record number
 	*/
 	void insertZip(string s, int rrn);
-	
+
 	//! Insert a string for the place into a specific position
-	/*! 
+	/*!
 	    \param s a string to insert
 	    \param rrn relative record number
 	*/
 	void insertPlace(string s, int rrn);
-	
+
 	//! Inserts a string for the state into the LinkedList
 	/*!
 	    \param s a string contating the two state letters
 	    \param rrn relative record number
 	*/
 	void insertState(string s, int rrn);
-	
+
 	//! Inserts a string for the county into the LinkedList
 	/*!
-	    \param s a string containing the county 
+	    \param s a string containing the county
 	    \param rrn relative record number
 	*/
 	void insertCounty(string s, int rrn);
-	
+
 	//! Inserts latatude as a string int the LinkedList
 	/*!
 	    \param s a string containing the latatude
 	    \param rrn relative record number
 	*/
 	void insertLat(string s, int rrn);
-	
+
 	//! Inserts the longitude into the LinkeList
-	/*! 
+	/*!
 	    \param s a string containing the longitude including sign
 	    \param rrn relative record number
 	*/
 	void insertLon(string s, int rrn);
-	
+
 
 	//get functions take the entire line for a record and return the specified data member
 	//! Takes the entire line for a record and returns feild zip
@@ -127,7 +130,7 @@ private:
 	    \param s a string of a record
 	    \return zip code as a string (use stoi(getzip()) for int)
 	*/
-	string getZip(string s);	
+	string getZip(string s);
 
 	//! Takes the entire line for a record and returns feild place
 	/*!
@@ -163,10 +166,10 @@ private:
 	    \return longitude as a string (use stoi(getLon()) for int)
 	*/
 	string getLon(string s);
-	
+
 	//! Goes to a line in a file
 	/*!
-	    \param file the file 
+	    \param file the file
 	    \param num the number of line to goto in the file
 	*/
 	void goToLine(fstream& file, unsigned num);
@@ -196,7 +199,7 @@ public:
 
 	//! Constructor
 	SSClass(const SSClass& ss);
-	
+
 	//! Deconstructor
 	~SSClass();
 
@@ -223,14 +226,14 @@ public:
 	   Preconditions:   data file
 	   Postconditions:  returns true if file location exists, otherwise returns false */
 	//bool createBlockRecordFile();
-	   
+
 	//! inserts line by line into data
 	/*!
 	    \param s a string to insert
 	*/
 	void insert(string s);
-	
-	//! Searches for record 
+
+	//! Searches for record
 	/*!
 	    \param s strign to search for
 	    \parm fieldNum the field in whitch to search
@@ -242,15 +245,15 @@ public:
 	/*!
 	    \param state the state to search "MN" for example
 	    \param direction (N, S, W, E)
-	    \return the line contating the soght after direction 
+	    \return the line contating the soght after direction
 	*/
 	int directionalSearch(string state, char direction);
-	
+
 	//! Fills secondary key vector
-	/*! 
+	/*!
 	    \param rrn and integer refring to the line to get
 	    \return string containging the contents of the line
-	*/	
+	*/
 	string returnLine(int rrn);
 };
 
