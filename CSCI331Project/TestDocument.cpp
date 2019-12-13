@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include "SSClass.h"
+#include <vector>
 
 #include "LinkedList.h"
 #include "LinkedList.cpp"
@@ -55,9 +56,12 @@ int main()
 
 void menu(uint8_t &menuSelection)
 {
+	SSClass sequence;
 	string file_name;	// allocates memory for file name
 	char direction;
 	char state;
+	string zipCode;
+	vector rrnVector;
 
 	cout << "Menu Selection: ";		// message to user	
 	cin >> menuSelection;			// takes in user input for menuSelection
@@ -90,6 +94,14 @@ void menu(uint8_t &menuSelection)
 				break;
 
 		case 6: // TODO call Display feild in recrod function
+			cout << "Display field in record\n";
+			cout << "What is the zip code you would like to know the state and place name of?:"
+				cin << zipCode; cout << endl;
+			rrnVector = sequence.search(zipCode, 1);
+			for (int i = 0; i < rrnVector.size(); i++) {
+				cout << sequence.returnLine(rrnVector[i]);
+			}
+
 				break;
 
 		case 7: // TODO call Verify function
