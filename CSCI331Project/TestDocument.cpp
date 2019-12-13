@@ -96,7 +96,6 @@ void menu(uint8_t &menuSelection)
 		case 6: // TODO call Display feild in recrod function
 			cout << "Display field in record\n";
 			cout << "What is the zip code you would like to know the state and place name of?:";
-				in >> zipCode; cout << endl;
 			cin >> zipCode;
 			cout << endl;
 			rrnVector = sequence.search(zipCode, 1);
