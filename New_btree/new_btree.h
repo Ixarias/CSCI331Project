@@ -1,5 +1,7 @@
 /*****B+ Tree*****/
-#include "new_btree.cpp"
+#ifndef _BPTree
+#define _BPTree
+
 using namespace std;
 template <class T>
 class BPTree
@@ -28,3 +30,5 @@ public:
 	Node* getRoot();
 	void cleanUp(Node*);
 };
+#include "new_btree.cpp"
+#endif

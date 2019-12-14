@@ -138,6 +138,7 @@ Node::Node()
 	key = new int[MAX];
 	ptr = new Node*[MAX+1];
 }
+template <class T>
 BPTree<T>::BPTree()
 {
 	root = NULL;
