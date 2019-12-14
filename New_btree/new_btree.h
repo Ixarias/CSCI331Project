@@ -2,11 +2,11 @@
 #ifndef _BPTree
 #define _BPTree
 
+template <class T>
 class BPTree;
 
 using namespace std;
 
-    template <class T>
 	class Node
 	{
 		bool IS_LEAF;
