@@ -1,6 +1,6 @@
-//btree.tc
-#include "btnode.tc"
-#include "indbuff.tc"
+//btree.cpp
+#include "btnode.cpp"
+#include "indbuff.cpp"
 #include "btree.h"
 #include <iostream.h>
 

@@ -1,6 +1,6 @@
-// indbuff.tc
-#ifndef INDBUFF_TC
-#define INDBUFF_TC
+// indbuff.cpp
+#ifndef INDBUFF_CPP
+#define INDBUFF_CPP
 
 #include "indbuff.h"\
 
