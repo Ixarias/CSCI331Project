@@ -8,7 +8,7 @@
 #include<climits>
 #include "new_btree.h"
 using namespace std;
-//#define MAX 5 //size of each node
+#define MAX 5 //size of each node
 
 //give command line argument to load a tree from log
 //to create a fresh tree, do not give any command line argument
@@ -766,7 +766,7 @@ void BPTree<T>::removeInternal(T &x, Node* cursor, Node* child)
 	}
 }
 template <class T>
-void BPTree<T>::display(Node* cursor)
+void BPTree<T>::display(Node<T>* cursor)
 {
 	//depth first display
 	if(cursor!=NULL)

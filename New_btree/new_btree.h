@@ -6,7 +6,8 @@ using namespace std;
 template <class T>
 class BPTree
 {
-	private:
+    public:
+	template <class T>
 	class Node
 	{
 		bool IS_LEAF;
@@ -16,11 +17,6 @@ class BPTree
 	public:
 		Node();
 	};
-	Node *root;
-	void insertInternal(T &x,Node<T>*,Node<T>*);
-	void removeInternal(T &x,Node<T>*,Node<T>*);
-	Node<T>* findParent(Node<T>*,Node<T>*);
-public:
 	BPTree();
     ~BPTree();
 	void search(T x);
@@ -29,6 +25,12 @@ public:
 	void display(Node<T>*);
 	Node<T>* getRoot();
 	void cleanUp(Node<T>*);
+    
+	private:
+	Node *root;
+	void insertInternal(T &x,Node<T>*,Node<T>*);
+	void removeInternal(T &x,Node<T>*,Node<T>*);
+	Node<T>* findParent(Node<T>*,Node<T>*);
 };
 #include "new_btree.cpp"
 #endif
