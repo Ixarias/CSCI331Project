@@ -30,14 +30,14 @@ class BPTree
 	void insert(T &x);
 	void remove(T &x);
 	void display(Node*);
-	Node* getRoot();
+	Node<T>* getRoot();
 	void cleanUp(Node*);
 
 	private:
 	Node *root;
 	void insertInternal(T &x,Node*,Node*);
 	void removeInternal(T &x,Node*,Node*);
-	Node* findParent(Node*,Node*);
+	Node<T>* findParent(Node*,Node*);
 };
 #include "new_btree.cpp"
 #endif
