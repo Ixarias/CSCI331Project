@@ -1,5 +1,5 @@
 //Author: Shashikant Kadam
-//Edited by: Group 
+//Edited by: Group 4 sec 1 CSCI 331 Dr.Anda
 /*****B+ Tree*****/
 #include<iostream>
 #include<string>
@@ -132,7 +132,7 @@ using namespace std;
 	}while(!close);
 	return 0;
 }*/
-//template <class T>
+template <class T>
 Node::Node()
 {
 	//dynamic memory allocation
@@ -145,7 +145,7 @@ BPTree<T>::BPTree()
 	root = NULL;
 }
 template <class T>
-void BPTree<T>::search(T x)
+void BPTree<T>::search(T& x)
 {
 	//search logic
 	if(root==NULL)
@@ -187,7 +187,7 @@ void BPTree<T>::search(T x)
 }
 
 template <class T>
-void BPTree<T>::insert(T x)
+void BPTree<T>::insert(T &x)
 {
 	//insert logic
 	if(root==NULL)
@@ -412,7 +412,7 @@ Node* BPTree<T>::findParent(Node* cursor, Node* child)
 	return parent;
 }
 template <class T>
-void BPTree<T>::remove(T x)
+void BPTree<T>::remove(T &x)
 {
 	//delete logic
 	if(root==NULL)
@@ -589,7 +589,7 @@ void BPTree<T>::remove(T x)
 }
 
 template <class T>
-void BPTree<T>::removeInternal(T x, Node* cursor, Node* child)
+void BPTree<T>::removeInternal(T &x, Node* cursor, Node* child)
 {
 	//deleting the key x first
 	//checking if key from root is to be deleted
