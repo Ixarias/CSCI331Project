@@ -101,7 +101,7 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	switch (fieldNum) {
 	case 1:
 	{
-		
+		secKeyZip.Search(stoi(s),1);
 	}
 	break;
 	case 2:

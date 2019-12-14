@@ -3,8 +3,8 @@
 #ifndef BUFFILE_H
 #define BUFFILE_H
 
-#include <stdlib.h>
-#include <fstream.h>
+#include <stdlib>
+#include <fstream>
 #include "iobuffer.h"
 
 

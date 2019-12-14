@@ -7,36 +7,11 @@
 #include<fstream>
 #include<climits>
 using namespace std;
-int MAX; //size of each node
-class BPTree; //self explanatory classes
-class Node
-{
-	bool IS_LEAF;
-	int *key, size;
-	Node** ptr;
-	friend class BPTree;
-public:
-	Node();
-};
-class BPTree
-{
-	Node *root;
-	void insertInternal(int,Node*,Node*);
-	void removeInternal(int,Node*,Node*);
-	Node* findParent(Node*,Node*);
-public:
-	BPTree();
-	void search(int);
-	void insert(int);
-	void remove(int);
-	void display(Node*);
-	Node* getRoot();
-	void cleanUp(Node*);
-	~BPTree();
-};
+#define MAX 5 //size of each node
+
 //give command line argument to load a tree from log
 //to create a fresh tree, do not give any command line argument
-int main(int argc, char* argv[])
+/*int main(int argc, char* argv[])
 {
 	BPTree bpt;//B+ tree object that carries out all the operations
 	string command;
@@ -155,7 +130,7 @@ int main(int argc, char* argv[])
 		}
 	}while(!close);
 	return 0;
-}
+}*/
 Node::Node()
 {
 	//dynamic memory allocation
