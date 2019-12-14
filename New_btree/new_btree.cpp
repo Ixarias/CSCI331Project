@@ -1,11 +1,12 @@
 //Author: Shashikant Kadam
-//Roll number 16CSE1026
+//Edited by: Group 
 /*****B+ Tree*****/
 #include<iostream>
 #include<string>
 #include<sstream>
 #include<fstream>
 #include<climits>
+#include "new_btree.h"
 using namespace std;
 #define MAX 5 //size of each node
 
@@ -131,7 +132,7 @@ using namespace std;
 	}while(!close);
 	return 0;
 }*/
-template <class T>
+//template <class T>
 Node::Node()
 {
 	//dynamic memory allocation
