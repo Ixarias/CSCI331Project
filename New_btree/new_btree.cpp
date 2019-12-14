@@ -145,7 +145,7 @@ BPTree<T>::BPTree()
 	root = NULL;
 }
 template <class T>
-void BPTree<T>::search(T& x)
+void BPTree<T>::search(T x)
 {
 	//search logic
 	if(root==NULL)
@@ -187,7 +187,7 @@ void BPTree<T>::search(T& x)
 }
 
 template <class T>
-void BPTree<T>::insert(T &x)
+void BPTree<T>::insert(T x)
 {
 	//insert logic
 	if(root==NULL)
