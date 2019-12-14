@@ -1,0 +1,228 @@
+\hypertarget{classListInterface}{}\section{List\+Interface$<$ Item\+Type $>$ Class Template Reference}
+\label{classListInterface}\index{List\+Interface$<$ Item\+Type $>$@{List\+Interface$<$ Item\+Type $>$}}
+
+
+{\ttfamily \#include $<$List\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for List\+Interface$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classListInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for List\+Interface$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classListInterface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classListInterface_a924f91e7f81d7dcd3fda79bbcc671394}{is\+Empty} () const =0
+\item 
+virtual int \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{get\+Length} () const =0
+\item 
+virtual int \hyperlink{classListInterface_a3e085e6ea9c5dc3e8007010cd889159c}{get\+Item\+Count} () const =0
+\item 
+virtual bool \hyperlink{classListInterface_a5b2f86954a86172699a3495982c38e77}{insert} (int new\+Position, const Item\+Type \&new\+Entry)=0
+\item 
+virtual bool \hyperlink{classListInterface_a68520ce2942ec716c745b1137c50a3c6}{deletion} (int position)=0
+\item 
+virtual void \hyperlink{classListInterface_adfda414908b645bdf19bcab8269168b7}{clear} ()=0
+\item 
+virtual Item\+Type \hyperlink{classListInterface_a86987f69e5056d287212ede41db1956a}{get\+Entry} (int position) const =0
+\item 
+virtual void \hyperlink{classListInterface_aae877a56b7b9f5f526c37a00e234fad1}{replace} (int position, const Item\+Type \&new\+Entry)=0
+\item 
+virtual Item\+Type \hyperlink{classListInterface_a2f2f533e962dd89111ee50b972dc28e7}{display\+List} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Item\+Type$>$\newline
+class List\+Interface$<$ Item\+Type $>$}
+
+
+
+Definition at line \hyperlink{ListInterface_8h_source_l00007}{7} of file \hyperlink{ListInterface_8h_source}{List\+Interface.\+h}.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classListInterface_adfda414908b645bdf19bcab8269168b7}\label{classListInterface_adfda414908b645bdf19bcab8269168b7}} 
+\index{List\+Interface@{List\+Interface}!clear@{clear}}
+\index{clear@{clear}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual void \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Removes all entries from this list. \begin{DoxyPostcond}{Postcondition}
+List contains no entries and the count of items is 0. 
+\end{DoxyPostcond}
+
+
+Implemented in \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a68520ce2942ec716c745b1137c50a3c6}\label{classListInterface_a68520ce2942ec716c745b1137c50a3c6}} 
+\index{List\+Interface@{List\+Interface}!deletion@{deletion}}
+\index{deletion@{deletion}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{deletion()}{deletion()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual bool \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::deletion (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Removes the entry at a given position from this list. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If 1 $<$= position $<$= \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{get\+Length()} and the removal is successful, the entry at the given position in the list is removed, other items are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position of the entry to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removal is successful, or false if not. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a2f2f533e962dd89111ee50b972dc28e7}\label{classListInterface_a2f2f533e962dd89111ee50b972dc28e7}} 
+\index{List\+Interface@{List\+Interface}!display\+List@{display\+List}}
+\index{display\+List@{display\+List}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{display\+List()}{displayList()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual Item\+Type \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::display\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a86987f69e5056d287212ede41db1956a}\label{classListInterface_a86987f69e5056d287212ede41db1956a}} 
+\index{List\+Interface@{List\+Interface}!get\+Entry@{get\+Entry}}
+\index{get\+Entry@{get\+Entry}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{get\+Entry()}{getEntry()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual Item\+Type \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::get\+Entry (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Gets the entry at the given position in this list. \begin{DoxyPrecond}{Precondition}
+1 $<$= position $<$= \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{get\+Length()}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The desired entry has been returned. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position of the desired entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the given position. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a3e085e6ea9c5dc3e8007010cd889159c}\label{classListInterface_a3e085e6ea9c5dc3e8007010cd889159c}} 
+\index{List\+Interface@{List\+Interface}!get\+Item\+Count@{get\+Item\+Count}}
+\index{get\+Item\+Count@{get\+Item\+Count}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{get\+Item\+Count()}{getItemCount()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual int \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::get\+Item\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_afc85695d4137f1e29ff02e179c9f3221}\label{classListInterface_afc85695d4137f1e29ff02e179c9f3221}} 
+\index{List\+Interface@{List\+Interface}!get\+Length@{get\+Length}}
+\index{get\+Length@{get\+Length}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{get\+Length()}{getLength()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual int \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Gets the current number of entries in this list. \begin{DoxyReturn}{Returns}
+The integer number of entries currently in the list. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a5b2f86954a86172699a3495982c38e77}\label{classListInterface_a5b2f86954a86172699a3495982c38e77}} 
+\index{List\+Interface@{List\+Interface}!insert@{insert}}
+\index{insert@{insert}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual bool \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{int}]{new\+Position,  }\item[{const Item\+Type \&}]{new\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Inserts an entry into this list at a given position. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If 1 $<$= position $<$= \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{get\+Length()} + 1 and the insertion is successful, new\+Entry is at the given position in the list, other entries are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Position} & The list position at which to insert new\+Entry. \\
+\hline
+{\em new\+Entry} & The entry to insert into the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if insertion is successful, or false if not. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_a924f91e7f81d7dcd3fda79bbcc671394}\label{classListInterface_a924f91e7f81d7dcd3fda79bbcc671394}} 
+\index{List\+Interface@{List\+Interface}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual bool \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Sees whether this list is empty. \begin{DoxyReturn}{Returns}
+True if the list is empty; otherwise returns false. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{Linked\+List$<$ string $>$}.
+
+\mbox{\Hypertarget{classListInterface_aae877a56b7b9f5f526c37a00e234fad1}\label{classListInterface_aae877a56b7b9f5f526c37a00e234fad1}} 
+\index{List\+Interface@{List\+Interface}!replace@{replace}}
+\index{replace@{replace}!List\+Interface@{List\+Interface}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+virtual void \hyperlink{classListInterface}{List\+Interface}$<$ Item\+Type $>$\+::replace (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{const Item\+Type \&}]{new\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Replaces the entry at the given position in this list. \begin{DoxyPrecond}{Precondition}
+1 $<$= position $<$= \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{get\+Length()}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The entry at the given position is new\+Entry. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position of the entry to replace. \\
+\hline
+{\em new\+Entry} & The replacement entry. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ Item\+Type $>$}, \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ Sec\+Key\+S\+S$<$ string $>$ $>$}, \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ int $>$}, \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ Sec\+Key\+S\+S$<$ int $>$ $>$}, \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ T $>$}, and \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{Linked\+List$<$ string $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ListInterface_8h}{List\+Interface.\+h}\end{DoxyCompactItemize}

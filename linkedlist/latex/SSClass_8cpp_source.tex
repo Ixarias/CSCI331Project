@@ -1,0 +1,494 @@
+\hypertarget{SSClass_8cpp_source}{}\section{S\+S\+Class.\+cpp}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SSClass_8h}{SSClass.h}"}
+00003 
+00004 
+00005 \textcolor{comment}{/*---------------------------------------------------------------------------}
+00006 \textcolor{comment}{    Opens file}
+00007 \textcolor{comment}{    Preconditions:   File needs to be created}
+00008 \textcolor{comment}{    Postconditions:  None}
+00009 \textcolor{comment}{*/}
+\Hypertarget{SSClass_8cpp_source_l00010}\hyperlink{classSSClass_a92e012441608ea36f3013fb3cbea9da8}{00010} \textcolor{keywordtype}{bool} \hyperlink{classSSClass_a92e012441608ea36f3013fb3cbea9da8}{SSClass::openFile}(\textcolor{keywordtype}{string} input) \{ \textcolor{comment}{//input is a file name}
+00011     indexFile.open(input);
+00012     nextEmpty = -1;
+00013     \textcolor{keywordflow}{return} (indexFile.is\_open());
+00014 
+00015 \}
+00016 
+00017 \textcolor{comment}{/*}
+00018 \textcolor{comment}{bool SSClass::createIndexFile() \{}
+00019 \textcolor{comment}{    indexFile.open("index.txt");}
+00020 \textcolor{comment}{    return indexFile.is\_open();}
+00021 \textcolor{comment}{\}}
+00022 \textcolor{comment}{*/}
+00023 \textcolor{comment}{/*---------------------------------------------------------------------------}
+00024 \textcolor{comment}{    Creates block record file}
+00025 \textcolor{comment}{    Preconditions:   None}
+00026 \textcolor{comment}{    Postconditions:  None}
+00027 \textcolor{comment}{*/}
+00028 \textcolor{comment}{/*}
+00029 \textcolor{comment}{bool SSClass::createBlockRecordFile() \{}
+00030 \textcolor{comment}{    blockRecordFile.open("blockRecord.txt");}
+00031 \textcolor{comment}{    return blockRecord.is\_open();}
+00032 \textcolor{comment}{\}}
+00033 \textcolor{comment}{*/}
+00034 \textcolor{comment}{/*---------------------------------------------------------------------------}
+00035 \textcolor{comment}{    Default constructor}
+00036 \textcolor{comment}{    Preconditions:   None}
+00037 \textcolor{comment}{    Postconditions:  None}
+00038 \textcolor{comment}{*/}
+\Hypertarget{SSClass_8cpp_source_l00039}\hyperlink{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}{00039} \hyperlink{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}{SSClass::SSClass}() \{
+00040     numRecords = 0;
+00041     \hyperlink{classSSClass_a92e012441608ea36f3013fb3cbea9da8}{openFile}(\textcolor{stringliteral}{"us\_postal\_codes.txt"});
+00042 \}
+\Hypertarget{SSClass_8cpp_source_l00043}\hyperlink{classSSClass_a5801614847b5403b1a5899150acd3b5c}{00043} \hyperlink{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}{SSClass::SSClass}(\textcolor{keyword}{const} \hyperlink{classSSClass}{SSClass}& ss) \{
+00044     numLinesIndex = ss.numLinesIndex;
+00045     numRecords = ss.numRecords;
+00046     nextEmpty = ss.nextEmpty;
+00047     secKeyZip = ss.secKeyZip;
+00048     secKeyPlace= ss.secKeyPlace;
+00049     secKeyState = ss.secKeyState;
+00050     secKeyCounty = ss.secKeyCounty;
+00051     secKeyLat = ss.secKeyLat;
+00052     secKeyLon = ss.secKeyLon;
+00053     \hyperlink{classSSClass_a92e012441608ea36f3013fb3cbea9da8}{openFile}(\textcolor{stringliteral}{"us\_postal\_codes.txt"});
+00054 \}
+\Hypertarget{SSClass_8cpp_source_l00055}\hyperlink{classSSClass_a6e5abb04de9b90e34cc6422069ff5729}{00055} \hyperlink{classSSClass_a6e5abb04de9b90e34cc6422069ff5729}{SSClass::~SSClass}()\{
+00056     secKeyZip.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00057     secKeyPlace.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00058     secKeyState.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00059     secKeyCounty.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00060     secKeyLat.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00061     secKeyLon.\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00062     indexFile.close();
+00063     \textcolor{comment}{//blockRecord.close();}
+00064 \}
+00065 
+\Hypertarget{SSClass_8cpp_source_l00070}\hyperlink{classSSClass_a45c5585c784bf7c4f823f66426664aea}{00070} \textcolor{keywordtype}{void} \hyperlink{classSSClass_a45c5585c784bf7c4f823f66426664aea}{SSClass::insert}(\textcolor{keywordtype}{string} s) \{
+00071     \textcolor{keywordflow}{if} (nextEmpty == -1) \{
+00072         goToLine(indexFile, numLinesIndex);
+00073         indexFile << \textcolor{stringliteral}{"\(\backslash\)n"} << s;
+00074         insertZip(getZip(s), numLinesIndex);
+00075         insertPlace(getPlace(s), numLinesIndex);
+00076         insertState(getState(s), numLinesIndex);
+00077         insertCounty(getCounty(s), numLinesIndex);
+00078         insertLat(getLat(s), numLinesIndex);
+00079         insertLon(getLon(s), numLinesIndex);
+00080         numLinesIndex++;
+00081         \textcolor{keywordflow}{return};
+00082     \}
+00083     goToLine(indexFile, nextEmpty);
+00084     \textcolor{comment}{//replace(s, nextEmpty);}
+00085     insertZip(getZip(s), nextEmpty);
+00086     insertPlace(getPlace(s), nextEmpty);
+00087     insertState(getState(s), nextEmpty);
+00088     insertCounty(getCounty(s), nextEmpty);
+00089     insertLat(getLat(s), nextEmpty);
+00090     insertLon(getLon(s), nextEmpty);
+00091 \}
+00092 
+\Hypertarget{SSClass_8cpp_source_l00093}\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{00093} \textcolor{keywordtype}{string} \hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{SSClass::returnLine}(\textcolor{keywordtype}{int} rrn) \{
+00094     \textcolor{keywordtype}{string} returnVal;
+00095     goToLine(indexFile, rrn);
+00096     getline(indexFile, returnVal);
+00097     \textcolor{keywordflow}{return} returnVal;
+00098 \}
+00099 
+00100 
+\Hypertarget{SSClass_8cpp_source_l00101}\hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{00101} vector<int> \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{SSClass::search}(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{unsigned} fieldNum) \{
+00102     \textcolor{keyword}{typedef} \hyperlink{classSecKeySS}{SecKeySS<string>} secCopy;
+00103     \textcolor{keywordtype}{int} i;
+00104     vector<int> results;
+00105     \textcolor{keywordflow}{switch} (fieldNum) \{
+00106     \textcolor{keywordflow}{case} 1:
+00107     \{
+00108         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyZip.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyZip.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < stoi(s)); i++);
+00109         \textcolor{keywordflow}{if} (secKeyZip.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == stoi(s)) \{
+00110             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyZip.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00111             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00112                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+00113             \}
+00114         \}
+00115     \}
+00116     \textcolor{keywordflow}{break};
+00117     \textcolor{keywordflow}{case} 2:
+00118     \{
+00119         \textcolor{keywordflow}{for}(i = 1; (i < (secKeyPlace.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyPlace.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00120         \textcolor{keywordflow}{if} ((secKeyPlace.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}()) == (s)) \{
+00121             \hyperlink{classLinkedList}{LinkedList<string>} toCopy = \hyperlink{classLinkedList}{LinkedList<string>}(secKeyPlace.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00122             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00123                 \textcolor{comment}{// stoi toCopy.getEntry returns string}
+00124                 results.push\_back(stoi(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j)));
+00125             \}
+00126         \}
+00127     \}
+00128     \textcolor{keywordflow}{break};
+00129     \textcolor{keywordflow}{case} 3:
+00130     \{
+00131         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyState.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyState.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00132         \textcolor{keywordflow}{if} ((secKeyState.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}()) == (s)) \{
+00133             \hyperlink{classLinkedList}{LinkedList<string>} toCopy = \hyperlink{classLinkedList}{LinkedList<string>}(secKeyState.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00134             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00135                 \textcolor{comment}{// stoi toCopy.getEntry returns string}
+00136                 results.push\_back(stoi(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j)));
+00137             \}
+00138         \}
+00139     \}
+00140     \textcolor{keywordflow}{break};
+00141     \textcolor{keywordflow}{case} 4:
+00142     \{
+00143         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyCounty.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyCounty.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00144         \textcolor{keywordflow}{if} ((secKeyCounty.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}()) == (s)) \{
+00145             \hyperlink{classLinkedList}{LinkedList<string>} toCopy = \hyperlink{classLinkedList}{LinkedList<string>}(secKeyCounty
+      .\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00146             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00147                 \textcolor{comment}{// stoi toCopy.getEntry returns string}
+00148                 results.push\_back(stoi(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j)));
+00149             \}
+00150         \}
+00151     \}
+00152     \textcolor{keywordflow}{break};
+00153     \textcolor{keywordflow}{case} 5:
+00154     \{
+00155         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLat.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLat.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < stoi(s)); i++);
+00156         \textcolor{keywordflow}{if} (secKeyLat.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(stod(s))) \{
+00157             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLat.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00158             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00159                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+00160             \}
+00161         \}
+00162     \}
+00163     \textcolor{keywordflow}{break};
+00164     \textcolor{keywordflow}{case} 6:
+00165     \{
+00166         \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLon.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLon.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < stoi(s)); i++);
+00167         \textcolor{keywordflow}{if} (secKeyLon.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(stod(s))) \{
+00168             \hyperlink{classLinkedList}{LinkedList<int>} toCopy = \hyperlink{classLinkedList}{LinkedList<int>}(secKeyLon.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00169             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < (toCopy.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1); j++) \{
+00170                 results.push\_back(toCopy.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(j));
+00171             \}
+00172         \}
+00173     \}
+00174     \textcolor{keywordflow}{break};
+00175     \}
+00176     \textcolor{keywordflow}{return} results;
+00177 \}
+00178 
+\Hypertarget{SSClass_8cpp_source_l00179}\hyperlink{classSSClass_ad03c99840c2946a2112f5f1942c287f2}{00179} \textcolor{keywordtype}{int} \hyperlink{classSSClass_ad03c99840c2946a2112f5f1942c287f2}{SSClass::directionalSearch}(\textcolor{keywordtype}{string} stateS, \textcolor{keywordtype}{char} direction) \{
+00180     direction = toupper(direction);
+00181     \textcolor{keywordtype}{int} i = 1;
+00182     \textcolor{keywordtype}{int} returnIndex = -1;
+00183     \textcolor{keywordtype}{double} highOrLow;
+00184     vector<int> state = \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search}(stateS, 3);
+00185     \textcolor{keywordflow}{switch} (direction) \{
+00186     \textcolor{keywordflow}{case} \textcolor{charliteral}{'N'}:
+00187     \{
+00188         returnIndex = state[0];
+00189         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+00190         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+00191             \textcolor{keywordflow}{if} (highOrLow < stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+00192                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+00193                 returnIndex = i;
+00194             \}
+00195 
+00196         \}
+00197     \}
+00198     \textcolor{keywordflow}{break};
+00199     \textcolor{keywordflow}{case} \textcolor{charliteral}{'E'}:
+00200     \{
+00201         returnIndex = state[0];
+00202         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+00203         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+00204             \textcolor{keywordflow}{if} (highOrLow < stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+00205                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+00206                 returnIndex = i;
+00207             \}
+00208         \}
+00209         
+00210     \}
+00211     \textcolor{keywordflow}{break};
+00212     \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}:
+00213     \{
+00214         returnIndex = state[0];
+00215         highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+00216         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+00217             \textcolor{keywordflow}{if} (highOrLow > stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+00218                 highOrLow = stod(getLat(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+00219                 returnIndex = i;
+00220             \}
+00221         \}
+00222         \textcolor{keywordflow}{break};
+00223     \}
+00224     \textcolor{keywordflow}{case} \textcolor{charliteral}{'W'}:
+00225     \{
+00226         returnIndex = state[0];
+00227         highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[0])));
+00228         \textcolor{keywordflow}{for} (i; i < state.size(); i++) \{
+00229             \textcolor{keywordflow}{if} (highOrLow > stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])))) \{
+00230                 highOrLow = stod(getLon(\hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{returnLine}(state[i])));
+00231                 returnIndex = i;
+00232             \}
+00233         \}
+00234 
+00235     \}
+00236     \textcolor{keywordflow}{break};
+00237     \}
+00238     \textcolor{keywordflow}{return} returnIndex;
+00239 
+00240 \}
+00241 
+00242 \textcolor{comment}{//get value at index in getEntry(index)         insert is insert(index)   }
+00243 \textcolor{keywordtype}{void} SSClass::insertZip(\textcolor{keywordtype}{string} st, \textcolor{keywordtype}{int} rrn) \{                \textcolor{comment}{//no sec key matching -> create new one....   
+       match found -> insert at index 1}
+00244     \textcolor{keywordtype}{int} index;
+00245     \textcolor{keywordtype}{int} s = stoi(st);
+00246     \hyperlink{classSecKeySS}{SecKeySS<int>} secCopy;
+00247     \hyperlink{classLinkedList}{LinkedList<int>} copyDup;
+00248         \textcolor{keywordtype}{int} i;
+00249     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyZip.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyZip.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00250     \textcolor{keywordflow}{if} (secKeyZip.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00251         secCopy = secKeyZip.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00252         copyDup = \hyperlink{classLinkedList}{LinkedList<int>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00253         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00254         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00255         secKeyZip.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00256         \textcolor{keywordflow}{return};
+00257     \}
+00258     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00259     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00260     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(s);
+00261     secKeyZip.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00262 
+00263 \}
+00264 
+00265 \textcolor{keywordtype}{void} SSClass::insertPlace(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn) \{
+00266     \textcolor{keywordtype}{int} index;
+00267     \hyperlink{classSecKeySS}{SecKeySS<string>} secCopy;
+00268     \hyperlink{classLinkedList}{LinkedList<string>} copyDup;
+00269         \textcolor{keywordtype}{int} i;
+00270     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyPlace.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyPlace.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00271     \textcolor{keywordflow}{if} (secKeyPlace.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00272         secCopy = secKeyPlace.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00273         copyDup = \hyperlink{classLinkedList}{LinkedList<string>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00274         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00275         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00276         secKeyPlace.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00277         \textcolor{keywordflow}{return};
+00278     \}
+00279     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00280     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00281     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(getPlace(s));
+00282     secKeyPlace.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00283 \}
+00284 
+00285 \textcolor{keywordtype}{void} SSClass::insertState(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn) \{
+00286     \textcolor{keywordtype}{int} index;
+00287     \hyperlink{classSecKeySS}{SecKeySS<string>} secCopy;
+00288     \hyperlink{classLinkedList}{LinkedList<string>} copyDup;
+00289         \textcolor{keywordtype}{int} i;
+00290     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyState.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyState.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00291     \textcolor{keywordflow}{if} (secKeyState.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00292         secCopy = secKeyState.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00293         copyDup = \hyperlink{classLinkedList}{LinkedList<string>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00294         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00295         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00296         secKeyState.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00297         \textcolor{keywordflow}{return};
+00298     \}
+00299     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00300     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00301     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(getState(s));
+00302     secKeyState.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00303 \}
+00304 
+00305 \textcolor{keywordtype}{void} SSClass::insertCounty(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn) \{
+00306     \textcolor{keywordtype}{int} index;
+00307     \hyperlink{classSecKeySS}{SecKeySS<string>} secCopy;
+00308     \hyperlink{classLinkedList}{LinkedList<string>} copyDup;
+00309         \textcolor{keywordtype}{int} i;
+00310     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyCounty.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyCounty.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00311     \textcolor{keywordflow}{if} (secKeyCounty.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00312         secCopy = secKeyCounty.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00313         copyDup = \hyperlink{classLinkedList}{LinkedList<string>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00314         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00315         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00316         secKeyCounty.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00317         \textcolor{keywordflow}{return};
+00318     \}
+00319     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, to\_string(rrn));
+00320     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00321     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(getCounty(s));
+00322     secKeyCounty.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00323 \}
+00324 
+00325 \textcolor{keywordtype}{void} SSClass::insertLat(\textcolor{keywordtype}{string} st, \textcolor{keywordtype}{int} rrn) \{
+00326     \textcolor{keywordtype}{int} index;
+00327     \textcolor{keywordtype}{int} s = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(stod(st));
+00328     \hyperlink{classSecKeySS}{SecKeySS<int>} secCopy;
+00329     \hyperlink{classLinkedList}{LinkedList<int>} copyDup;
+00330         \textcolor{keywordtype}{int} i;
+00331     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLat.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLat.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00332     \textcolor{keywordflow}{if} (secKeyLat.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00333         secCopy = secKeyLat.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00334         copyDup = \hyperlink{classLinkedList}{LinkedList<int>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00335         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00336         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00337         secKeyLat.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00338         \textcolor{keywordflow}{return};
+00339     \}
+00340     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00341     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00342     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(static\_cast<int>(stod(st)));
+00343     secKeyLat.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00344 \}
+00345 
+00346 \textcolor{keywordtype}{void} SSClass::insertLon(\textcolor{keywordtype}{string} st, \textcolor{keywordtype}{int} rrn) \{
+00347     \textcolor{keywordtype}{int} index;
+00348     \textcolor{keywordtype}{int} s = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(stod(st));
+00349     \hyperlink{classSecKeySS}{SecKeySS<int>} secCopy;
+00350     \hyperlink{classLinkedList}{LinkedList<int>} copyDup;
+00351         \textcolor{keywordtype}{int} i;
+00352     \textcolor{keywordflow}{for} (i = 1; (i < (secKeyLon.\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() + 1)) && (secKeyLon.
+      \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() < s); i++);
+00353     \textcolor{keywordflow}{if} (secKeyLon.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i).\hyperlink{classSecKeySS_a9fdb8a771250b7aaab556f019b381eab}{getData}() == s) \{
+00354         secCopy = secKeyLon.\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(i);
+00355         copyDup = \hyperlink{classLinkedList}{LinkedList<int>}(secCopy.\hyperlink{classSecKeySS_abef7c9c03e9bc6b818d599966428fdec}{getDuplicates}());
+00356         copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00357         secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00358         secKeyLon.\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(i, secCopy);
+00359         \textcolor{keywordflow}{return};
+00360     \}
+00361     copyDup.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(1, rrn);
+00362     secCopy.\hyperlink{classSecKeySS_a95fdde8fc0b590359692784d15481dd4}{setDuplicates}(copyDup);
+00363     secCopy.\hyperlink{classSecKeySS_ae893fbaf619bf61f73f1585ae5686609}{setData}(static\_cast<int>(stod(st)));
+00364     secKeyLon.\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(i, secCopy);
+00365 \}
+00366 
+00367 \textcolor{keywordtype}{void} SSClass::goToLine(fstream& file, \textcolor{keywordtype}{unsigned} num) \{
+00368     goToData(file); \textcolor{comment}{//beginning of our data file}
+00369     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num - 1; ++i) \{
+00370         file.ignore(1000, \textcolor{charliteral}{'\(\backslash\)n'}); \textcolor{comment}{//ignore one line}
+00371     \}
+00372     \textcolor{comment}{//return file;}
+00373 \}
+00374 
+00375 \textcolor{keywordtype}{void} SSClass::goToData(fstream& file) \{ \textcolor{comment}{//puts cursor at the beginning of the data portion of the txt file}
+00376     file.seekg(ios::beg);
+00377     \textcolor{keywordtype}{string} in;
+00378     getline(file, in);
+00379     \textcolor{keywordflow}{while} (in != \textcolor{stringliteral}{"ENDOFHDR"})
+00380         getline(file, in);
+00381 \}
+00382 
+00383 \textcolor{keywordtype}{string} SSClass::getZip(\textcolor{keywordtype}{string} s) \{ \textcolor{comment}{//use stoi(getzip(s)); to return int value}
+00384     \textcolor{keywordtype}{string} returnValue;
+00385     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{ZIPSIZE}; i++)
+00386         returnValue[i] = s[\hyperlink{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}{ZIPOFFSET} + i];
+00387     \textcolor{keywordflow}{return} returnValue;
+00388 \}
+00389 
+00390 \textcolor{keywordtype}{string} SSClass::getPlace(\textcolor{keywordtype}{string} s) \{
+00391     \textcolor{keywordtype}{string} returnvalue;
+00392     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{PLACESIZE}; i++)
+00393         returnvalue[i] = s[\hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{PLACEOFFSET} + i];
+00394     \textcolor{keywordflow}{return} returnvalue;
+00395 \}
+00396 
+00397 \textcolor{keywordtype}{string} SSClass::getState(\textcolor{keywordtype}{string} s) \{
+00398     \textcolor{keywordtype}{string} returnvalue;
+00399     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{STATESIZE}; i++)
+00400         returnvalue[i] = s[\hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{STATEOFFSET} + i];
+00401     \textcolor{keywordflow}{return} returnvalue;
+00402 \}
+00403 
+00404 \textcolor{keywordtype}{string} SSClass::getCounty(\textcolor{keywordtype}{string} s) \{
+00405     \textcolor{keywordtype}{string} returnvalue;
+00406     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{COUNTYSIZE}; i++)
+00407         returnvalue[i] = s[\hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{COUNTYOFFSET} + i];
+00408     \textcolor{keywordflow}{return} returnvalue;
+00409 \}
+00410 
+00411 \textcolor{keywordtype}{string} SSClass::getLat(\textcolor{keywordtype}{string} s) \{ \textcolor{comment}{//use stod(getlat(s)); to return double value}
+00412     \textcolor{keywordtype}{string} returnvalue;
+00413     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{LATSIZE}; i++)
+00414         returnvalue[i] = s[\hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{LATOFFSET} + i];
+00415     \textcolor{keywordflow}{return} returnvalue;
+00416 \}
+00417 
+00418 \textcolor{keywordtype}{string} SSClass::getLon(\textcolor{keywordtype}{string} s) \{ \textcolor{comment}{//use stod(getLon(s)); to return double value}
+00419     \textcolor{keywordtype}{string} returnValue;
+00420     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{LONSIZE}; i++)
+00421         returnValue[i] = s[\hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{LONOFFSET} + i];
+00422     \textcolor{keywordflow}{return} returnValue;
+00423 \}
+00424 
+00425 \textcolor{keywordtype}{string} SSClass::createUnusedLine(\textcolor{keywordtype}{int} next) \{ \textcolor{comment}{//pass in the integer value of the next empty line}
+00426     \textcolor{keywordtype}{string} unusedLine = to\_string(next);
+00427     \textcolor{keywordtype}{int} i;
+00428     \textcolor{keywordflow}{for} (i = unusedLine.size(); i < \hyperlink{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}{CHARINLINE}; i++) \{
+00429         unusedLine += \textcolor{stringliteral}{" "};
+00430     \}
+00431     \textcolor{keywordflow}{return} unusedLine;
+00432 \}
+00433 
+00434 \textcolor{comment}{/*}
+00435 \textcolor{comment}{bool SSClass::replace(string s, int line) \{ // To be able to replace a line in a text file, you have to
+       write everything to a new file, with the updated line, then delete the previous file }
+00436 \textcolor{comment}{    goToLine(indexFile, line);              // and rename the temperary file}
+00437 \textcolor{comment}{    string strReplace;}
+00438 \textcolor{comment}{    getline(indexFile, strReplace);}
+00439 \textcolor{comment}{    string strNew = s;}
+00440 \textcolor{comment}{    ofstream fileout("temp\_file.txt"); //Temporary file}
+00441 \textcolor{comment}{    if (!fileout)}
+00442 \textcolor{comment}{        return false;}
+00443 \textcolor{comment}{}
+00444 \textcolor{comment}{    string strTemp;}
+00445 \textcolor{comment}{    indexFile.seekg(ios::beg);}
+00446 \textcolor{comment}{    while (strTemp = indexFile.getline())}
+00447 \textcolor{comment}{    \{}
+00448 \textcolor{comment}{        if (strTemp == strReplace) \{}
+00449 \textcolor{comment}{            strTemp = strNew;}
+00450 \textcolor{comment}{        \}}
+00451 \textcolor{comment}{        fileout << "\(\backslash\)n";}
+00452 \textcolor{comment}{        for (int i = 0; i < ZIPSIZE; i++) \{ //use this for zip since there may be leading whitespace}
+00453 \textcolor{comment}{            fileout << strTemp[i];}
+00454 \textcolor{comment}{            strTemp[i] = ' ';}
+00455 \textcolor{comment}{        \}}
+00456 \textcolor{comment}{        fileout << strTemp;}
+00457 \textcolor{comment}{    \}}
+00458 \textcolor{comment}{    remove(indexFile);}
+00459 \textcolor{comment}{    rename("temp\_file.txt", "us\_postal\_codes.txt");}
+00460 \textcolor{comment}{    close(fileout);}
+00461 \textcolor{comment}{    openFile("us\_postal\_codes.txt");}
+00462 \textcolor{comment}{    return true;}
+00463 \textcolor{comment}{\}}
+00464 \textcolor{comment}{\}}
+00465 \textcolor{comment}{*/}
+00466 
+00467 \textcolor{keywordtype}{void} SSClass::populate() \{
+00468     goToData(indexFile);
+00469     \textcolor{keywordtype}{string} line;
+00470     \textcolor{keywordflow}{while} (!indexFile.eof()) \{
+00471         getline(indexFile, line);
+00472         \hyperlink{classSSClass_a45c5585c784bf7c4f823f66426664aea}{insert}(line);
+00473     \}
+00474 \}
+\end{DoxyCode}

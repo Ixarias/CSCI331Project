@@ -1,0 +1,243 @@
+\hypertarget{LinkedList_8cpp_source}{}\section{Linked\+List.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{LinkedList_8h}{LinkedList.h}"}  \textcolor{comment}{// Header file}
+00002 \textcolor{preprocessor}{#include "\hyperlink{Node_8h}{Node.h}"}
+00003 \textcolor{comment}{//#include "PrecondViolatedExcep.h"}
+00004 \textcolor{preprocessor}{#include <cassert>}
+00005 \textcolor{preprocessor}{#include <fstream>}
+00006 \textcolor{preprocessor}{#include <iostream>}
+00007 \textcolor{preprocessor}{#include <string>}
+00008 \textcolor{preprocessor}{#include <vector>}
+00009 \textcolor{preprocessor}{#include <algorithm>}
+00010   
+00011 \textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+00012 
+00014 
+00017 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00018}\hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{00018} \hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{LinkedList<ItemType>::LinkedList}() : headPtr(NULL), itemCount(0)
+00019 \{
+00020 \}  \textcolor{comment}{// end default constructor}
+00021 
+00023 
+00027 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00028}\hyperlink{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}{00028} \hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{LinkedList<ItemType>::LinkedList}(\textcolor{keyword}{const} 
+      \hyperlink{classLinkedList}{LinkedList<ItemType>}& aList) : itemCount(aList.itemCount)
+00029 \{
+00030    \hyperlink{classNode}{Node<ItemType>}* origChainPtr = aList.headPtr;  \textcolor{comment}{// Points to nodes in original chain}
+00031 
+00032    \textcolor{keywordflow}{if} (origChainPtr == NULL)
+00033       headPtr = NULL;  \textcolor{comment}{// Original list is empty}
+00034    \textcolor{keywordflow}{else}
+00035    \{
+00036       \textcolor{comment}{// Copy first node}
+00037       headPtr = \textcolor{keyword}{new} \hyperlink{classNode}{Node<ItemType>}();
+00038       headPtr->setItem(origChainPtr->\hyperlink{classNode_a6c08caef312b6f2f69b5e090cf047514}{getItem}());
+00039       
+00040       \textcolor{comment}{// Copy remaining nodes}
+00041       \hyperlink{classNode}{Node<ItemType>}* newChainPtr = headPtr;      \textcolor{comment}{// Points to last node in new chain}
+00042       origChainPtr = origChainPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}();     \textcolor{comment}{// Advance original-chain pointer}
+00043       \textcolor{keywordflow}{while} (origChainPtr != NULL)
+00044       \{
+00045          \textcolor{comment}{// Get next item from original chain}
+00046          ItemType nextItem = origChainPtr->\hyperlink{classNode_a6c08caef312b6f2f69b5e090cf047514}{getItem}();
+00047          
+00048          \textcolor{comment}{// Create a new node containing the next item }
+00049          \hyperlink{classNode}{Node<ItemType>}* newNodePtr = \textcolor{keyword}{new} \hyperlink{classNode}{Node<ItemType>}(nextItem);  
+00050          
+00051          \textcolor{comment}{// Link new node to end of new chain}
+00052          newChainPtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(newNodePtr); 
+00053          
+00054          \textcolor{comment}{// Advance pointer to new last node      }
+00055          newChainPtr = newChainPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}();
+00056          
+00057          \textcolor{comment}{// Advance original-chain pointer}
+00058          origChainPtr = origChainPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}();
+00059       \}  \textcolor{comment}{// end while}
+00060       
+00061       newChainPtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(NULL);              \textcolor{comment}{// Flag end of chain}
+00062    \}  \textcolor{comment}{// end if}
+00063 \}  \textcolor{comment}{// end copy constructor}
+00064 
+00066 
+00069 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00070}\hyperlink{classLinkedList_a66aee17d756fe0e002375897383c180b}{00070} \hyperlink{classLinkedList_a66aee17d756fe0e002375897383c180b}{LinkedList<ItemType>::~LinkedList}()
+00071 \{
+00072    \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00073 \}  \textcolor{comment}{// end destructor}
+00074 
+00076 
+00080 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00081}\hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{00081} \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{LinkedList<ItemType>::isEmpty}()\textcolor{keyword}{ const}
+00082 \textcolor{keyword}{}\{
+00083    \textcolor{keywordflow}{return} itemCount == 0;
+00084 \}  \textcolor{comment}{// end isEmpty}
+00085 
+00087 
+00090 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00091}\hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{00091} \textcolor{keywordtype}{int} \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{LinkedList<ItemType>::getLength}()\textcolor{keyword}{ const}
+00092 \textcolor{keyword}{}\{
+00093    \textcolor{keywordflow}{return} itemCount;
+00094 \}  \textcolor{comment}{// end getLength}
+00095 
+00097 
+00105 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00106}\hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{00106} \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{LinkedList<ItemType>::insert}(\textcolor{keywordtype}{int} newPosition, \textcolor{keyword}{const} ItemType& newEntry)
+00107 \{
+00108    \textcolor{keywordtype}{bool} ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
+00109    \textcolor{keywordflow}{if} (ableToInsert)
+00110    \{
+00111       \hyperlink{classNode}{Node<ItemType>}* newNodePtr = \textcolor{keyword}{new} \hyperlink{classNode}{Node<ItemType>}(newEntry);  
+00112       \textcolor{keywordflow}{if} (newPosition == 1)
+00113       \{
+00114          newNodePtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(headPtr); 
+00115          headPtr = newNodePtr;
+00116       \}
+00117       \textcolor{keywordflow}{else}
+00118       \{
+00119          \hyperlink{classNode}{Node<ItemType>}* prevPtr = getNodeAt(newPosition - 1);
+00120          newNodePtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(prevPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}()); 
+00121          prevPtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(newNodePtr);
+00122       \}  \textcolor{comment}{// end if}
+00123       itemCount++; 
+00124    \}  \textcolor{comment}{// end if}
+00125    \textcolor{keywordflow}{return} ableToInsert;
+00126 \}  \textcolor{comment}{// end inser}
+00127 
+00128 
+00129 \textcolor{comment}{/*}
+00130 \textcolor{comment}{template<class ItemType>}
+00131 \textcolor{comment}{void LinkedList<ItemType>::remove(int position)}
+00132 \textcolor{comment}{\{}
+00133 \textcolor{comment}{       bool ableToNull = (position >= 1) && (position <= itemCount);}
+00134 \textcolor{comment}{       if (ableToNull)}
+00135 \textcolor{comment}{       \{}
+00136 \textcolor{comment}{          Node<ItemType>* nodePtr = getNodeAt(position);}
+00137 \textcolor{comment}{          nodePtr->setItem(NULL);}
+00138 \textcolor{comment}{       \}  // end if}
+00139 \textcolor{comment}{    }
+00140 \textcolor{comment}{}
+00141 \textcolor{comment}{\}  // end remove}
+00142 \textcolor{comment}{*/}
+00143 
+00145 
+00150 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00151}\hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{00151} \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{LinkedList<ItemType>::deletion}(\textcolor{keywordtype}{int} position)
+00152 \{
+00153        \textcolor{keywordtype}{bool} ableToRemove = (position >= 1) && (position <= itemCount);
+00154        \textcolor{keywordflow}{if} (ableToRemove)
+00155        \{
+00156           \hyperlink{classNode}{Node<ItemType>}* curPtr = NULL;
+00157           \textcolor{keywordflow}{if} (position == 1)
+00158           \{
+00159              curPtr = headPtr; \textcolor{comment}{// Save pointer to node}
+00160              headPtr = headPtr->getNext();
+00161           \}
+00162           \textcolor{keywordflow}{else}
+00163           \{
+00164              \hyperlink{classNode}{Node<ItemType>}* prevPtr = getNodeAt(position - 1);
+00165              curPtr = prevPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}();
+00166              prevPtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(curPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}());
+00167           \}  \textcolor{comment}{// end if}
+00168       
+00169           curPtr->\hyperlink{classNode_a01c1a66d4e39f5b149e090413deb4633}{setNext}(NULL);
+00170           \textcolor{keyword}{delete} curPtr;
+00171           curPtr = NULL;
+00172           itemCount--; 
+00173       
+00174  \textcolor{comment}{// Decrease count of entries}
+00175    \}  \textcolor{comment}{// end if}
+00176    
+00177    \textcolor{keywordflow}{return} ableToRemove;
+00178 \}  \textcolor{comment}{// end remove}
+00179 
+00181 
+00184 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00185}\hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{00185} \textcolor{keywordtype}{void} \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{LinkedList<ItemType>::clear}()
+00186 \{
+00187    \textcolor{keywordflow}{while} (!\hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{isEmpty}())
+00188       \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{deletion}(1);
+00189 \}  \textcolor{comment}{// end clear}
+00190 
+00192 
+00197 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00198}\hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{00198} ItemType \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{LinkedList<ItemType>::getEntry}(\textcolor{keywordtype}{int} position) \textcolor{keyword}{const}\textcolor{comment}{//const
+       throw(PrecondViolatedExcep)}
+00199 \{
+00200    \textcolor{keywordtype}{bool} ableToGet = (position > 0) && (position <= itemCount);
+00201    \textcolor{keywordflow}{if} (ableToGet)
+00202    \{
+00203       \hyperlink{classNode}{Node<ItemType>}* nodePtr = getNodeAt(position);
+00204       \textcolor{keywordflow}{return} nodePtr->\hyperlink{classNode_a6c08caef312b6f2f69b5e090cf047514}{getItem}();
+00205    \}
+00206    \textcolor{keywordflow}{else}
+00207    \{
+00208        \textcolor{keywordflow}{return} ItemType();
+00209        \textcolor{comment}{//throw(PrecondViolatedExcep(message)); }
+00210    \}  \textcolor{comment}{// end if}
+00211 \}  \textcolor{comment}{// end getEntr}
+00212 
+00214 
+00218 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00219}\hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{00219} \textcolor{keywordtype}{void} \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{LinkedList<ItemType>::replace}(\textcolor{keywordtype}{int} position, \textcolor{keyword}{const} ItemType& newEntry)\textcolor{comment}{//
+       throw(PrecondViolatedExcep)}
+00220 \{
+00221    \textcolor{keywordtype}{bool} ableToSet = (position >= 1) && (position <= itemCount);
+00222    \textcolor{keywordflow}{if} (ableToSet)
+00223    \{
+00224       \hyperlink{classNode}{Node<ItemType>}* nodePtr = getNodeAt(position);
+00225       nodePtr->\hyperlink{classNode_ab4ceecdecc5df799011de486b9f54974}{setItem}(newEntry);
+00226    \}
+00227    \textcolor{keywordflow}{else}
+00228    \{
+00229       \textcolor{keywordtype}{string} message = \textcolor{stringliteral}{"replace() called with an invalid position."};
+00230       \textcolor{comment}{//throw(PrecondViolatedExcep(message)); }
+00231    \}  \textcolor{comment}{// end if}
+00232 \}  \textcolor{comment}{// end replace}
+00233 
+00234 
+00236 
+00243 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+00244 \hyperlink{classNode}{Node<ItemType>}* \hyperlink{classLinkedList}{LinkedList<ItemType>::getNodeAt}(\textcolor{keywordtype}{int} position)\textcolor{keyword}{
+       const}
+00245 \textcolor{keyword}{}\{
+00246    \textcolor{comment}{// Debugging check of precondition}
+00247    assert( (position >= 1) && (position <= itemCount) );
+00248    
+00249    \textcolor{comment}{// Count from the beginning of the chain}
+00250    \hyperlink{classNode}{Node<ItemType>}* curPtr = headPtr;
+00251    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} skip = 1; skip < position; skip++)
+00252       curPtr = curPtr->\hyperlink{classNode_a3eb0c96e03a3fd46ea1cff4c305bbedd}{getNext}();
+00253       
+00254    \textcolor{keywordflow}{return} curPtr;
+00255 \}  \textcolor{comment}{// end getNodeAt}
+00256 \textcolor{comment}{//  End of implementation file.}
+00257 
+00259 
+00262 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00263}\hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{00263} \textcolor{keywordtype}{int} \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{LinkedList<ItemType>::getItemCount}()\textcolor{keyword}{ const}
+00264 \textcolor{keyword}{}\{
+00265     \textcolor{keywordflow}{return} itemCount;
+00266 \}
+00267 
+00269 
+00273 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00274}\hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{00274} ItemType \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{LinkedList<ItemType>::displayList}()
+00275 \{
+00276     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i > itemCount; i++)
+00277     \{
+00278         \hyperlink{classNode}{Node<ItemType>}* nodePtr = getNodeAt(i);
+00279         \textcolor{keywordflow}{return} nodePtr->\hyperlink{classNode_a6c08caef312b6f2f69b5e090cf047514}{getItem}();
+00280     \}
+00281 \}
+00282 
+00284 
+00288 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8cpp_source_l00289}\hyperlink{classLinkedList_a25b0fba69e66b0fa409be992530029bc}{00289} \hyperlink{classLinkedList}{LinkedList<ItemType>}& \hyperlink{classLinkedList_a25b0fba69e66b0fa409be992530029bc}{LinkedList<ItemType>::operator = }
+      (\textcolor{keyword}{const} \hyperlink{classLinkedList}{LinkedList<ItemType>}& rhs) 
+00290 \{
+00291     \hyperlink{classLinkedList}{LinkedList<ItemType>} temp(rhs);
+00292     swap(temp.headPtr, headPtr);
+00293     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00294 \}
+\end{DoxyCode}

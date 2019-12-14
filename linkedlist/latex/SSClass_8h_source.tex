@@ -1,0 +1,148 @@
+\hypertarget{SSClass_8h_source}{}\section{S\+S\+Class.\+h}
+
+\begin{DoxyCode}
+00001 
+00020 \textcolor{preprocessor}{#ifndef SSCLASS\_}
+00021 \textcolor{preprocessor}{#define SSCLASS\_}
+00022 
+00023 \textcolor{preprocessor}{#include <iostream>}
+00024 \textcolor{preprocessor}{#include <string>}
+00025 \textcolor{preprocessor}{#include <vector>}
+00026 \textcolor{preprocessor}{#include <fstream>}
+00027 \textcolor{preprocessor}{#include <sstream>}
+00028 \textcolor{preprocessor}{#include "\hyperlink{LinkedList_8h}{LinkedList.h}"}
+00029 \textcolor{preprocessor}{#include "\hyperlink{Node_8h}{Node.h}"}
+00030 \textcolor{preprocessor}{#include "\hyperlink{SecKeySS_8h}{SecKeySS.h}"}
+00031 \textcolor{preprocessor}{#include "\hyperlink{ListInterface_8h}{ListInterface.h}"}
+00032 \textcolor{preprocessor}{#include <limits>}
+00033 
+00034 \textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+00035 
+\Hypertarget{SSClass_8h_source_l00037}\hyperlink{SSClass_8h_ad0b49971b6f96c3d0772461b5de08c1a}{00037} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_ad0b49971b6f96c3d0772461b5de08c1a}{NUMSECKEYS} = 6;
+00038 
+\Hypertarget{SSClass_8h_source_l00040}\hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{00040} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{ZIPSIZE} = 6;
+00041 
+\Hypertarget{SSClass_8h_source_l00043}\hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{00043} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{PLACESIZE} = 31;
+00044 
+\Hypertarget{SSClass_8h_source_l00046}\hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{00046} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{STATESIZE} = 2;
+00047 
+\Hypertarget{SSClass_8h_source_l00049}\hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{00049} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{COUNTYSIZE} = 36;
+00050 
+\Hypertarget{SSClass_8h_source_l00052}\hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{00052} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{LATSIZE} = 9;
+00053 
+\Hypertarget{SSClass_8h_source_l00055}\hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{00055} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{LONSIZE} = 10;
+00056  
+\Hypertarget{SSClass_8h_source_l00057}\hyperlink{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}{00057} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a23160a846653bd4df3c5b10c77d23073}{ZIPOFFSET} = 0;
+\Hypertarget{SSClass_8h_source_l00058}\hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{00058} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{PLACEOFFSET} = \hyperlink{SSClass_8h_afed733ffdf6aafbaf75b52ea1999b6b4}{ZIPSIZE} - 1;
+\Hypertarget{SSClass_8h_source_l00059}\hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{00059} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{STATEOFFSET} = \hyperlink{SSClass_8h_af8f8ce23c8243455601f7d14ac1e1f0b}{PLACEOFFSET} + \hyperlink{SSClass_8h_a6802669f0c794331636a12aad9da53f5}{PLACESIZE};
+\Hypertarget{SSClass_8h_source_l00060}\hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{00060} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{COUNTYOFFSET} = \hyperlink{SSClass_8h_a5b27069b5f4f6134864692af92c6a10e}{STATEOFFSET} + \hyperlink{SSClass_8h_afca7ce02d5a6576fdfbd5e9ec81907d9}{STATESIZE};
+\Hypertarget{SSClass_8h_source_l00061}\hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{00061} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{LATOFFSET} = \hyperlink{SSClass_8h_a1ef0c56bf76a1106c7a04816609297b6}{COUNTYOFFSET} + \hyperlink{SSClass_8h_a5abe6ba10e2e2da36a217ddc89de08ca}{COUNTYSIZE};
+\Hypertarget{SSClass_8h_source_l00062}\hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{00062} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{LONOFFSET} = \hyperlink{SSClass_8h_a008e15601aa41491b6e9093364fbe38a}{LATOFFSET} + \hyperlink{SSClass_8h_a68fc5e9dd6f56a07f44be183f6e4838b}{LATSIZE};
+\Hypertarget{SSClass_8h_source_l00063}\hyperlink{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}{00063} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{SSClass_8h_ab9a6169c3849700398c71a392857cb9c}{CHARINLINE} = \hyperlink{SSClass_8h_a6e916bbc2eb39605cceaee1adc47c3e3}{LONOFFSET} + \hyperlink{SSClass_8h_a6f928b3e03e80473ea43f148bdb39156}{LONSIZE};
+00064 
+\Hypertarget{SSClass_8h_source_l00065}\hyperlink{classSSClass}{00065} \textcolor{keyword}{class }\hyperlink{classSSClass}{SSClass}
+00066 \{
+00067 \textcolor{keyword}{private}:
+00068     \textcolor{keywordtype}{unsigned} numLinesIndex;
+00069     \textcolor{keywordtype}{unsigned} numRecords;
+00070     \textcolor{keywordtype}{int} nextEmpty;
+00071     \textcolor{comment}{//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values}
+00072     \hyperlink{classLinkedList}{LinkedList<SecKeySS<int>}> secKeyZip;
+00073     \hyperlink{classLinkedList}{LinkedList<SecKeySS<string>}> secKeyPlace;
+00074     \hyperlink{classLinkedList}{LinkedList<SecKeySS<string>}> secKeyState;
+00075     \hyperlink{classLinkedList}{LinkedList<SecKeySS<string>}> secKeyCounty;
+00076     \hyperlink{classLinkedList}{LinkedList<SecKeySS<int>}> secKeyLat;
+00077     \hyperlink{classLinkedList}{LinkedList<SecKeySS<int>}> secKeyLon;
+00078     fstream indexFile;
+00079     \textcolor{comment}{//fstream blockRecordFile;}
+00080     
+00082 
+00086     \textcolor{keywordtype}{void} insertZip(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00087     
+00089 
+00093     \textcolor{keywordtype}{void} insertPlace(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00094     
+00096 
+00100     \textcolor{keywordtype}{void} insertState(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00101     
+00103 
+00107     \textcolor{keywordtype}{void} insertCounty(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00108     
+00110 
+00114     \textcolor{keywordtype}{void} insertLat(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00115     
+00117 
+00121     \textcolor{keywordtype}{void} insertLon(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{int} rrn);
+00122     
+00123 
+00124     \textcolor{comment}{//get functions take the entire line for a record and return the specified data member}
+00126 \textcolor{comment}{}
+00130     \textcolor{keywordtype}{string} getZip(\textcolor{keywordtype}{string} s);    
+00131 
+00133 
+00137     \textcolor{keywordtype}{string} getPlace(\textcolor{keywordtype}{string} s);
+00138 
+00140 
+00144     \textcolor{keywordtype}{string} getState(\textcolor{keywordtype}{string} s);
+00145 
+00147 
+00151     \textcolor{keywordtype}{string} getCounty(\textcolor{keywordtype}{string} s);
+00152 
+00154 
+00158     \textcolor{keywordtype}{string} getLat(\textcolor{keywordtype}{string} s);
+00159 
+00161 
+00165     \textcolor{keywordtype}{string} getLon(\textcolor{keywordtype}{string} s);
+00166     
+00168 
+00172     \textcolor{keywordtype}{void} goToLine(fstream& file, \textcolor{keywordtype}{unsigned} num);
+00173 
+00175 
+00179     \textcolor{keywordtype}{void} goToData(fstream& file);
+00180     \textcolor{comment}{//bool replace(string s);}
+00181     \textcolor{comment}{//bool delete(int position);}
+00182 
+00184 
+00188     \textcolor{keywordtype}{string} createUnusedLine(\textcolor{keywordtype}{int} next); \textcolor{comment}{//creates the string needed when removing a record}
+00189 
+00191     \textcolor{keywordtype}{void} populate(); \textcolor{comment}{//populates data from text file}
+00192 
+00193 \textcolor{keyword}{public}:
+00195     \hyperlink{classSSClass}{SSClass}();
+00196 
+00198     \hyperlink{classSSClass}{SSClass}(\textcolor{keyword}{const} \hyperlink{classSSClass}{SSClass}& ss);
+00199     
+00201     ~\hyperlink{classSSClass}{SSClass}();
+00202 
+00204 
+\Hypertarget{SSClass_8h_source_l00207}\hyperlink{classSSClass_afc95611385e4d389818332414d5c491c}{00207}     \textcolor{keywordtype}{bool} \hyperlink{classSSClass_afc95611385e4d389818332414d5c491c}{isEmpty}() \{ \textcolor{keywordflow}{return} numRecords == 0; \};
+00208 
+00210 
+00215     \textcolor{keywordtype}{bool} openFile(\textcolor{keywordtype}{string} input);
+00216     \textcolor{comment}{/*---------------------------------------------------------------------------}
+00217 \textcolor{comment}{       Creates external file}
+00218 \textcolor{comment}{       Preconditions:   data file}
+00219 \textcolor{comment}{       Postconditions:  returns true if file location exists, otherwise returns false */}
+00220     \textcolor{comment}{//bool createIndexFile();}
+00221     \textcolor{comment}{/*---------------------------------------------------------------------------}
+00222 \textcolor{comment}{       Creates external file}
+00223 \textcolor{comment}{       Preconditions:   data file}
+00224 \textcolor{comment}{       Postconditions:  returns true if file location exists, otherwise returns false */}
+00225     \textcolor{comment}{//bool createBlockRecordFile();}
+00226        
+00228 
+00231     \textcolor{keywordtype}{void} \hyperlink{BTree_8h_ac86ce26a0b0ec9d79b918b285fe9da38}{insert}(\textcolor{keywordtype}{string} s);
+00232     
+00234 
+00239     vector<int> search(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{unsigned} fieldNum);
+00240 
+00242 
+00247     \textcolor{keywordtype}{int} directionalSearch(\textcolor{keywordtype}{string} state, \textcolor{keywordtype}{char} direction);
+00248     
+00250 
+00254     \textcolor{keywordtype}{string} returnLine(\textcolor{keywordtype}{int} rrn);
+00255 \};
+00256 
+00257 
+00258 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

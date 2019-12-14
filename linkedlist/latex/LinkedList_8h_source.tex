@@ -1,0 +1,58 @@
+\hypertarget{LinkedList_8h_source}{}\section{Linked\+List.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/***************************************************************************/}
+00008 \textcolor{preprocessor}{#ifndef LINKED\_LIST\_}
+00009 \textcolor{preprocessor}{#define LINKED\_LIST\_}
+00010 
+00011 \textcolor{preprocessor}{#include "\hyperlink{ListInterface_8h}{ListInterface.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{Node_8h}{Node.h}"}
+00013 \textcolor{preprocessor}{#include <iostream>}
+00014 \textcolor{preprocessor}{#include <fstream>}
+00015 \textcolor{preprocessor}{#include <string>}
+00016 \textcolor{preprocessor}{#include <vector>}
+00017 
+00018 \textcolor{keyword}{template}<\textcolor{keyword}{class} ItemType>
+\Hypertarget{LinkedList_8h_source_l00019}\hyperlink{classLinkedList}{00019} \textcolor{keyword}{class }\hyperlink{classLinkedList}{LinkedList} : \textcolor{keyword}{public} \hyperlink{classListInterface}{ListInterface}<ItemType>
+00020 \{
+00021 \textcolor{keyword}{private}:
+00022    \hyperlink{classNode}{Node<ItemType>}* headPtr; \textcolor{comment}{// Pointer to first node in the chain;}
+00023    \textcolor{comment}{// (contains the first entry in the list)}
+00024    \textcolor{keywordtype}{int} itemCount; \textcolor{comment}{// Current count of list items   }
+00025    \textcolor{comment}{// Locates a specified node in this linked list.}
+00026    \textcolor{comment}{// @pre  position is the number of the desired node;}
+00027    \textcolor{comment}{//       position >= 1 and position <= itemCount.}
+00028    \textcolor{comment}{// @post  The node is found and a pointer to it is returned.}
+00029    \textcolor{comment}{// @param position  The number of the node to locate.}
+00030    \textcolor{comment}{// @return  A pointer to the node at the given position.}
+00031    \hyperlink{classNode}{Node<ItemType>}* getNodeAt(\textcolor{keywordtype}{int} position) \textcolor{keyword}{const};
+00032    
+00033 \textcolor{keyword}{public}:
+00034    \hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{LinkedList}();
+00035    \hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{LinkedList}(\textcolor{keyword}{const} \hyperlink{classLinkedList}{LinkedList<ItemType>}& aList);
+00036    \textcolor{keyword}{virtual} \hyperlink{classLinkedList_a66aee17d756fe0e002375897383c180b}{~LinkedList}();
+00037 
+00038    
+00039    \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{isEmpty}() \textcolor{keyword}{const};
+00040    \textcolor{keywordtype}{int} \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{getLength}() \textcolor{keyword}{const};
+00041    \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert}(\textcolor{keywordtype}{int} newPosition, \textcolor{keyword}{const} ItemType& newEntry);
+00042    \textcolor{comment}{//void remove(int position);}
+00043    \textcolor{keywordtype}{bool} \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{deletion}(\textcolor{keywordtype}{int} position);
+00044    \textcolor{keywordtype}{void} \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear}();
+00045    \textcolor{keywordtype}{int} \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{getItemCount}() \textcolor{keyword}{const};
+00046    \hyperlink{classLinkedList}{LinkedList<ItemType>}& \hyperlink{classLinkedList_a25b0fba69e66b0fa409be992530029bc}{operator = }(\textcolor{keyword}{const} 
+      \hyperlink{classLinkedList}{LinkedList<ItemType>}& rhs);
+00047 
+00050    ItemType \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{getEntry}(\textcolor{keywordtype}{int} position) \textcolor{keyword}{const}; 
+00051 
+00054    \textcolor{keywordtype}{void} \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace}(\textcolor{keywordtype}{int} position, \textcolor{keyword}{const} ItemType &newEntry); 
+00055 
+00056    ItemType \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{displayList}();
+00057 
+00058 
+00059 
+00060 \}; \textcolor{comment}{// end LinkedList}
+00061 
+00062 \textcolor{comment}{//#include "LinkedList.cpp"}
+00063 \textcolor{preprocessor}{#endif }
+\end{DoxyCode}

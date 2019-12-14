@@ -1,0 +1,238 @@
+\hypertarget{classSSClass}{}\section{S\+S\+Class Class Reference}
+\label{classSSClass}\index{S\+S\+Class@{S\+S\+Class}}
+
+
+\hyperlink{classLinkedList}{Linked\+List} integration for blocks, records, and fields.  
+
+
+
+
+{\ttfamily \#include \char`\"{}S\+S\+Class.\+h\char`\"{}}
+
+
+
+Collaboration diagram for S\+S\+Class\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classSSClass__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}{S\+S\+Class} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classSSClass_a5801614847b5403b1a5899150acd3b5c}{S\+S\+Class} (const \hyperlink{classSSClass}{S\+S\+Class} \&ss)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classSSClass_a6e5abb04de9b90e34cc6422069ff5729}{$\sim$\+S\+S\+Class} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classSSClass_afc95611385e4d389818332414d5c491c}{is\+Empty} ()
+\begin{DoxyCompactList}\small\item\em Check if num\+Records is 0. \end{DoxyCompactList}\item 
+bool \hyperlink{classSSClass_a92e012441608ea36f3013fb3cbea9da8}{open\+File} (string input)
+\begin{DoxyCompactList}\small\item\em Opens external file. \end{DoxyCompactList}\item 
+void \hyperlink{classSSClass_a45c5585c784bf7c4f823f66426664aea}{insert} (string s)
+\begin{DoxyCompactList}\small\item\em inserts line by line into data \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}{search} (string s, unsigned field\+Num)
+\begin{DoxyCompactList}\small\item\em Searches for record. \end{DoxyCompactList}\item 
+int \hyperlink{classSSClass_ad03c99840c2946a2112f5f1942c287f2}{directional\+Search} (string state, char direction)
+\begin{DoxyCompactList}\small\item\em Searches directionly (N, S, W, E) \end{DoxyCompactList}\item 
+string \hyperlink{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}{return\+Line} (int rrn)
+\begin{DoxyCompactList}\small\item\em Fills secondary key vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classLinkedList}{Linked\+List} integration for blocks, records, and fields. 
+
+\begin{DoxyAuthor}{Authors}
+Jordan Bremer, Melvin Schmid, ..., ..., ...
+\end{DoxyAuthor}
+Sequence Set class\+: -- allows for insert and deletion of linked list -- populates secondary keys -- allows for searching of said linked list -- ability to return city, state, county, lattitude, longitude, zip, and lower and upper indicies -- ability to input a txt file and populate it\textquotesingle{}s contents
+
+Implementation and assumptions\+: -- size defaults are listed towards the top of the program -- array/vector elements are initialized to zero 
+
+Definition at line \hyperlink{SSClass_8h_source_l00065}{65} of file \hyperlink{SSClass_8h_source}{S\+S\+Class.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}\label{classSSClass_ab4603d6a236c4fa65f896a1158c0d2ef}} 
+\index{S\+S\+Class@{S\+S\+Class}!S\+S\+Class@{S\+S\+Class}}
+\index{S\+S\+Class@{S\+S\+Class}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{S\+S\+Class()}{SSClass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily S\+S\+Class\+::\+S\+S\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00039}{39} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_a5801614847b5403b1a5899150acd3b5c}\label{classSSClass_a5801614847b5403b1a5899150acd3b5c}} 
+\index{S\+S\+Class@{S\+S\+Class}!S\+S\+Class@{S\+S\+Class}}
+\index{S\+S\+Class@{S\+S\+Class}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{S\+S\+Class()}{SSClass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily S\+S\+Class\+::\+S\+S\+Class (\begin{DoxyParamCaption}\item[{const \hyperlink{classSSClass}{S\+S\+Class} \&}]{ss }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00043}{43} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_a6e5abb04de9b90e34cc6422069ff5729}\label{classSSClass_a6e5abb04de9b90e34cc6422069ff5729}} 
+\index{S\+S\+Class@{S\+S\+Class}!````~S\+S\+Class@{$\sim$\+S\+S\+Class}}
+\index{````~S\+S\+Class@{$\sim$\+S\+S\+Class}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+S\+S\+Class()}{~SSClass()}}
+{\footnotesize\ttfamily S\+S\+Class\+::$\sim$\+S\+S\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor. 
+
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00055}{55} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSSClass_ad03c99840c2946a2112f5f1942c287f2}\label{classSSClass_ad03c99840c2946a2112f5f1942c287f2}} 
+\index{S\+S\+Class@{S\+S\+Class}!directional\+Search@{directional\+Search}}
+\index{directional\+Search@{directional\+Search}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{directional\+Search()}{directionalSearch()}}
+{\footnotesize\ttfamily int S\+S\+Class\+::directional\+Search (\begin{DoxyParamCaption}\item[{string}]{state,  }\item[{char}]{direction }\end{DoxyParamCaption})}
+
+
+
+Searches directionly (N, S, W, E) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & the state to search \char`\"{}\+M\+N\char`\"{} for example \\
+\hline
+{\em direction} & (N, S, W, E) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the line contating the soght after direction 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00179}{179} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_a45c5585c784bf7c4f823f66426664aea}\label{classSSClass_a45c5585c784bf7c4f823f66426664aea}} 
+\index{S\+S\+Class@{S\+S\+Class}!insert@{insert}}
+\index{insert@{insert}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void S\+S\+Class\+::insert (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})}
+
+
+
+inserts line by line into data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & a string to insert\\
+\hline
+\end{DoxyParams}
+Insertion of records into both the index file as well as the linkedlist of linkedlists /param s string to be inserted 
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00070}{70} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_afc95611385e4d389818332414d5c491c}\label{classSSClass_afc95611385e4d389818332414d5c491c}} 
+\index{S\+S\+Class@{S\+S\+Class}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily bool S\+S\+Class\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if num\+Records is 0. 
+
+\begin{DoxyReturn}{Returns}
+returns false if empty, otherwise returns true 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{SSClass_8h_source_l00207}{207} of file \hyperlink{SSClass_8h_source}{S\+S\+Class.\+h}.
+
+\mbox{\Hypertarget{classSSClass_a92e012441608ea36f3013fb3cbea9da8}\label{classSSClass_a92e012441608ea36f3013fb3cbea9da8}} 
+\index{S\+S\+Class@{S\+S\+Class}!open\+File@{open\+File}}
+\index{open\+File@{open\+File}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{open\+File()}{openFile()}}
+{\footnotesize\ttfamily bool S\+S\+Class\+::open\+File (\begin{DoxyParamCaption}\item[{string}]{input }\end{DoxyParamCaption})}
+
+
+
+Opens external file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+data file 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true if file location exists, otherwise returns false 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00010}{10} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}\label{classSSClass_ab0a8ea1af895df28359b5733bd920ef3}} 
+\index{S\+S\+Class@{S\+S\+Class}!return\+Line@{return\+Line}}
+\index{return\+Line@{return\+Line}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{return\+Line()}{returnLine()}}
+{\footnotesize\ttfamily string S\+S\+Class\+::return\+Line (\begin{DoxyParamCaption}\item[{int}]{rrn }\end{DoxyParamCaption})}
+
+
+
+Fills secondary key vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rrn} & and integer refring to the line to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string containging the contents of the line 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00093}{93} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+\mbox{\Hypertarget{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}\label{classSSClass_a9df3598c000a6a5e9ef994d19196e69f}} 
+\index{S\+S\+Class@{S\+S\+Class}!search@{search}}
+\index{search@{search}!S\+S\+Class@{S\+S\+Class}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily vector$<$ int $>$ S\+S\+Class\+::search (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{unsigned}]{field\+Num }\end{DoxyParamCaption})}
+
+
+
+Searches for record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & strign to search for  field\+Num the field in whitch to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of results 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{SSClass_8cpp_source_l00101}{101} of file \hyperlink{SSClass_8cpp_source}{S\+S\+Class.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SSClass_8h}{S\+S\+Class.\+h}\item 
+\hyperlink{SSClass_8cpp}{S\+S\+Class.\+cpp}\end{DoxyCompactItemize}

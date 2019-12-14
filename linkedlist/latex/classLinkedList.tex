@@ -1,0 +1,389 @@
+\hypertarget{classLinkedList}{}\section{Linked\+List$<$ Item\+Type $>$ Class Template Reference}
+\label{classLinkedList}\index{Linked\+List$<$ Item\+Type $>$@{Linked\+List$<$ Item\+Type $>$}}
+
+
+This is \hyperlink{classLinkedList}{Linked\+List} class creating a list of linked nodes.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Linked\+List.\+h\char`\"{}}
+
+
+
+Inheritance diagram for Linked\+List$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLinkedList__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Linked\+List$<$ Item\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classLinkedList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{Linked\+List} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLinkedList}{Linked\+List} default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}{Linked\+List} (const \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \&a\+List)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLinkedList}{Linked\+List} constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classLinkedList_a66aee17d756fe0e002375897383c180b}{$\sim$\+Linked\+List} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLinkedList}{Linked\+List} deconstructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}{is\+Empty} () const
+\begin{DoxyCompactList}\small\item\em Memebr function to check if a \hyperlink{classLinkedList}{Linked\+List} is empty. \end{DoxyCompactList}\item 
+int \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Member function to get the length of the \hyperlink{classLinkedList}{Linked\+List}. \end{DoxyCompactList}\item 
+bool \hyperlink{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}{insert} (int new\+Position, const Item\+Type \&new\+Entry)
+\begin{DoxyCompactList}\small\item\em Memebr function to insert a new item into a \hyperlink{classNode}{Node} of a \hyperlink{classLinkedList}{Linked\+List}. \end{DoxyCompactList}\item 
+bool \hyperlink{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}{deletion} (int position)
+\begin{DoxyCompactList}\small\item\em Member function for deletion of a \hyperlink{classNode}{Node}. \end{DoxyCompactList}\item 
+void \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear} ()
+\begin{DoxyCompactList}\small\item\em Memebr Fucntion to clear a \hyperlink{classLinkedList}{Linked\+List}. \end{DoxyCompactList}\item 
+int \hyperlink{classLinkedList_afc6635f854f48f2f126cf3b60d845220}{get\+Item\+Count} () const
+\begin{DoxyCompactList}\small\item\em Member function to get the item count. \end{DoxyCompactList}\item 
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \& \hyperlink{classLinkedList_a25b0fba69e66b0fa409be992530029bc}{operator=} (const \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em operator function = \end{DoxyCompactList}\item 
+Item\+Type \hyperlink{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}{get\+Entry} (int position) const
+\begin{DoxyCompactList}\small\item\em Memebr function to get (return) an entry at a position. \end{DoxyCompactList}\item 
+void \hyperlink{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}{replace} (int position, const Item\+Type \&new\+Entry)
+\begin{DoxyCompactList}\small\item\em Member function to replace an item at a position. \end{DoxyCompactList}\item 
+Item\+Type \hyperlink{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}{display\+List} ()
+\begin{DoxyCompactList}\small\item\em Member function to display the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Item\+Type$>$\newline
+class Linked\+List$<$ Item\+Type $>$}
+
+This is \hyperlink{classLinkedList}{Linked\+List} class creating a list of linked nodes. 
+
+This class is to create a linked list of nodes. The nodes are of type template Item\+Type, item and a \hyperlink{classNode}{Node} pointer of item type, next. 
+
+Definition at line \hyperlink{LinkedList_8h_source_l00019}{19} of file \hyperlink{LinkedList_8h_source}{Linked\+List.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}\label{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}} 
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::\hyperlink{classLinkedList}{Linked\+List} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classLinkedList}{Linked\+List} default constructor. 
+
+Sets headptr to null and item\+Count to 0. 
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00018}{18} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}\label{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}} 
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{Linked\+List()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::\hyperlink{classLinkedList}{Linked\+List} (\begin{DoxyParamCaption}\item[{const \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \&}]{a\+List }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classLinkedList}{Linked\+List} constructor. 
+
+A copy constructor with one argumet passed, a\+List. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Lsit} & a refrence to a list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00028}{28} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a66aee17d756fe0e002375897383c180b}\label{classLinkedList_a66aee17d756fe0e002375897383c180b}} 
+\index{Linked\+List@{Linked\+List}!````~Linked\+List@{$\sim$\+Linked\+List}}
+\index{````~Linked\+List@{$\sim$\+Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{$\sim$\+Linked\+List()}{~LinkedList()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::$\sim$\hyperlink{classLinkedList}{Linked\+List} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\hyperlink{classLinkedList}{Linked\+List} deconstructor. 
+
+A deconstructor to clear a \hyperlink{classLinkedList}{Linked\+List} 
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00070}{70} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}\label{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}} 
+\index{Linked\+List@{Linked\+List}!clear@{clear}}
+\index{clear@{clear}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+void \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Memebr Fucntion to clear a \hyperlink{classLinkedList}{Linked\+List}. 
+
+Removes 1 \hyperlink{classNode}{Node} at a time while the \hyperlink{classLinkedList}{Linked\+List} is not Empty 
+
+Implements \hyperlink{classListInterface_adfda414908b645bdf19bcab8269168b7}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00185}{185} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}\label{classLinkedList_a7dc3cca217b45c6fe5d28c9d16b7bf9e}} 
+\index{Linked\+List@{Linked\+List}!deletion@{deletion}}
+\index{deletion@{deletion}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{deletion()}{deletion()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+bool \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::deletion (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Member function for deletion of a \hyperlink{classNode}{Node}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of te \hyperlink{classNode}{Node} to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+able\+To\+Remove returns true if the \hyperlink{classNode}{Node} is a valid \hyperlink{classNode}{Node}. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+To be a valid \hyperlink{classNode}{Node} to remove, psition $>$= 1 and position $<$= item\+Count 
+\end{DoxyPrecond}
+
+
+Implements \hyperlink{classListInterface_a68520ce2942ec716c745b1137c50a3c6}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00151}{151} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}\label{classLinkedList_a65fb58d9f9b8af41e9569d1dc3200583}} 
+\index{Linked\+List@{Linked\+List}!display\+List@{display\+List}}
+\index{display\+List@{display\+List}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{display\+List()}{displayList()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+Item\+Type \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::display\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Member function to display the list. 
+
+Displays the list by returing one \hyperlink{classNode}{Node} item at a time \begin{DoxyReturn}{Returns}
+node\+Ptr-\/$>$get\+Item() an item at a node 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classListInterface_a2f2f533e962dd89111ee50b972dc28e7}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00274}{274} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}\label{classLinkedList_a341bfd7772c9d24d29eb7a7f3936915b}} 
+\index{Linked\+List@{Linked\+List}!get\+Entry@{get\+Entry}}
+\index{get\+Entry@{get\+Entry}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Entry()}{getEntry()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+Item\+Type \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::get\+Entry (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Memebr function to get (return) an entry at a position. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Precond\+Violated\+Excep} & if position $<$ 1 or position $>$ \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{get\+Length()}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of a \hyperlink{classNode}{Node} to return an\+Item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node\+Ptr-\/$>$get\+Item() an item at the position, position. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+position $>$ 0 and position $<$= item\+Count 
+\end{DoxyPrecond}
+
+
+Implements \hyperlink{classListInterface_a86987f69e5056d287212ede41db1956a}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00198}{198} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_afc6635f854f48f2f126cf3b60d845220}\label{classLinkedList_afc6635f854f48f2f126cf3b60d845220}} 
+\index{Linked\+List@{Linked\+List}!get\+Item\+Count@{get\+Item\+Count}}
+\index{get\+Item\+Count@{get\+Item\+Count}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Item\+Count()}{getItemCount()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+int \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::get\+Item\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Member function to get the item count. 
+
+/return item\+Count the count of items in the \hyperlink{classLinkedList}{Linked\+List} 
+
+Implements \hyperlink{classListInterface_a3e085e6ea9c5dc3e8007010cd889159c}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00263}{263} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}\label{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}} 
+\index{Linked\+List@{Linked\+List}!get\+Length@{get\+Length}}
+\index{get\+Length@{get\+Length}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{get\+Length()}{getLength()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+int \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Member function to get the length of the \hyperlink{classLinkedList}{Linked\+List}. 
+
+\begin{DoxyReturn}{Returns}
+item\+Count the length (count of items) of the \hyperlink{classLinkedList}{Linked\+List} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classListInterface_afc85695d4137f1e29ff02e179c9f3221}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00091}{91} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}\label{classLinkedList_ae8a19375505e87e2e4fc0e9b5afe4d4d}} 
+\index{Linked\+List@{Linked\+List}!insert@{insert}}
+\index{insert@{insert}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+bool \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{int}]{new\+Position,  }\item[{const Item\+Type \&}]{new\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Memebr function to insert a new item into a \hyperlink{classNode}{Node} of a \hyperlink{classLinkedList}{Linked\+List}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Position} & a node position to insert a item into \\
+\hline
+{\em new\+Entry} & a reference to an item of item\+Type to be inserted into the \hyperlink{classNode}{Node}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+able\+To\+Insert if new\+Entry can be inserted into the \hyperlink{classNode}{Node} at new\+Position 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+new\+Position $>$= 1 
+
+new\+Position $<$= item\+Count + 1 
+\end{DoxyPrecond}
+
+
+Implements \hyperlink{classListInterface_a5b2f86954a86172699a3495982c38e77}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00106}{106} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}\label{classLinkedList_a008e916c3d51d28b4cc9c8cdf3e9d921}} 
+\index{Linked\+List@{Linked\+List}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class Item\+Type $>$ \\
+bool \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Memebr function to check if a \hyperlink{classLinkedList}{Linked\+List} is empty. 
+
+Checks and returns a boolean value if the list is true or not \begin{DoxyReturn}{Returns}
+item\+Count == 0 returns 1 if the \hyperlink{classLinkedList}{Linked\+List} is empty, 0 otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classListInterface_a924f91e7f81d7dcd3fda79bbcc671394}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00081}{81} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a25b0fba69e66b0fa409be992530029bc}\label{classLinkedList_a25b0fba69e66b0fa409be992530029bc}} 
+\index{Linked\+List@{Linked\+List}!operator=@{operator=}}
+\index{operator=@{operator=}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \& \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+operator function = 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & referance to a \hyperlink{classLinkedList}{Linked\+List} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$this a pointer to the \hyperlink{classLinkedList}{Linked\+List} 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00289}{289} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+\mbox{\Hypertarget{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}\label{classLinkedList_a3035f880c50e7d8f68e67c093d4607ca}} 
+\index{Linked\+List@{Linked\+List}!replace@{replace}}
+\index{replace@{replace}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$class Item\+Type$>$ \\
+void \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$\+::replace (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{const Item\+Type \&}]{new\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Member function to replace an item at a position. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Precond\+Violated\+Excep} & if position $<$ 1 or position $>$ \hyperlink{classLinkedList_a61d045ef6008b494a1a516ecc992c0e7}{get\+Length()}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the \hyperlink{classNode}{Node} whos item will be replaced \\
+\hline
+{\em new\+Entry} & the new entery to replace the old entry of a \hyperlink{classNode}{Node} \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classListInterface_aae877a56b7b9f5f526c37a00e234fad1}{List\+Interface$<$ Item\+Type $>$}.
+
+
+
+Definition at line \hyperlink{LinkedList_8cpp_source_l00219}{219} of file \hyperlink{LinkedList_8cpp_source}{Linked\+List.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{LinkedList_8h}{Linked\+List.\+h}\item 
+\hyperlink{LinkedList_8cpp}{Linked\+List.\+cpp}\end{DoxyCompactItemize}
