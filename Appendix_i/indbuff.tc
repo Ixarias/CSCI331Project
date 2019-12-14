@@ -1,8 +1,8 @@
-// indbuff.cpp
-#ifndef INDBUFF_CPP
-#define INDBUFF_CPP
+// indbuff.tc
+#ifndef INDBUFF_TC
+#define INDBUFF_TC
 
-#include "indbuff.h"
+#include "indbuff.h"\
 
 template <class keyType>
 IndexBuffer<keyType>::IndexBuffer (int maxKeys, int keySize)

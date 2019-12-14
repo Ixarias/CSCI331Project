@@ -8,6 +8,7 @@ class BTree;
 #include "simpind.h"
 #include "recfile.h"
 
+
 template <class keyType>
 class IndexNode: public SimpleIndex <keyType>
 // this is the in-memory version of the IndexNode
@@ -40,6 +41,6 @@ protected:
 	void Clear(){NumKeys = 0; RecAddr = -1;} 
 	friend class BTree<keyType>;
 };
-#include "indnode.cpp"
+
 #endif
 

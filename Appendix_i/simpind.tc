@@ -1,8 +1,8 @@
 //simpind.tc
 #include "simpind.h"
 #include <iostream.h>
-#ifndef SIMPIND_CPP
-#define SIMPIND_CPP
+#ifndef SIMPIND_TC
+#define SIMPIND_TC
 
 template <class keyType>
 SimpleIndex<keyType>:: SimpleIndex (int maxKeys, int unique)

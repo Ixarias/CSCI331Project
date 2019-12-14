@@ -32,6 +32,6 @@ class SimpleIndex
 	friend class BTree<keyType>;
 #endif
 };
-#include "simpind.cpp"
+
 #endif
 

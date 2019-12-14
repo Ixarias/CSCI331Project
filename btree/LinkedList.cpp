@@ -1,6 +1,3 @@
-//#include "LinkedList.h"  // Header file
-//#include "PrecondViolatedExcep.h"
-
 using namespace std;
 
 //! LinkedList default constructor

@@ -51,12 +51,6 @@ SSClass::SSClass(const SSClass& ss) {
 	openFile("us_postal_codes.txt");
 }
 SSClass::~SSClass(){
-	secKeyZip.clear();
-	secKeyPlace.clear();
-	secKeyState.clear();
-	secKeyCounty.clear();
-	secKeyLat.clear();
-	secKeyLon.clear();
 	indexFile.close();
 	//blockRecord.close();
 }
@@ -66,26 +60,30 @@ SSClass::~SSClass(){
     /param s string to be inserted
 */
 void SSClass::insert(string s) {
+	int ne;
 	if (nextEmpty == -1) {
-		goToLine(indexFile, numLinesIndex);
+		goToLine(indexFile, numRecords);
 		indexFile << "\n" << s;
-		insertZip(getZip(s), numLinesIndex);
-		insertPlace(getPlace(s), numLinesIndex);
-		insertState(getState(s), numLinesIndex);
-		insertCounty(getCounty(s), numLinesIndex);
-		insertLat(getLat(s), numLinesIndex);
-		insertLon(getLon(s), numLinesIndex);
+		insertZip(getZip(s), numRecords);
+		insertPlace(getPlace(s), numRecords);
+		insertState(getState(s), numRecords);
+		insertCounty(getCounty(s), numRecords);
+		insertLat(getLat(s), numRecords);
+		insertLon(getLon(s), numRecords);
 		numLinesIndex++;
 		return;
 	}
 	goToLine(indexFile, nextEmpty);
-	//replace(s, nextEmpty);
+	indexFile >> ne;
+	replace(s, nextEmpty);
 	insertZip(getZip(s), nextEmpty);
 	insertPlace(getPlace(s), nextEmpty);
 	insertState(getState(s), nextEmpty);
 	insertCounty(getCounty(s), nextEmpty);
 	insertLat(getLat(s), nextEmpty);
 	insertLon(getLon(s), nextEmpty);
+	nextEmpty = ne;
+	
 }
 
 string SSClass::returnLine(int rrn) {
@@ -103,71 +101,32 @@ vector<int> SSClass::search(string s, unsigned fieldNum) {
 	switch (fieldNum) {
 	case 1:
 	{
-		for (i = 1; (i < (secKeyZip.getItemCount() + 1)) && (secKeyZip.getEntry(i).getData() < stoi(s)); i++);
-		if (secKeyZip.getEntry(i).getData() == stoi(s)) {
-			LinkedList<int> toCopy = LinkedList<int>(secKeyZip.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				results.push_back(toCopy.getEntry(j));
-			}
-		}
+		
 	}
 	break;
 	case 2:
 	{
-		for(i = 1; (i < (secKeyPlace.getItemCount() + 1)) && (secKeyPlace.getEntry(i).getData() < s); i++);
-		if ((secKeyPlace.getEntry(i).getData()) == (s)) {
-			LinkedList<string> toCopy = LinkedList<string>(secKeyPlace.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi toCopy.getEntry returns string
-				results.push_back(stoi(toCopy.getEntry(j)));
-			}
-		}
+		
 	}
 	break;
 	case 3:
 	{
-		for (i = 1; (i < (secKeyState.getItemCount() + 1)) && (secKeyState.getEntry(i).getData() < s); i++);
-		if ((secKeyState.getEntry(i).getData()) == (s)) {
-			LinkedList<string> toCopy = LinkedList<string>(secKeyState.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi toCopy.getEntry returns string
-				results.push_back(stoi(toCopy.getEntry(j)));
-			}
-		}
+		
 	}
 	break;
 	case 4:
 	{
-		for (i = 1; (i < (secKeyCounty.getItemCount() + 1)) && (secKeyCounty.getEntry(i).getData() < s); i++);
-		if ((secKeyCounty.getEntry(i).getData()) == (s)) {
-			LinkedList<string> toCopy = LinkedList<string>(secKeyCounty.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				// stoi toCopy.getEntry returns string
-				results.push_back(stoi(toCopy.getEntry(j)));
-			}
-		}
+		
 	}
 	break;
 	case 5:
 	{
-		for (i = 1; (i < (secKeyLat.getItemCount() + 1)) && (secKeyLat.getEntry(i).getData() < stoi(s)); i++);
-		if (secKeyLat.getEntry(i).getData() == static_cast<int>(stod(s))) {
-			LinkedList<int> toCopy = LinkedList<int>(secKeyLat.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				results.push_back(toCopy.getEntry(j));
-			}
-		}
+		
 	}
 	break;
 	case 6:
 	{
-		for (i = 1; (i < (secKeyLon.getItemCount() + 1)) && (secKeyLon.getEntry(i).getData() < stoi(s)); i++);
-		if (secKeyLon.getEntry(i).getData() == static_cast<int>(stod(s))) {
-			LinkedList<int> toCopy = LinkedList<int>(secKeyLon.getEntry(i).getDuplicates());
-			for (int j = 1; j < (toCopy.getItemCount() + 1); j++) {
-				results.push_back(toCopy.getEntry(j));
-			}
-		}
+		
 	}
 	break;
 	}

@@ -41,6 +41,6 @@ protected:
 	void Clear(){NumKeys = 0; RecAddr = -1;} 
 	friend class BTree<keyType>;
 };
-
+#include "btnode.cpp"
 #endif
 

@@ -1,22 +1,22 @@
 //btnode.tc
 #include <iostream.h>
-#include "simpind.cpp"
-#include "btnode.h"
+#include "simpind.tc"
+#include "indnode.h"
 #include "fixfld.h"
 
-#ifndef BTNODE_CPP
-#define BTNODE_CPP
+#ifndef INDNODE_TC
+#define INDNODE_TC
 
 template <class keyType>
-BTreeNode<keyType>::BTreeNode(int maxKeys, int unique)
+IndexNode<keyType>::IndexNode(int maxKeys, int unique)
 :SimpleIndex<keyType>(maxKeys+1, unique)
 {	Init ();}
 
 template <class keyType>
-BTreeNode<keyType>::~BTreeNode(){}
+IndexNode<keyType>::~IndexNode(){}
 
 template <class keyType>
-int BTreeNode<keyType>::Insert (const keyType key, int recAddr)
+int IndexNode<keyType>::Insert (const keyType key, int recAddr)
 {	
 	int result;
 	result = SimpleIndex<keyType>::Insert (key, recAddr);
@@ -26,7 +26,7 @@ int BTreeNode<keyType>::Insert (const keyType key, int recAddr)
 }
 
 template <class keyType>
-int BTreeNode<keyType>::Remove (const keyType key, int recAddr)
+int IndexNode<keyType>::Remove (const keyType key, int recAddr)
 {
 	int result;
 	result = SimpleIndex<keyType>::Remove (key, recAddr);
@@ -36,21 +36,21 @@ int BTreeNode<keyType>::Remove (const keyType key, int recAddr)
 }
 
 template <class keyType>
-void BTreeNode<keyType>::Print (ostream & stream) const
+void IndexNode<keyType>::Print (ostream & stream) const
 {
 	SimpleIndex<keyType>::Print(cout);
+
 }
 
 template <class keyType>
-int BTreeNode<keyType>::LargestKey ()
-// returns value of largest key
+int IndexNode<keyType>::SmallestKey ()
+// returns value of smallest key
 {
-	if (NumKeys>0) return Keys[NumKeys-1];
-	else return Keys[0];
+	return Keys[0];
 }
 
 template <class keyType>
-int BTreeNode<keyType>::Split (BTreeNode<keyType> * newNode)
+int IndexNode<keyType>::Split (IndexNode<keyType> * newNode)
 {
 	// check for sufficient number of keys
 	if (NumKeys < MaxKeys) return 0; 
@@ -58,6 +58,7 @@ int BTreeNode<keyType>::Split (BTreeNode<keyType> * newNode)
 	int midpt = (NumKeys+1)/2;
 	int numNewKeys = NumKeys - midpt;
 	// check that number of keys for newNode is ok
+	
 	if (numNewKeys > newNode -> MaxBKeys 
 		|| numNewKeys < newNode -> MinKeys)
 		return 0;
@@ -68,14 +69,17 @@ int BTreeNode<keyType>::Split (BTreeNode<keyType> * newNode)
 		newNode->RecAddrs[i-midpt] = RecAddrs[i];
 	}
 	// set number of keys in the two Nodes
-	newNode->NumKeys = numNewKeys;
+	newNode -> NumKeys = numNewKeys ;
 	NumKeys = midpt;
 	// Link the nodes together
+	newNode -> NextNode = NextNode;
+	NextNode = newNode -> RecAddr;
 	return 1;
 }
  
+
 template <class keyType>
-int BTreeNode<keyType>::Merge (BTreeNode<keyType> * fromNode)
+int IndexNode<keyType>::Merge (IndexNode<keyType> * fromNode)
 {
 	// check for too many keys
 	if (NumKeys + fromNode->NumKeys > MaxKeys-1) return 0;
@@ -93,19 +97,18 @@ int BTreeNode<keyType>::Merge (BTreeNode<keyType> * fromNode)
 }
 
 template <class keyType>
-int BTreeNode<keyType>::UpdateKey (keyType oldKey, keyType newKey, int recAddr)
+int IndexNode<keyType>::UpdateKey (keyType oldKey, keyType newKey, int recAddr)
 {
 	// look for the old key
 	int recaddr = Search (oldKey, recAddr);
 	if (recaddr < 0) return 0; // key and recaddr not found
 	Remove (oldKey, recAddr);
-	Insert (newKey, recaddr);
-	return 1;
+	Insert (oldKey, recaddr);
 }
 
 
 template <class keyType>
-int BTreeNode<keyType>::Init ()
+int IndexNode<keyType>::Init ()
 {
 	NextNode = -1;
 	RecAddr = -1;
@@ -115,13 +118,13 @@ int BTreeNode<keyType>::Init ()
 }
 
 template <class keyType>
-BTreeNode<keyType> * CreateBTreeNode (int maxKeys, int unique)
+IndexNode<keyType> * CreateIndexNode (int maxKeys, int unique)
 {
-	return new BTreeNode<keyType> (maxKeys, unique);
+	return new IndexNode<keyType> (maxKeys, unique);
 }
 
 template <class keyType>
-int BTreeNode<keyType>::Pack (IOBuffer& buffer) const
+int IndexNode<keyType>::Pack (IOBuffer& buffer) const
 {
 	int result;
 	buffer.Clear ();
@@ -135,7 +138,7 @@ int BTreeNode<keyType>::Pack (IOBuffer& buffer) const
 }
 
 template <class keyType>
-int BTreeNode<keyType>::Unpack (IOBuffer& buffer)
+int IndexNode<keyType>::Unpack (IOBuffer& buffer)
 {
 	int result;
 	result = buffer.Unpack (&NumKeys);
@@ -148,9 +151,9 @@ int BTreeNode<keyType>::Unpack (IOBuffer& buffer)
 }
 
 template <class keyType>
-int BTreeNode<keyType>::InitBuffer 
+int IndexNode<keyType>::InitBuffer 
 	(FixedFieldBuffer & buffer, int maxKeys, int keySize)
-{// initialize a buffer for the btree node
+{// initialize a buffer for the Index node
 	buffer.AddField (sizeof(int));
 	for (int i = 0; i < maxKeys; i++)
 	{buffer.AddField (keySize); buffer.AddField (sizeof(int));}

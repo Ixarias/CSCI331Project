@@ -1,6 +1,6 @@
-//indnode.h
-#ifndef INDNODE_H
-#define INDNODE_H
+//btnode.h
+#ifndef BTNODE_H
+#define BTNODE_H
 
 template <class keyType>
 class BTree;
@@ -8,13 +8,14 @@ class BTree;
 #include "simpind.h"
 #include "recfile.h"
 
+
 template <class keyType>
-class IndexNode: public SimpleIndex <keyType>
-// this is the in-memory version of the IndexNode
+class BTreeNode: public SimpleIndex <keyType>
+// this is the in-memory version of the BTreeNode
 {
   public:
-	IndexNode(int maxKeys, int unique = 1);
-	~IndexNode();
+	BTreeNode(int maxKeys, int unique = 1);
+	~BTreeNode();
 	// Insert and Remove return
 	//	0 for failure
 	//	-1 for overflow
@@ -23,9 +24,9 @@ class IndexNode: public SimpleIndex <keyType>
 	int Remove (const keyType key, int recAddr = -1);
 	//int Search (const keyType key) const;
 	void Print (ostream &) const;
-	int SmallestKey (); // returns value of smallest key
-	int Split (IndexNode<keyType> * newNode); // move keys into newNode
-	int Merge (IndexNode<keyType> * fromNode); // move keys from fromNode
+	int LargestKey (); // returns value of largest key
+	int Split (BTreeNode<keyType> * newNode); // move keys into newNode
+	int Merge (BTreeNode<keyType> * fromNode); // move keys from fromNode
 	int UpdateKey (keyType oldKey, keyType newKey, int recAddr = -1);
 	int Pack (IOBuffer& buffer) const;
 	int Unpack (IOBuffer& buffer); 
@@ -40,6 +41,6 @@ protected:
 	void Clear(){NumKeys = 0; RecAddr = -1;} 
 	friend class BTree<keyType>;
 };
-#include "indnode.cpp"
+
 #endif
 

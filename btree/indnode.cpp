@@ -1,11 +1,11 @@
 //btnode.tc
 #include <iostream.h>
-#include "simpind.tc"
+#include "simpind.cpp"
 #include "indnode.h"
 #include "fixfld.h"
 
-#ifndef INDNODE_TC
-#define INDNODE_TC
+#ifndef INDNODE_CPP
+#define INDNODE_CPP
 
 template <class keyType>
 IndexNode<keyType>::IndexNode(int maxKeys, int unique)

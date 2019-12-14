@@ -6,8 +6,6 @@
 * ItemType, item and a Node pointer of item type, next.
 *******************************************************************************/
 
-//#ifndef INCLUDE
-//#define INCLUDE
 #ifndef _LinkedList
 #define _LinkedList
 
@@ -20,11 +18,6 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-
-//#endif
-
-//#ifndef LINKED_LIST_
-//#define LINKED_LIST_
 
 #include "ListInterface.h"
 #include "Node.h"

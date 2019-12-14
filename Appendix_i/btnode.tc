@@ -1,11 +1,11 @@
 //btnode.tc
 #include <iostream.h>
-#include "simpind.cpp"
+#include "simpind.tc"
 #include "btnode.h"
 #include "fixfld.h"
 
-#ifndef BTNODE_CPP
-#define BTNODE_CPP
+#ifndef BTNODE_TC
+#define BTNODE_TC
 
 template <class keyType>
 BTreeNode<keyType>::BTreeNode(int maxKeys, int unique)

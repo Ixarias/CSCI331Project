@@ -75,12 +75,12 @@ private:
 	unsigned numRecords;
 	int nextEmpty;
 	//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values
-	LinkedList<SecKeySS<int>> secKeyZip;
-	LinkedList<SecKeySS<string>> secKeyPlace;
-	LinkedList<SecKeySS<string>> secKeyState;
-	LinkedList<SecKeySS<string>> secKeyCounty;
-	LinkedList<SecKeySS<int>> secKeyLat;
-	LinkedList<SecKeySS<int>> secKeyLon;
+	BTree<SecKeySS<int>> secKeyZip;
+	BTree<SecKeySS<string>> secKeyPlace;
+	BTree<SecKeySS<string>> secKeyState;
+	BTree<SecKeySS<string>> secKeyCounty;
+	BTree<SecKeySS<int>> secKeyLat;
+	BTree<SecKeySS<int>> secKeyLon;
 	fstream indexFile;
 	//fstream blockRecordFile;
 
