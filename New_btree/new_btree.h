@@ -7,13 +7,14 @@ class BPTree;
 
 using namespace std;
 
+    template <class T>
 	class Node
 	{
 		bool IS_LEAF;
 		T *key;
 		int size;
 		Node** ptr;
-        friend class BPTree;
+        friend class BPTree<T>;
 
         public:
 		    Node();
