@@ -10,22 +10,21 @@ class BPTree
 		bool IS_LEAF;
 		T *key;
 		int size;
-		Node* ptr;
-		friend class BPTree;
+		Node** ptr;
 	public:
 		Node();
 	};
 	Node *root;
-	void insertInternal(T,Node*,Node*);
-	void removeInternal(T,Node*,Node*);
+	void insertInternal(T &x,Node*,Node*);
+	void removeInternal(T &x,Node*,Node*);
 	Node* findParent(Node*,Node*);
 public:
 	BPTree();
-	void search(T);
-	void insert(T);
-	void remove(T);
+    ~BPTree();
+	void search(T &x);
+	void insert(T &x);
+	void remove(T &x);
 	void display(Node*);
 	Node* getRoot();
 	void cleanUp(Node*);
-	~BPTree();
 };

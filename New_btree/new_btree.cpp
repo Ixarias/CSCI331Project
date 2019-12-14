@@ -131,17 +131,19 @@ using namespace std;
 	}while(!close);
 	return 0;
 }*/
+template <class T>
 Node::Node()
 {
 	//dynamic memory allocation
 	key = new int[MAX];
 	ptr = new Node*[MAX+1];
 }
-BPTree::BPTree()
+BPTree<T>::BPTree()
 {
 	root = NULL;
 }
-void BPTree::search(int x)
+template <class T>
+void BPTree<T>::search(T x)
 {
 	//search logic
 	if(root==NULL)
@@ -181,7 +183,9 @@ void BPTree::search(int x)
 		cout<<"Not found\n";
 	}
 }
-void BPTree::insert(int x)
+
+template <class T>
+void BPTree<T>::insert(T x)
 {
 	//insert logic
 	if(root==NULL)
@@ -292,7 +296,8 @@ void BPTree::insert(int x)
 		}
 	}
 }
-void BPTree::insertInternal(int x, Node* cursor, Node* child)
+template <class T>
+void BPTree<T>::insertInternal(T &x, Node* cursor, Node* child)
 {
 	if(cursor->size < MAX)
 	{
@@ -380,7 +385,8 @@ void BPTree::insertInternal(int x, Node* cursor, Node* child)
 		}
 	}
 }
-Node* BPTree::findParent(Node* cursor, Node* child)
+template <class T>
+Node* BPTree<T>::findParent(Node* cursor, Node* child)
 {
 	//finds parent using depth first traversal and ignores leaf nodes as they cannot be parents
 	//also ignores second last level because we will never find parent of a leaf node during insertion using this function
@@ -403,7 +409,8 @@ Node* BPTree::findParent(Node* cursor, Node* child)
 	}
 	return parent;
 }
-void BPTree::remove(int x)
+template <class T>
+void BPTree<T>::remove(T x)
 {
 	//delete logic
 	if(root==NULL)
@@ -578,7 +585,9 @@ void BPTree::remove(int x)
 		}
 	}
 }
-void BPTree::removeInternal(int x, Node* cursor, Node* child)
+
+template <class T>
+void BPTree<T>::removeInternal(T x, Node* cursor, Node* child)
 {
 	//deleting the key x first
 	//checking if key from root is to be deleted
@@ -754,7 +763,8 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
 		cout<<"Merged with right sibling\n";
 	}
 }
-void BPTree::display(Node* cursor)
+template <class T>
+void BPTree<T>::display(Node* cursor)
 {
 	//depth first display
 	if(cursor!=NULL)
@@ -773,11 +783,13 @@ void BPTree::display(Node* cursor)
 		}
 	}
 }
-Node* BPTree::getRoot()
+template <class T>
+Node* BPTree<T>::getRoot()
 {
 	return root;
 }
-void BPTree::cleanUp(Node* cursor)
+template <class T>
+void BPTree<T>::cleanUp(Node* cursor)
 {
 	//clean up logic
 	if(cursor!=NULL)
@@ -798,7 +810,8 @@ void BPTree::cleanUp(Node* cursor)
 		delete cursor;
 	}
 }
-BPTree::~BPTree()
+template <class T>
+BPTree<T>::~BPTree()
 {
 	//calling cleanUp routine
 	cleanUp(root);
