@@ -8,7 +8,7 @@
 #include<climits>
 #include "new_btree.h"
 using namespace std;
-#define MAX 5 //size of each node
+//#define MAX 5 //size of each node
 
 //give command line argument to load a tree from log
 //to create a fresh tree, do not give any command line argument
@@ -187,7 +187,7 @@ void BPTree<T>::search(T x)
 }
 
 template <class T>
-void BPTree<T>::insert(T x)
+void BPTree<T>::insert(T &x)
 {
 	//insert logic
 	if(root==NULL)
@@ -388,11 +388,11 @@ void BPTree<T>::insertInternal(T &x, Node* cursor, Node* child)
 	}
 }
 template <class T>
-Node* BPTree<T>::findParent(Node* cursor, Node* child)
+Node<T>* BPTree<T>::findParent(Node<T>* cursor, Node<T>* child)
 {
 	//finds parent using depth first traversal and ignores leaf nodes as they cannot be parents
 	//also ignores second last level because we will never find parent of a leaf node during insertion using this function
-	Node* parent;
+	Node<T>* parent;
 	if(cursor->IS_LEAF || (cursor->ptr[0])->IS_LEAF)
 	{
 		return NULL;
@@ -421,8 +421,8 @@ void BPTree<T>::remove(T &x)
 	}
 	else
 	{
-		Node* cursor = root;
-		Node* parent;
+		Node<T>* cursor = root;
+		Node<T>* parent;
 		int leftSibling, rightSibling;
 		//in the following while loop, cursor will will travel to the leaf node possibly consisting the key
 		while(cursor->IS_LEAF == false)

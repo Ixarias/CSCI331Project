@@ -17,18 +17,18 @@ class BPTree
 		Node();
 	};
 	Node *root;
-	void insertInternal(T &x,Node*,Node*);
-	void removeInternal(T &x,Node*,Node*);
-	Node* findParent(Node*,Node*);
+	void insertInternal(T &x,Node<T>*,Node<T>*);
+	void removeInternal(T &x,Node<T>*,Node<T>*);
+	Node<T>* findParent(Node<T>*,Node<T>*);
 public:
 	BPTree();
     ~BPTree();
-	void search(T &x);
+	void search(T x);
 	void insert(T &x);
 	void remove(T &x);
-	void display(Node*);
-	Node* getRoot();
-	void cleanUp(Node*);
+	void display(Node<T>*);
+	Node<T>* getRoot();
+	void cleanUp(Node<T>*);
 };
 #include "new_btree.cpp"
 #endif
