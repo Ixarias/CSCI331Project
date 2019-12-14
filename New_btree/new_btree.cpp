@@ -391,7 +391,7 @@ Node* BPTree<T>::findParent(Node* cursor, Node* child)
 {
 	//finds parent using depth first traversal and ignores leaf nodes as they cannot be parents
 	//also ignores second last level because we will never find parent of a leaf node during insertion using this function
-	Node<T>* parent;
+	Node* parent;
 	if(cursor->IS_LEAF || (cursor->ptr[0])->IS_LEAF)
 	{
 		return NULL;
@@ -420,8 +420,8 @@ void BPTree<T>::remove(T &x)
 	}
 	else
 	{
-		Node<T>* cursor = root;
-		Node<T>* parent;
+		Node* cursor = root;
+		Node* parent;
 		int leftSibling, rightSibling;
 		//in the following while loop, cursor will will travel to the leaf node possibly consisting the key
 		while(cursor->IS_LEAF == false)
