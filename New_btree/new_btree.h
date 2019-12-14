@@ -13,7 +13,10 @@ using namespace std;
 		T *key;
 		int size;
 		Node** ptr;
-		Node();
+        friend class BPTree;
+
+        public:
+		    Node();
 	};
 
 template <class T>
