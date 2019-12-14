@@ -132,7 +132,6 @@ using namespace std;
 	}while(!close);
 	return 0;
 }*/
-template <class T>
 Node::Node()
 {
 	//dynamic memory allocation
@@ -388,7 +387,7 @@ void BPTree<T>::insertInternal(T &x, Node* cursor, Node* child)
 	}
 }
 template <class T>
-Node<T>* BPTree<T>::findParent(Node<T>* cursor, Node<T>* child)
+Node* BPTree<T>::findParent(Node* cursor, Node* child)
 {
 	//finds parent using depth first traversal and ignores leaf nodes as they cannot be parents
 	//also ignores second last level because we will never find parent of a leaf node during insertion using this function
@@ -766,7 +765,7 @@ void BPTree<T>::removeInternal(T &x, Node* cursor, Node* child)
 	}
 }
 template <class T>
-void BPTree<T>::display(Node<T>* cursor)
+void BPTree<T>::display(Node* cursor)
 {
 	//depth first display
 	if(cursor!=NULL)
