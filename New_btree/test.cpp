@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 		fin.open(argv[1]);//reopening file
 		getline(fin,command);
 		stringstream max(command);//first line of log contains the max degree
-		max>>5;
+		max>>MAX;
 		while(getline(fin,command))//iterating over every line ie command
 		{
 			if(!command.substr(0,6).compare("insert"))

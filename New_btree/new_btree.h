@@ -2,11 +2,11 @@
 #ifndef _BPTree
 #define _BPTree
 
+class BPTree;
+
 using namespace std;
-template <class T>
-class BPTree
-{
-    public:
+
+    template <class T>
 	class Node
 	{
 		bool IS_LEAF;
@@ -15,6 +15,11 @@ class BPTree
 		Node** ptr;
 		Node();
 	};
+
+template <class T>
+class BPTree
+{
+    public:
 	BPTree();
     ~BPTree();
 	void search(T x);
@@ -25,7 +30,7 @@ class BPTree
 	void cleanUp(Node*);
 
 	private:
-	typedef Node * root;
+	Node *root;
 	void insertInternal(T &x,Node*,Node*);
 	void removeInternal(T &x,Node*,Node*);
 	Node* findParent(Node*,Node*);
