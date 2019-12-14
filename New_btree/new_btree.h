@@ -1,27 +1,29 @@
 /*****B+ Tree*****/
 #include "new_btree.cpp"
 using namespace std;
+template <class T>
 class BPTree
 {
 	private:
 	class Node
 	{
 		bool IS_LEAF;
-		int *key, size;
-		Node** ptr;
+		T *key;
+		int size;
+		Node* ptr;
 		friend class BPTree;
 	public:
 		Node();
 	};
 	Node *root;
-	void insertInternal(int,Node*,Node*);
-	void removeInternal(int,Node*,Node*);
+	void insertInternal(T,Node*,Node*);
+	void removeInternal(T,Node*,Node*);
 	Node* findParent(Node*,Node*);
 public:
 	BPTree();
-	void search(int);
-	void insert(int);
-	void remove(int);
+	void search(T);
+	void insert(T);
+	void remove(T);
 	void display(Node*);
 	Node* getRoot();
 	void cleanUp(Node*);
