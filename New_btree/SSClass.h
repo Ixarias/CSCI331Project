@@ -37,6 +37,8 @@
 //#include "ListInterface.h"
 #include "SecKeySS.h"
 #include "LinkedList.h"
+#include "btreeSSint.h"
+#include "btreeSSstring.h"
 using namespace std;
 
 /** \brief NUMSECKEYS The numebr of section keys */
@@ -75,12 +77,12 @@ private:
 	unsigned numRecords;
 	int nextEmpty;
 	//int will be the zipcode location (RRN) The first LinkedList is a list of different sec key values
-	BTree<SecKeySS<int>> secKeyZip;
-	BTree<SecKeySS<string>> secKeyPlace;
-	BTree<SecKeySS<string>> secKeyState;
-	BTree<SecKeySS<string>> secKeyCounty;
-	BTree<SecKeySS<int>> secKeyLat;
-	BTree<SecKeySS<int>> secKeyLon;
+	BTreeI secKeyZip;
+	BTreeS secKeyPlace;
+	BTreeS secKeyState;
+	BTreeS secKeyCounty;
+	BTreeI secKeyLat;
+	BTreeI secKeyLon;
 	fstream indexFile;
 	//fstream blockRecordFile;
 
