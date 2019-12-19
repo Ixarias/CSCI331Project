@@ -1,0 +1,61 @@
+In file included from TestDocument.cpp:16:
+In file included from ./SSClass.h:38:
+In file included from ./SecKeySS.h:9:
+./LinkedList.h:40:4: error: no template named 'Node'
+   Node<ItemType>* headPtr; // Pointer to first node in the chain;
+   ^
+./LinkedList.h:49:4: error: no template named 'Node'
+   Node<ItemType>* getNodeAt(int position) const;
+   ^
+In file included from TestDocument.cpp:16:
+In file included from ./SSClass.h:38:
+In file included from ./SecKeySS.h:9:
+In file included from ./LinkedList.h:80:
+./LinkedList.cpp:236:1: error: no template named 'Node'
+Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
+^
+In file included from TestDocument.cpp:16:
+In file included from ./SSClass.h:40:
+./btreeSSint.h:29:7: error: 'BPTreeI' cannot be defined in the result type of a function
+class BPTreeI
+      ^
+In file included from TestDocument.cpp:16:
+In file included from ./SSClass.h:40:
+In file included from ./btreeSSint.h:119:
+./btreeSSint.cpp:6:8: error: constructor cannot have a return type
+NodeI::NodeI()
+       ^~~~~
+./btreeSSint.cpp:9:2: error: use of undeclared identifier 'key'
+        key = new SecKeySS<int>[MAX];
+        ^
+./btreeSSint.cpp:10:2: error: use of undeclared identifier 'ptr'
+        ptr = new NodeI * [MAX + 1];
+        ^
+./btreeSSint.cpp:10:21: error: use of undeclared identifier 'MAX'
+        ptr = new NodeI * [MAX + 1];
+                           ^
+./btreeSSint.cpp:19:16: error: expected unqualified-id
+        SecKeySS<int> = sk;
+                      ^
+./btreeSSint.cpp:20:2: error: use of undeclared identifier 'sk'
+        sk.setData(s);
+        ^
+./btreeSSint.cpp:22:13: error: unexpected ';' before ')'
+                remove(sk);
+                          ^
+./btreeSSint.cpp:23:3: error: expected ';' after expression
+        )
+         ^
+         ;
+./btreeSSint.cpp:22:10: error: use of undeclared identifier 'sk'
+                remove(sk);
+                       ^
+./btreeSSint.cpp:25:2: error: use of undeclared identifier 'sk'
+        sk.setDuplicates(dup);
+        ^
+./btreeSSint.cpp:26:9: error: use of undeclared identifier 'sk'
+        insert(sk);
+               ^
+./btreeSSint.cpp:62:12: error: no viable conversion from returned value of type 'LinkedList<int>' to function return type 'vector<int>'
+                                return cursor->key[i].getDuplicates();
+                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
