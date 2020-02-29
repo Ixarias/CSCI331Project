@@ -3,7 +3,7 @@
 #define FIXLEN_H
 
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 #include "iobuffer.h"
 
 class FixedLengthBuffer: public IOBuffer

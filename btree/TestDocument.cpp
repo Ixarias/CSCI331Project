@@ -13,6 +13,7 @@
 
 #endif
 
+#include "BTree.h"
 #include "SSClass.h"
 
 using namespace std;

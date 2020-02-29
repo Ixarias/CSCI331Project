@@ -26,5 +26,5 @@ class IndexBuffer: public FixedFieldBuffer
 	int MaxKeys;
 	int KeySize;
 };
-#include "indbuff"
+#include "indbuff.cpp"
 #endif

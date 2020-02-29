@@ -1,6 +1,6 @@
 //simpind.tc
 #include "simpind.h"
-#include <iostream.h>
+#include <iostream>
 #ifndef SIMPIND_CPP
 #define SIMPIND_CPP
 

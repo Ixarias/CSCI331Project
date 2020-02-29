@@ -3,7 +3,7 @@
 #define FIXFLD_H
 
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 #include "fixlen.h"
 
 class FixedFieldBuffer: public FixedLengthBuffer

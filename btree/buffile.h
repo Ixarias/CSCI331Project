@@ -4,7 +4,7 @@
 #define BUFFILE_H
 
 #include <stdlib.h>
-#include <fstream.h>
+#include <fstream>
 #include "iobuffer.h"
 
 

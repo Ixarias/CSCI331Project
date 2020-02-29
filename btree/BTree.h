@@ -50,5 +50,5 @@ protected:
 	FixedFieldBuffer Buffer;
 	RecordFile<BTNode> BTreeFile;	
 };
-#include "btree.h"
+#include "btree.cpp"
 #endif

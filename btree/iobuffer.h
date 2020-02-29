@@ -2,7 +2,7 @@
 #ifndef IOBUFFER_H
 #define IOBUFFER_H
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 
 #ifndef FALSE
 #define FALSE (0)
